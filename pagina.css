@@ -1,0 +1,70 @@
+body{
+    background-color: rgb(164, 71, 8); /* colore provvisorio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.banner{
+    background-color: firebrick; /* colore provvisorio */
+    text-align: center;
+    padding: 30px;
+}
+
+ul {
+    background-color: firebrick; /* colore provvisorio */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: rgb(164, 71, 8); /* colore provvisorio */
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+aside{
+    width: 30%;
+    padding: 5px;
+}
+
+section{
+    width: 70%;
+    padding: 5px;
+}
+
+@media screen and (max-width: 600px){
+    aside, section{
+        width: 100%;
+    }
+}
+
+footer{
+    background-color: firebrick; /* colore provvisorio */
+    position: fixed;  /* Queste righe */ 
+    bottom: 0px;      /* garantiscono che il */
+    left: 0px;        /* footer sia sempre in */
+    right: 0px;       /* fondo alla pagina  */
+    text-align: center;
+    margin-top: 10 px;
+    padding: 5px;
+}
