@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(164, 71, 8); /* colore provvisorio */
+    background-color: #DACAA4; /*medio*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,13 +8,13 @@ body{
 }
 
 .banner{
-    background-color: firebrick; /* colore provvisorio */
+    background-color: #C8AD7E; /*scuro*/
     text-align: center;
     padding: 30px;
 }
 
 ul {
-    background-color: firebrick; /* colore provvisorio */
+    background-color: #F5F5DD; /*chiaro*/
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -34,7 +34,7 @@ ul li a {
 }
 
 ul li a:hover {
-    background-color: rgb(164, 71, 8); /* colore provvisorio */
+    background-color: #DACAA4; /*medio*/
 }
 
 main{
@@ -59,7 +59,7 @@ section{
 }
 
 footer{
-    background-color: firebrick; /* colore provvisorio */
+    background-color: #C8AD7E; /*scuro*/
     position: fixed;  /* Queste righe */ 
     bottom: 0px;      /* garantiscono che il */
     left: 0px;        /* footer sia sempre in */
