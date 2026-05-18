@@ -10,11 +10,11 @@
         </div>
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Pagina1</li>
-                <li>Pagina2</li>
-                <li>Pagina3</li>
-                <li>Pagina4</li>
+                <li><a href="">Home</a></li>
+                <li><a href="">Pagina1</a></li>
+                <li><a href="">Pagina2</a></li>
+                <li><a href="">Pagina3</a></li>
+                <li><a href="">Pagina4</a></li>
             </ul>
         </nav>
         
