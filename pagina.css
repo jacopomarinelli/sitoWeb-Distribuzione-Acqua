@@ -47,6 +47,23 @@ ul li a:hover {
 
 
 /* elementi contenuti nel footer */
+.cliente{
+    background-color: #F5F5DD; /*chiaro*/
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    margin: 45px;
+    padding: 25px;
+    gap: 100px;
+    align-items: center;
+
+}
+
+.ricerca{
+    width: 260px;
+
+}
+
 footer{
     background-color: #C8AD7E; /*scuro*/
     position: fixed;  /* Queste righe */ 
