@@ -48,39 +48,37 @@ ul li a:hover {
 
 /* elementi contenuti nella pagina clienti */
 .cliente{
-    display: flex;
-    flex-direction: row;
+    display: flex;  /* ordina in orizzontale elementi contenuti */
     margin: 5px 15px 30px 15px;
-    padding: 5px;
+    padding: 15px 5px 15px 5px;
 }
 
 .ricerca{
     background-color: #F5F5DD; /*chiaro*/
     display: flex;
     flex-direction: column;
+    width: 15%;  /* larghezza occupata da .ricerca */
     margin: 25px;
-    padding: 5px 15px 5px 15px;
+    padding: 10px 15px 10px 15px;
     border-radius: 20px;
 }
 
 .campo{
-    display: flexbox;
-    margin: 1px;
-    padding: 2px;
-}
-
-.textarea{
-    margin: 2px;
+    display: flex;
+    margin: 3px;
+    padding: 5px;
 }
 
 .avvio-ricerca{
-    margin-top: 4px;
-    padding: 5px;
+    margin-top: 15px;
+    padding: 10px;
     align-self: center;
+    border-radius: 15px;
 }
 
 .risultati{
     background-color: #F5F5DD; /*chiaro*/
+    flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
     margin: 25px;
     padding: 15px;
     border-radius: 20px;
