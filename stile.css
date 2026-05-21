@@ -1,0 +1,99 @@
+/* elementi contenuti nel header */
+body{
+    background-color: #f4e3bb; /*medio*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.banner{
+    background-color: #C8AD7E; /*scuro*/
+    text-align: center;
+    padding: 20px;
+}
+
+ul {
+    background-color: #F5F5DD; /*chiaro*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #f4e3bb; /*medio*/
+}
+
+
+/* elementi contenuti nella home */
+.home{
+    padding: 15px 10px;
+}
+
+
+/* elementi contenuti nella pagina clienti */
+.cliente{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 15px 30px 15px;
+    padding: 5px;
+}
+
+.ricerca{
+    background-color: #F5F5DD; /*chiaro*/
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
+}
+
+.campo{
+    display: flexbox;
+    margin: 1px;
+    padding: 2px;
+}
+
+.textarea{
+    margin: 2px;
+}
+
+.avvio-ricerca{
+    margin-top: 4px;
+    padding: 5px;
+    align-self: center;
+}
+
+.risultati{
+    background-color: #F5F5DD; /*chiaro*/
+    margin: 25px;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+
+/* elementi contenuti nel footer */
+footer{
+    background-color: #C8AD7E; /*scuro*/
+    position: fixed;   /* Queste righe */ 
+    bottom: 0px;       /* garantiscono che il */
+    left: 0px;         /* footer sia sempre in */
+    right: 0px;        /* fondo alla pagina  */
+    text-align: center;
+    padding: 1px;
+}
