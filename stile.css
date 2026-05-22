@@ -1,5 +1,6 @@
 /* elementi contenuti nel header */
 body{
+    font-family: sans-serif;
     background-color: #f4e3bb; /*medio*/
     display: flex;
     flex-direction: column;
@@ -49,39 +50,73 @@ ul li a:hover {
 /* elementi contenuti nella pagina clienti */
 .cliente{
     display: flex;  /* ordina in orizzontale elementi contenuti */
-    margin: 5px 15px 30px 15px;
-    padding: 15px 5px 15px 5px;
+    margin: 2px 5px 15px 5px;
+    padding: 5px 2px 5px 2px;
 }
 
 .ricerca{
-    background-color: #F5F5DD; /*chiaro*/
+    background-color: rgb(245, 245, 221, 0.82); /*chiaro*/
     display: flex;
     flex-direction: column;
-    width: 15%;  /* larghezza occupata da .ricerca */
+    width: 18%;  /* larghezza occupata da .ricerca */
     margin: 25px;
     padding: 10px 15px 10px 15px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .campo{
-    display: flex;
     margin: 3px;
     padding: 5px;
+}
+
+.text-area{
+    margin: 3px;
+    padding: 5px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 20px;
 }
 
 .avvio-ricerca{
     margin-top: 15px;
     padding: 10px;
     align-self: center;
-    border-radius: 15px;
+    border-radius: 100px;
+    box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
+}
+
+#avvio{
+    background-color: rgb(236, 186, 170);
+    width: 33%;
+    height: 50px;
+}
+
+.mostra-risultati{
+    background-color: rgb(245, 245, 221, 0.82); /*chiaro*/
+    flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
+    margin: 25px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+}
+
+.campo-ricerca{
+    margin: 3px;
+    padding: 2px 5px 2px 5px;;
 }
 
 .risultati{
-    background-color: #F5F5DD; /*chiaro*/
-    flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
-    margin: 25px;
-    padding: 15px;
+    background-color: red;
+    margin: 5px;
+    padding: 10px 20px 10px 20px;
     border-radius: 20px;
+}
+
+.nuova-ricerca{
+    margin-top: 15px;
+    padding: 10px;
+    align-self: center;
+    border-radius: 100px;
+    box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
 }
 
 
