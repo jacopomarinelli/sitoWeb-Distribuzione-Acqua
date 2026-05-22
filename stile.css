@@ -50,12 +50,12 @@ ul li a:hover {
 /* elementi contenuti nella pagina clienti */
 .cliente{
     display: flex;  /* ordina in orizzontale elementi contenuti */
-    margin: 2px 5px 15px 5px;
+    margin: 0px 3px 15px 3px;
     padding: 5px 2px 5px 2px;
 }
 
 .ricerca{
-    background-color: rgb(245, 245, 221, 0.82); /*chiaro*/
+    background-color: rgb(245, 245, 221, 0.85); /*chiaro*/
     display: flex;
     flex-direction: column;
     width: 18%;  /* larghezza occupata da .ricerca */
@@ -77,10 +77,27 @@ ul li a:hover {
     border-radius: 20px;
 }
 
+.pulsanti-ricerca{
+    display: flex;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.svuota-ricerca{
+    background-color: rgb(236, 186, 170);
+    width: 45%;
+    height: 50px;
+    margin-top: 15px;
+    margin-right: 15px;
+    padding: 10px;
+    border-radius: 100px;
+    box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
+}
+
 .avvio-ricerca{
     margin-top: 15px;
+    margin-left: 15px;
     padding: 10px;
-    align-self: center;
     border-radius: 100px;
     box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
 }
@@ -92,31 +109,37 @@ ul li a:hover {
 }
 
 .mostra-risultati{
-    background-color: rgb(245, 245, 221, 0.82); /*chiaro*/
+    background-color: rgb(245, 245, 221, 0.85); /*chiaro*/
     flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
     margin: 25px;
-    padding: 10px 20px 10px 20px;
+    padding: 5px 10px 5px 10px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .campo-ricerca{
-    margin: 3px;
-    padding: 2px 5px 2px 5px;;
+    margin: 1px;
+    padding: 1px 9px 1px 3px;;
 }
 
 .risultati{
-    background-color: red;
+    background-color: rgb(236, 186, 170);
+    flex: 1;
     margin: 5px;
     padding: 10px 20px 10px 20px;
     border-radius: 20px;
 }
 
 .nuova-ricerca{
-    margin-top: 15px;
+    background-color: rgb(236, 186, 170);
+    width: 15%;
+    height: 50px;
+    margin: 15px;
     padding: 10px;
-    align-self: center;
     border-radius: 100px;
     box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
+    align-self: center;
 }
 
 

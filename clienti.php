@@ -23,7 +23,10 @@ include 'header.php';
                 <label for="cit" class="campo">Città: </label>
                 <input type="text" id="cit" name="città" class="text-area">
                 
-                <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                <div class="pulsanti-ricerca">
+                    <input type="submit" id="svuota" value="SVUOTA CAMPI" class="svuota-ricerca">
+                    <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                </div>
 
             </form>
 
@@ -43,7 +46,7 @@ include 'header.php';
                 </div>
 
                 <button type="button" class="nuova-ricerca">NUOVA RICERCA</button>
-
+                
             </div>
 
         </div>
