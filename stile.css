@@ -16,6 +16,7 @@ body{
     padding: 20px;
 }
 
+/* parte di navigazione */
 ul {
     background-color: #F5F5DD; /*chiaro*/
     list-style-type: none;
@@ -52,8 +53,10 @@ ul li a:hover {
     display: flex;  /* ordina in orizzontale elementi contenuti */
     margin: 0px 3px 15px 3px;
     padding: 5px 2px 5px 2px;
+    align-items: flex-start;  /* fa in modo che blocchi si autoregolino */ 
 }
 
+/* parte per la ricerca */
 .ricerca{
     background-color: rgb(245, 245, 221, 0.85); /*chiaro*/
     display: flex;
@@ -77,29 +80,13 @@ ul li a:hover {
     border-radius: 20px;
 }
 
-.pulsanti-ricerca{
-    display: flex;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.svuota-ricerca{
-    background-color: rgb(236, 186, 170);
-    width: 45%;
-    height: 50px;
-    margin-top: 15px;
-    margin-right: 15px;
-    padding: 10px;
-    border-radius: 100px;
-    box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
-}
-
 .avvio-ricerca{
     margin-top: 15px;
     margin-left: 15px;
     padding: 10px;
     border-radius: 100px;
     box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
+    align-self: center;
 }
 
 #avvio{
@@ -108,6 +95,7 @@ ul li a:hover {
     height: 50px;
 }
 
+/* parte che mostra i risultati */
 .mostra-risultati{
     background-color: rgb(245, 245, 221, 0.85); /*chiaro*/
     flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
@@ -131,25 +119,33 @@ ul li a:hover {
     border-radius: 20px;
 }
 
-.nuova-ricerca{
-    background-color: rgb(236, 186, 170);
-    width: 15%;
-    height: 50px;
-    margin: 15px;
-    padding: 10px;
-    border-radius: 100px;
-    box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
-    align-self: center;
+/* tabella che mostra i risultati */
+table{
+    border: 3px solid rgb(245, 245, 221, 0.85);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+th, td{
+    border: 3px solid rgb(236, 186, 170);
+    border-collapse: collapse;  
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 
 /* elementi contenuti nel footer */
 footer{
     background-color: #C8AD7E; /*scuro*/
-    position: fixed;   /* Queste righe */ 
-    bottom: 0px;       /* garantiscono che il */
-    left: 0px;         /* footer sia sempre in */
-    right: 0px;        /* fondo alla pagina  */
+    position: fixed;  /* Posizione è fissa nella pagina webs */
+    bottom: 0px;  
+    left: 0px;   /* Garantisce che il footer sia sempre in fondo alla pagina */
+    right: 0px;  
     text-align: center;
     padding: 1px;
 }
