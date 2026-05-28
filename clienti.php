@@ -7,8 +7,6 @@ include 'database.php';
         <div class="cliente">
 
             <form action="clienti.php" method="GET" class="ricerca">
-                <p class="campo">Inserisci i dati per la ricerca</p>
-
                 <label for="cod" class="campo">Codice del cliente: </label>
                 <input type="text" id="cod" name="codice" class="text-area">
                 
