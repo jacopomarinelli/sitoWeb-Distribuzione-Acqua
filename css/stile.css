@@ -1,7 +1,18 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+:root{
+    --beige: #fbf5ec;
+    --arancione: #f28810;
+    --ciano: #327a8d;
+    --bianco: #fdfbf9;
+}
+
+
+
 /* elementi header */
 body{
     font-family: sans-serif;
-    background-color: #f4e3bb; /*medio*/
+    background-color: var(--beige);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,18 +22,27 @@ body{
 }
 
 .banner{
-    background-color: #C8AD7E; /*scuro*/
+    background-color: var(--beige);
     text-align: center;
     padding: 13px;
 }
 
 /* parte navigazione */
 ul {
-    background-color: #F5F5DD; /*chiaro*/
+    background-color: var(--bianco);
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
+    padding: 0 0 0 25px;
+    overflow: visible;
+
+    box-shadow: 0px 0px 100px 13px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 3px 0px 0px var(--arancione);
+}
+
+ul::after {  /* serve a rendere nav visisbile dalla pagina */
+    content: "";
+    display: block;
+    clear: both;
 }
 
 ul li {
@@ -31,15 +51,32 @@ ul li {
 
 ul li a {
     display: block;
-    color: black;
+    color: var(--ciano);
+    font-weight: 700;
     text-align: center;
-    padding: 15px 15px 15px 15px;
+    padding: 15px 20px 15px 20px;
     text-decoration: none;
+
+    transition: transform 0.3s ease;
 }
 
 ul li a:hover {
-    background-color: #f4e3bb; /*medio*/
+    background-color: var(--bianco);
+    transform: scale(1.2); /* modifica larghezza testo */
+
+    color: var(--arancione);
+    box-shadow: inset 0px 0px 0px 1.5px var(--arancione);
+    border-radius: 15px;
 }
+
+#home::before{
+    content: "\f015";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800; /*400 per i simboli vuoti, 800 per i pieni*/
+    font-size: 20px;
+    margin-right: 10px;
+}
+
 
 
 /* elementi home */
@@ -48,7 +85,7 @@ ul li a:hover {
 }
 
 
-/* elementi pagina clienti*/
+/* elementi pagina clienti */
 .cliente{
     display: flex;  /* ordina in orizzontale elementi contenuti */
     margin: 0px 3px 15px 3px;
@@ -58,12 +95,14 @@ ul li a:hover {
 
 /* parte ricerca */
 .ricerca{
-    background-color: rgb(245, 245, 221, 0.85); /*chiaro*/
+    background-color: var(--bianco);
     display: flex;
     flex-direction: column;
     width: 18%;  /* larghezza occupata da .ricerca */
     margin: 25px;
     padding: 10px 15px 10px 15px;
+
+    box-shadow: 0px 0px 100px 13px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
 }
 
@@ -97,13 +136,15 @@ ul li a:hover {
 
 /* parte risultati */
 .mostra-risultati{
-    background-color: rgb(245, 245, 221, 0.85); /*chiaro*/
+    background-color: var(--bianco);
     flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
     margin: 25px;
     padding: 5px 10px 5px 10px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+
+    box-shadow: 0px 0px 100px 13px rgba(0, 0, 0, 0.05);
 }
 
 .campo-ricerca{
@@ -141,6 +182,10 @@ th, td{
 
 /* elementi pagina utenze (riusati elementi di pagina clienti) */  
 .utenze{
+    color: var(--ciano);
+    font-weight: 700;
+    font-size: 12px;
+
     display: flex;  /* ordina in orizzontale elementi contenuti */
     margin: 0px 3px 15px 3px;
     padding: 5px 2px 5px 2px;
@@ -186,7 +231,7 @@ th, td{
 
 /* elementi contenuti nel footer */
 footer{
-    background-color: #C8AD7E; /*scuro*/
+    background-color: var(--ciano);
     position: fixed;  /* Posizione è fissa nella pagina webs */
     bottom: 0px;    /* Queste tre righe garantiscono che il footer sia sempre in fondo alla pagina */
     left: 0px;

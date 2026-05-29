@@ -3,6 +3,7 @@
     <head>
         <title>Home</title>
         <link rel="stylesheet" href="css/stile.css">
+
     </head>
     <body>
         
@@ -13,7 +14,7 @@
 
             <nav>
                 <ul>
-                    <li><a href="home.php">Home</a></li>
+                    <li><a href="home.php" id="home">Home</a></li>
                     <li><a href="clienti.php">Clienti</a></li>
                     <li><a href="utenze.php">Utenze</a></li>
                     <li><a href="">Letture</a></li>
