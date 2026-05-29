@@ -1,7 +1,6 @@
 <!-- questo file va incluso in tutte le pagine -->
 <html>
     <head>
-        <title>Home</title>
         <link rel="stylesheet" href="css/stile.css">
 
     </head>

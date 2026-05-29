@@ -11,6 +11,10 @@
 
 /* elementi header */
 body{
+    color: var(--ciano);  /* colore testo */
+    font-weight: 700;
+    font-size: 14px;
+    
     font-family: sans-serif;
     background-color: var(--beige);
     display: flex;
@@ -39,7 +43,7 @@ ul {
     box-shadow: 0px 3px 0px 0px var(--arancione);
 }
 
-ul::after {  /* serve a rendere nav visisbile dalla pagina */
+ul::after {  /* serve a rendere nav visibile dalla pagina */
     content: "";
     display: block;
     clear: both;
@@ -129,7 +133,8 @@ ul li a:hover {
 }
 
 #avvio{
-    background-color: rgb(236, 186, 170);
+    background-color: var(--beige);
+    color: var(--ciano);
     width: 33%;
     height: 50px;
 }
@@ -153,16 +158,20 @@ ul li a:hover {
 }
 
 .risultati{
-    background-color: rgb(236, 186, 170);
+    background-color: var(--ciano);
     flex: 1;
     margin: 5px;
-    padding: 10px 20px 10px 20px;
+    margin-top: 2px;
+    padding: 7px 6px 7px 6px;
     border-radius: 20px;
+    max-height: 400px;  /* altezza massima della tabella con i risultati */
+    overflow-y: auto;  /* permette lo scorrimento */
 }
 
 /* tabella risultati */
 table{
-    border: 3px solid rgb(245, 245, 221, 0.85);
+    background-color: var(--beige);
+    border: 3px solid var(--ciano);
     border-collapse: collapse;
     width: 100%;
 }
@@ -171,21 +180,39 @@ tr:nth-child(even) {
     background-color: white;
 }
 
-th, td{
-    border: 3px solid rgb(236, 186, 170);
+th{
+    background-color: var(--ciano);
+    color: var(--bianco);
+    border: 3px solid var(--ciano);
+    border-collapse: collapse;  
+    text-align: center; 
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+td{
+    border: 3px solid var(--ciano);
     border-collapse: collapse;  
     text-align: center; 
     padding-top: 2px;
     padding-bottom: 2px;
 }
 
+#col_cod_cli, #col_città_cliente{
+    width: 12%;
+}
+#col_cod_fis{
+    width: 18%;
+}
+#cod_rag_soc{
+    width: 34%;
+}
+#col_indirizzo_cliente{
+    width: 22%;
+}
+
 
 /* elementi pagina utenze (riusati elementi di pagina clienti) */  
 .utenze{
-    color: var(--ciano);
-    font-weight: 700;
-    font-size: 12px;
-
     display: flex;  /* ordina in orizzontale elementi contenuti */
     margin: 0px 3px 15px 3px;
     padding: 5px 2px 5px 2px;
@@ -210,7 +237,7 @@ th, td{
     margin: 0px 16px 0px 0px;
 }
 
-#data_ap, #data_ch{  /* controlli di correttezza data fatti in automatico */
+#data_ap, #data_ch{  /* controlli di correttezza data fatti in automatico dal widget */
     margin: 3px;
     padding: 4px 5px 4px 5px;
     border: 1px;
@@ -218,19 +245,20 @@ th, td{
     border-radius: 20px;
 }
 
-#col_cod_utenza, #col_cod_cliente, #col_città, #col_stato{
+#col_cod_utenza, #col_cod_cliente, #col_città_utenza, #col_stato{
     width: 13%;
 }
 #col_data_apertura, #col_data_chiusura{
     width: 14%;
 }
-#col_indirizzo{
+#col_indirizzo_utenza{
     width: 20%;
 }
 
 
-/* elementi contenuti nel footer */
+/* elementi footer */
 footer{
+    color: var(--bianco);
     background-color: var(--ciano);
     position: fixed;  /* Posizione è fissa nella pagina webs */
     bottom: 0px;    /* Queste tre righe garantiscono che il footer sia sempre in fondo alla pagina */
