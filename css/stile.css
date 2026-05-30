@@ -1,10 +1,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
 
 :root{
-    --beige: #fbf5ec;
+    --beige: #fbf5ec;   /* prova questo come beige: #d8be9f */
     --arancione: #f28810;
     --ciano: #327a8d;
     --bianco: #fdfbf9;
+    --grigio_testo: #777b7e;  /* colore per testo dentro campi di testo */
 }
 
 
@@ -149,6 +150,8 @@ ul li a:hover {
     border: 1px;
     border-style: solid;
     border-radius: 20px;
+    border-color: black;
+    color: var(--grigio_testo);
 }
 
 .avvio-ricerca{
@@ -191,7 +194,7 @@ ul li a:hover {
     margin: 5px;
     margin-top: 2px;
     padding: 7px 6px 7px 6px;
-    border-radius: 20px;
+    border-radius: 10px;
     max-height: 400px;  /* altezza massima della tabella con i risultati */
     overflow-y: auto;  /* permette lo scorrimento */
 }
@@ -216,6 +219,8 @@ th{
     text-align: center; 
     padding-top: 2px;
     padding-bottom: 2px;
+    position: sticky;  /* blocca prima riga tabella in alto */
+    top: 0;
 }
 td{
     border: 3px solid var(--ciano);

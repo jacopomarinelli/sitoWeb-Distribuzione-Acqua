@@ -8,6 +8,8 @@ include 'database.php';
 
             <form action="clienti.php" method="GET" class="ricerca">
                 <label for="cod" class="campo">Codice del cliente: </label>
+                <!-- in tutti input sotto da aggiungere value="es: esempio" e onclick="{document.getElementById('id').value = ''}"
+                 che al click puliscono la scritta interna ma la rimettiono appena tolto il click -->
                 <input type="text" id="cod" name="codice" class="text-area">
                 
                 <label for="cod_fis" class="campo">Codice fiscale del cliente: </label>
@@ -36,11 +38,11 @@ include 'database.php';
                     
                 <table>
                     <tr>
-                        <th>Codice cliente</th>
-                        <th>Codice fiscale</th>
-                        <th>Ragione sociale</th>
-                        <th>Indirizzo</th>
-                        <th>Città</th>
+                        <th id="col_cod_cli">Codice cliente</th>
+                        <th id="col_cod_fis">Codice fiscale</th>
+                        <th id="cod_rag_soc">Ragione sociale</th>
+                        <th id="col_indirizzo_cliente">Indirizzo</th>
+                        <th id="col_città_cliente">Città</th>
                     </tr>
                     
                     <?php foreach ($clienti as $c) { ?>
