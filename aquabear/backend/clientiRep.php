@@ -1,20 +1,6 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-$host = "localhost";
-$username = "aquabear";
-$password = "";
-$database = "my_aquabear";
-
-$conn = new mysqli($host, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connessione fallita: " . $conn->connect_error);
-}
-
+require_once "connessione.php";
 
 $codice = $_GET['codice'] ?? '';
 $cod_fisc = $_GET['codice_fiscale'] ?? '';
@@ -22,9 +8,9 @@ $rag_soc = $_GET['ragione_sociale'] ?? '';
 $indirizzo = $_GET['indirizzo'] ?? '';
 $citta = $_GET['citta'] ?? '';
 
-$query = "SELECT * FROM CLIENTI";
+$query  = "SELECT * FROM CLIENTI WHERE 1=1";
 $params = [];
-$types = "";
+$types  = "";
 
 if ($codice !== '') {
     $query .= " AND codice = ?";
@@ -57,21 +43,12 @@ if ($citta !== '') {
 }
 
 $stmt = $conn->prepare($query);
-
-$stmt->execute();
-$result = $stmt->get_result();
-
-// --- SOLUZIONE DEL PROBLEMA ---
-// Inizializziamo $clienti come array vuoto. 
-// In questo modo, anche se il database fosse vuoto, il foreach alla linea 46 non genererà errori.
-$clienti = [];
-
-// Popoliamo l'array con i record della tabella CLIENTI
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $clienti[] = $row; 
-    }
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
 }
-// ------------------------------
-
-?>
+$stmt->execute();
+$result  = $stmt->get_result();
+$clienti = [];
+while ($row = $result->fetch_assoc()) {
+    $clienti[] = $row;
+}

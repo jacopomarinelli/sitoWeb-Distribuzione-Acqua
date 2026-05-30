@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-include 'database.php';
+include '../backend/clientiRep.php';
 ?>
 <!-- Qui va inserito codice pagina -->
         
