@@ -31,7 +31,7 @@ include 'header.php';
                         <label for="data_ap" class="campo">Data apertura: </label>
                         <input type="date" id="data_ap" name="data_ap" class="data-area">
                     </div>
-                    <div class="campo-data">
+                    <div class="campo-data" id="campo-data-chiusura">
                         <label for="data_ch" class="campo">Data chiusura: </label>
                         <input type="date" id="data_ch" name="data_ch" class="date-area">
                     </div>

@@ -80,6 +80,34 @@ ul li a:hover {
     font-size: 20px;
     margin-right: 10px;
 }
+#clienti::before{
+    content: "\f500";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800; /*400 per i simboli vuoti, 800 per i pieni*/
+    font-size: 20px;
+    margin-right: 10px;
+}
+#utenze::before{
+    content: "\f043";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800; /*400 per i simboli vuoti, 800 per i pieni*/
+    font-size: 20px;
+    margin-right: 10px;
+}
+#letture::before{
+    content: "\f201";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800; /*400 per i simboli vuoti, 800 per i pieni*/
+    font-size: 20px;
+    margin-right: 10px;
+}
+#fatture::before{
+    content: "\f15c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800; /*400 per i simboli vuoti, 800 per i pieni*/
+    font-size: 20px;
+    margin-right: 10px;
+}
 
 
 
@@ -224,17 +252,23 @@ td{
     margin: 3px 0px 3px 0px;
     padding: 1px 3px 1px 0px;
     align-items: baseline;
+    overflow-x: auto;
 }
 
 .date-area{
     display: flex;
     padding: 1px 0px 1px 0px;
+    width: 100%;
 }
 
 .campo-data{
     display: flex;
     flex-direction: column;
-    margin: 0px 16px 0px 0px;
+    margin: 0px 10px 0px 0px;
+    width: 50%;
+}
+#campo-data-chiusura{
+    margin-right: 5px;
 }
 
 #data_ap, #data_ch{  /* controlli di correttezza data fatti in automatico dal widget */
