@@ -14,10 +14,10 @@
             <nav>
                 <ul>
                     <li><a href="home.php" id="home">Home</a></li>
-                    <li><a href="clienti.php">Clienti</a></li>
-                    <li><a href="utenze.php">Utenze</a></li>
-                    <li><a href="">Letture</a></li>
-                    <li><a href="">Fatture</a></li>
+                    <li><a href="clienti.php" id="clienti">Clienti</a></li>
+                    <li><a href="utenze.php" id="utenze">Utenze</a></li>
+                    <li><a href="" id="letture">Letture</a></li>
+                    <li><a href="" id="fatture">Fatture</a></li>
                 </ul>
             </nav>
         </div>
