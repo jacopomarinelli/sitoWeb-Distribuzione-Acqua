@@ -1,16 +1,16 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
 
 :root{
-    --beige: #fbf5ec;   /* prova questo come beige: #d8be9f */
+    --beige: #fbf5ec; /* prova questo come beige: #d8be9f */
     --arancione: #f28810;
     --ciano: #327a8d;
     --bianco: #fdfbf9;
-    --grigio_testo: #777b7e;  /* colore per testo dentro campi di testo */
+    --grigio_testo: #777b7e;
 }
 
 
 
-/* elementi header */
+/* ELEMENTI HEADER */
 body{
     color: var(--ciano);  /* colore testo */
     font-weight: 700;
@@ -32,7 +32,7 @@ body{
     padding: 13px;
 }
 
-/* parte navigazione */
+/* PARTE NAVIGAZIONE */
 ul {
     background-color: var(--bianco);
     list-style-type: none;
@@ -112,13 +112,13 @@ ul li a:hover {
 
 
 
-/* elementi home */
+/* ELEMENTI PAGINA HOME */
 .home{
     padding: 15px 10px;
 }
 
 
-/* elementi pagina clienti */
+/* ELEMENTI PAGINA CLIENTI */
 .cliente{
     display: flex;  /* ordina in orizzontale elementi contenuti */
     margin: 0px 3px 15px 3px;
@@ -126,7 +126,7 @@ ul li a:hover {
     align-items: flex-start;  /* fa in modo che blocchi si autoregolino */ 
 }
 
-/* parte ricerca */
+/* PARTE RICERCA */
 .ricerca{
     background-color: var(--bianco);
     display: flex;
@@ -152,6 +152,7 @@ ul li a:hover {
     border-radius: 20px;
     border-color: black;
     color: var(--grigio_testo);
+    width: 100%;
 }
 
 .avvio-ricerca{
@@ -170,7 +171,37 @@ ul li a:hover {
     height: 50px;
 }
 
-/* parte risultati */
+/* AUTOCOMPLETAMENTO */
+.autocomplete {
+    position: relative;  /* necessario */
+    display: inline-block;
+    width: 100%;
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;  /* stessa width del contentitore */
+    left: 0;
+    right: -1px;
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+}
+.autocomplete-active {  /* per navigare tramite tastiera */
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+}
+
+/* PARTE RISULTATI */
 .mostra-risultati{
     background-color: var(--bianco);
     flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
@@ -185,7 +216,8 @@ ul li a:hover {
 
 .campo-ricerca{
     margin: 1px;
-    padding: 1px 9px 1px 3px;;
+    padding: 1px 9px 1px 3px;
+    font-size: medium;
 }
 
 .risultati{
@@ -193,13 +225,13 @@ ul li a:hover {
     flex: 1;
     margin: 5px;
     margin-top: 2px;
-    padding: 7px 6px 7px 6px;
+    padding: -2px 6px 7px 6px;
     border-radius: 10px;
     max-height: 400px;  /* altezza massima della tabella con i risultati */
     overflow-y: auto;  /* permette lo scorrimento */
 }
 
-/* tabella risultati */
+/* TABELLA RISULTATI */
 table{
     background-color: var(--beige);
     border: 3px solid var(--ciano);
@@ -244,7 +276,7 @@ td{
 }
 
 
-/* elementi pagina utenze (riusati elementi di pagina clienti) */  
+/* ELEMENTI PAGINA UTENZE (riusati elementi di pagina clienti) */  
 .utenze{
     display: flex;  /* ordina in orizzontale elementi contenuti */
     margin: 0px 3px 15px 3px;
@@ -295,11 +327,11 @@ td{
 }
 
 
-/* elementi footer */
+/* ELEMENTI FOOTER */
 footer{
     color: var(--bianco);
     background-color: var(--ciano);
-    position: fixed;  /* Posizione è fissa nella pagina webs */
+    position: fixed;  /* Posizione è fissa nella pagina web */
     bottom: 0px;    /* Queste tre righe garantiscono che il footer sia sempre in fondo alla pagina */
     left: 0px;
     right: 0px;

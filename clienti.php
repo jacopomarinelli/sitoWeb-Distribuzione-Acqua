@@ -16,13 +16,15 @@ include 'database.php';
                 <input type="text" id="cod_fis" name="codice_fiscale" class="text-area">
                 
                 <label for="rag_soc" class="campo">Nome dell'azienda: </label>
-                <input type="text" id="rag_soc" name="ragione_sociale" class="text-area"> 
+                <div class="autocomplete"><input type="text" id="rag_soc" name="ragione_sociale" class="text-area"></div>
+                <script>autocomplete(document.getElementById("rag_soc"), aziende);</script>
                 
                 <label for="ind" class="campo">Indirizzo: </label>
                 <input type="text" id="ind" name="indirizzo" class="text-area">
                 
                 <label for="cit" class="campo">Città: </label>
-                <input type="text" id="cit" name="citta" class="text-area">
+                <div class="autocomplete"><input type="text" id="cit" name="citta" class="text-area"></div>
+                <script>autocomplete(document.getElementById("cit"), città);</script>
                 
                 <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
 
