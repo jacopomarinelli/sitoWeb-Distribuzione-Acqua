@@ -80,17 +80,18 @@ function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di po
     document.addEventListener("click", function (e) {  // esegue quando viene cliccata la pagina
         closeAllLists(e.target);
     });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const azienda = document.getElementById("rag_soc");
-        const cit1 = document.getElementById("cit_cli");
-        const cit2 = document.getElementById("cit_ut");
-        
-        if (azienda) autocomplete(azienda, aziende);
-        if (cit1) autocomplete(cit1, città);
-        if (cit2) autocomplete(cit2, città);
-    });
 }
+document.addEventListener("DOMContentLoaded", function () {  // collega autocompletamento senza usare html
+    const config = [
+        { id: "rag_soc", list: aziende },
+        { id: "cit_cli", list: città },
+        { id: "cit_ut", list: città }
+    ];
+    config.forEach(item => {
+        const el = document.getElementById(item.id);
+        if (el) autocomplete(el, item.list);
+    });
+});
 
 
 function verificaStato() {  // abilita e disabilita la data di chiusura
