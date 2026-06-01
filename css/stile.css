@@ -151,20 +151,27 @@ ul li a:hover {
     border-style: solid;
     border-radius: 20px;
     border-color: black;
-    color: var(--grigio_testo);
+    /*color: var(--grigio_testo);*/
     width: 100%;
 }
 
-.avvio-ricerca{
-    margin-top: 15px;
-    margin-left: 15px;
+.pulsanti-ricerca{
+    margin: 15px 10px 0 10px;
+    padding: 0 10px 0 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.svuota-ricerca, .avvio-ricerca{
+    margin-left: 10px;
+    margin-right: 20px;
     padding: 10px;
     border-radius: 100px;
     box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
-    align-self: center;
 }
 
-#avvio{
+#svuota, #avvio{
     background-color: var(--beige);
     color: var(--ciano);
     width: 33%;
@@ -324,6 +331,33 @@ td{
 }
 #col_indirizzo_utenza{
     width: 20%;
+}
+
+
+/* ELEMENTI PAGINA LETTURE (riusati elementi di pagina clienti) */
+.dati-lettura{
+    display: flex;
+    padding: 1px 0 1px 0;
+    width: 100%;
+}
+.data-lettura, .valore-lettura{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 0 0;
+    width: 50%;
+}
+#valore-lettura{
+    margin-right: 1px;
+}
+
+#col_num_let, #col_cod_ute{
+    width: 21%;
+}
+#col_cod_fatt{
+    width: 24%;
+}
+#col_data, #col_valore{
+    width: 17%;
 }
 
 

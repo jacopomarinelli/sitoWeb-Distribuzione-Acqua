@@ -26,7 +26,10 @@ include 'database.php';
                 <div class="autocomplete"><input type="text" id="cit" name="citta" class="text-area"></div>
                 <script>autocomplete(document.getElementById("cit"), città);</script>
                 
-                <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                <div class="pulsanti-ricerca">
+                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
+                    <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                </div> 
 
             </form>
 

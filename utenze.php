@@ -38,7 +38,10 @@ include 'header.php';
                     </div>
                 </div>
                 
-                <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                <div class="pulsanti-ricerca">
+                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
+                    <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                </div>
 
             </form>
 
