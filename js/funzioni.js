@@ -80,6 +80,16 @@ function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di po
     document.addEventListener("click", function (e) {  // esegue quando viene cliccata la pagina
         closeAllLists(e.target);
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const azienda = document.getElementById("rag_soc");
+        const cit1 = document.getElementById("cit_cli");
+        const cit2 = document.getElementById("cit_ut");
+        
+        if (azienda) autocomplete(azienda, aziende);
+        if (cit1) autocomplete(cit1, città);
+        if (cit2) autocomplete(cit2, città);
+    });
 }
 
 

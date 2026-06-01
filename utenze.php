@@ -15,9 +15,8 @@ include 'header.php';
                 <label for="ind" class="campo">Indirizzo: </label>
                 <input type="text" id="ind" name="indirizzo" class="text-area">
                 
-                <label for="cit" class="campo">Città: </label>
-                <div class="autocomplete"><input type="text" id="cit" name="citta" class="text-area"></div>
-                <script>autocomplete(document.getElementById("cit"), città);</script>
+                <label for="cit_ut" class="campo">Città: </label>
+                <div class="autocomplete"><input type="text" id="cit_ut" name="citta" class="text-area"></div>
                 
                 <div class="attività">
                     <label class="campo">Stato: </label>
