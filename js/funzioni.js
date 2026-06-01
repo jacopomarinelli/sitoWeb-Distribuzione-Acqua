@@ -1,4 +1,4 @@
-/* Array contenente tutte le aziende (ragioni sociali) */
+// Array contenente tutte le aziende (ragioni sociali)
 var aziende = ["PureFlow Idrica Srl di Alessandro Ricci", "Rete Idrica Nazionale SpA di Matteo Colombo",
 "BluFonte Distribuzione SpA di Giovanni Greco", "Acquedotto Peninsulare SpA di Lorenzo Conti", "Acqua & Territorio SpA di Davide Gallo",
 "Servizi Idrici del Nord Srl di Stefano Bruno", "BluAcqua Forniture Srl di Giuseppe Esposito", "AcquaPura Italia Srl di Maria Costa",
@@ -12,63 +12,63 @@ var città = ["Ancona", "Andria", "Arezzo", "Bari", "Bergamo", "Bologna", "Bolza
 "Padova", "Palermo", "Parma", "Perugia", "Pescara", "Piacenza", "Prato", "Ravenna", "Reggio Calabria", "Reggio Emilia", "Rimini", "Roma",
 "Salerno", "Sassari", "Siracusa", "Taranto", "Terni", "Torino", "Trento", "Trieste", "Udine", "Venezia", "Verona", "Vicenza"];
 
-function autocomplete(inp, arr) {  /* argomenti sono il campo text e lista di possibili opzioni */
+function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di possibili opzioni
     var currentFocus;
-    inp.addEventListener("input", function(e) {  /* esegue quando viene scritto nel campo text */
+    inp.addEventListener("input", function(e) {  // esegue quando viene scritto nel campo text
         var a, b, i, val = this.value;
-        closeAllLists();  /*chiude eventuali liste di autocompletamenti*/
+        closeAllLists();  // chiude eventuali liste di autocompletamenti
         if (!val) { return false;}
         currentFocus = -1;
-        a = document.createElement("DIV");  /* DIV è l'elemento che conterrà i valori */
+        a = document.createElement("DIV");  // DIV è l'elemento che conterrà i valori
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
-        this.parentNode.appendChild(a);  /* elemento DIV come child del suo contenitore */
+        this.parentNode.appendChild(a);  // elemento DIV come child del suo contenitore
         for (i = 0; i < arr.length; i++) {
-            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) { /* se arr[i] inizia con lettere inserite */
-                b = document.createElement("DIV");  /* crea elemento DIV per ogni corrispondenza */
-                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>"; /* lettere corrispondenti in grassetto */
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) { // se arr[i] inizia con lettere inserite
+                b = document.createElement("DIV");  // crea elemento DIV per ogni corrispondenza
+                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>"; // lettere corrispondenti in grassetto
                 b.innerHTML += arr[i].substr(val.length);
-                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>"; /* input field contenente valore corrente*/
-                b.addEventListener("click", function(e) {  /* esegue quando viene cliccato un elemento della lista */
-                    inp.value = this.getElementsByTagName("input")[0].value;  /* inserisce selezionato come valore del campo */
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>"; // input field contenente valore corrente
+                b.addEventListener("click", function(e) {  // esegue quando viene cliccato un elemento della lista
+                    inp.value = this.getElementsByTagName("input")[0].value;  // inserisce selezionato come valore del campo
                     closeAllLists();
                 });
                 a.appendChild(b);
             }
         }
     });
-    inp.addEventListener("keydown", function(e) {    /* esegue quando viene cliccato un tasto della tastiera */
+    inp.addEventListener("keydown", function(e) {    // esegue quando viene cliccato un tasto della tastiera
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
-        if (e.keyCode == 40) {  /* freccia giù premuta */
+        if (e.keyCode == 40) {  // freccia giù premuta
             currentFocus++;
-            addActive(x);  /* rende elemento lista più visibile */
-        } else if (e.keyCode == 38) { /* freccia su premuta */
+            addActive(x);  // rende elemento lista più visibile
+        } else if (e.keyCode == 38) { // freccia su premuta
             currentFocus--;
-            addActive(x);  /* rende elemento lista più visibile */
-        } else if (e.keyCode == 13) { /* tasto invio premuto */
+            addActive(x);  // rende elemento lista più visibile
+        } else if (e.keyCode == 13) { // tasto invio premuto
             e.preventDefault();
             if (currentFocus > -1) {
-                if (x) x[currentFocus].click();  /* simula click su elemento lista 'attivo' */
-            }
+                if (x) x[currentFocus].click();  // simula click su elemento lista 'attivo'
+           }
         }
     });
     
-    function addActive(x) {  /* classifica un elemento lista come 'attivo' */
+    function addActive(x) {  // classifica un elemento lista come 'attivo'
         if (!x) return false;
-        removeActive(x);  /* rimuova 'attivo' da tutti gli altri elementi */
+        removeActive(x);  // rimuova 'attivo' da tutti gli altri elementi
         if (currentFocus >= x.length) currentFocus = 0;
         if (currentFocus < 0) currentFocus = (x.length - 1);
         x[currentFocus].classList.add("autocomplete-active");
     }
   
-    function removeActive(x) {  /* rimuove classe 'active' da tutti gli elementi */
+    function removeActive(x) {  // rimuove classe 'active' da tutti gli elementi
         for (var i = 0; i < x.length; i++) {
             x[i].classList.remove("autocomplete-active");
         }
     }
   
-    function closeAllLists(elmnt) {  /* chiude tutte le liste di autocompletamenti tranne quello passato in parametro */
+    function closeAllLists(elmnt) {  // chiude tutte le liste di autocompletamenti tranne quello passato in parametro
         var x = document.getElementsByClassName("autocomplete-items");
         for (var i = 0; i < x.length; i++) {
             if (elmnt != x[i] && elmnt != inp) {
@@ -77,7 +77,29 @@ function autocomplete(inp, arr) {  /* argomenti sono il campo text e lista di po
         }
     }
 
-    document.addEventListener("click", function (e) {  /* esegue quando viene cliccata la pagina */
+    document.addEventListener("click", function (e) {  // esegue quando viene cliccata la pagina
         closeAllLists(e.target);
     });
 }
+
+
+function verificaStato() {  // abilita e disabilita la data di chiusura
+    var data = document.getElementById("data_ch");
+    var stato = document.querySelector(".attività input[type='radio']:checked")?.value;
+    if (stato ===  "attiva") {
+        data.classList.add("data_non_ammessa");  // aggiunge classe 
+        data.disabled = true;  // disabilita campo data
+        data.value = "";  // svuota scelta già presente
+    } else {
+        data.classList.remove("data_non_ammessa");  // rimuove classe
+        data.disabled = false;  // abilita campo data
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    verificaStato();
+
+    const radios = document.querySelectorAll(".attività input[type='radio']");
+    radios.forEach(radio => {  // per ogni input radio controlla cambio di valore
+        radio.addEventListener("change", verificaStato);
+    });
+});

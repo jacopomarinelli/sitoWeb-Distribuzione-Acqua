@@ -323,6 +323,10 @@ td{
     border-radius: 20px;
 }
 
+.data_non_ammessa{ /* per quando stato è 'attiva' e la data di chiusura non deve essere premibile */
+    cursor: not-allowed;
+}
+
 #col_cod_utenza, #col_cod_cliente, #col_città_utenza, #col_stato{
     width: 13%;
 }
