@@ -23,7 +23,7 @@ include 'header.php';
 
                     <div class="valore-lettura" id="valore-lettura">
                         <label for="valore" class="campo">Valore letto: </label>
-                        <input type="text" id="valore" name="valore" class="text-area">
+                        <input type="number" id="valore" name="valore" class="text-area">
                     </div>
                 </div>
                 
