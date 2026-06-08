@@ -1,5 +1,4 @@
 <?php
-// backend/ClientiRepository.php
 
 class UtenzeRepository {
     private PDO $db;
@@ -12,25 +11,18 @@ class UtenzeRepository {
         $conditions = [];
         $params = [];
 
-        if (!empty($filtri['codice'])) {
-            $conditions[] = "CODICE = :codice";
-            $params['codice'] = $filtri['codice'];
-        }
-        if (!empty($filtri['cod_fis'])) {
-            $conditions[] = "CODICE_FISCALE LIKE :cod_fis";
-            $params['cod_fis'] = "%" . $filtri['cod_fis'] . "%";
-        }
-        if (!empty($filtri['indirizzo'])) {
-            $conditions[] = "INDIRIZZO LIKE :indirizzo";
-            $params['indirizzo'] = "%" . $filtri['indirizzo'] . "%";
-        }
+
         if (!empty($filtri['citta'])) {
             $conditions[] = "CITTA LIKE :citta";
             $params['citta'] = "%" . $filtri['citta'] . "%";
         }
-        if (!empty($filtri['stato'])) {
-            $conditions[] = "STATO LIKE :stato";
-            $params['stato'] = "%" . $filtri['stato'] . "%";
+        if (!empty($filtri['cliente'])) {
+            $conditions[] = "CLIENTE LIKE :cliente";
+            $params['cliente'] = "%" . $filtri['cliente'] . "%";
+        }
+        if (!empty($filtri['codice'])) {
+            $conditions[] = "CODICE = :codice";
+            $params['codice'] = $filtri['codice'];
         }
         if (!empty($filtri['data_ap'])) {
             $conditions[] = "DATA_APERTURA LIKE :data_ap";
@@ -39,6 +31,14 @@ class UtenzeRepository {
         if (!empty($filtri['data_ch'])) {
             $conditions[] = "DATA_CHIUSURA LIKE :data_ch";
             $params['data_ch'] = "%" . $filtri['data_ch'] . "%";
+        }
+        if (!empty($filtri['indirizzo'])) {
+            $conditions[] = "INDIRIZZO LIKE :indirizzo";
+            $params['indirizzo'] = "%" . $filtri['indirizzo'] . "%";
+        }
+        if (!empty($filtri['stato'])) {
+            $conditions[] = "STATO LIKE :stato";
+            $params['stato'] = "%" . $filtri['stato'] . "%";
         }
 
         $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";

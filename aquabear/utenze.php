@@ -1,6 +1,9 @@
 <?php
-require_once '../backend/Database.php';
-require_once '../backend/UtenzeRep.php';
+include 'header.php';
+require_once 'backend/Database.php';
+require_once 'backend/UtenzeRep.php';
+
+$repo = new UtenzeRepository();
 ?>
 <!-- Sezione contenente il codice della pagina -->
 
@@ -69,13 +72,13 @@ require_once '../backend/UtenzeRep.php';
 
                         echo "<tr>";
 
-                        echo "<td>" . htmlspecialchars($utenze['CODICE']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenze['CODICE_FISCALE']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenze['INDIRIZZO']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenze['CITTA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenze['STATO']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenze['DATA_APERTURA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenze['DATA_CHIUSURA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['CODICE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['CLIENTE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['INDIRIZZO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['CITTA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
                         
                         echo "</tr>";
                         
