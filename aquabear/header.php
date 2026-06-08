@@ -1,7 +1,7 @@
 <!-- questo file va incluso in tutte le pagine -->
 <html>
     <head>
-        <link rel="stylesheet" href="../css/stile.css">
+        <link rel="stylesheet" href="css/stile.css">
 
     </head>
     <body>

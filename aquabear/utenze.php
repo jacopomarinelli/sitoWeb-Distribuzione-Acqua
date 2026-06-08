@@ -1,11 +1,13 @@
 <?php
 include 'header.php';
+include '../backend/utenzeRep.php';
 ?>
 <!-- Sezione contenente il codice della pagina -->
 
         <div class="utenze">
 
             <form action="" method="GET" class="ricerca">
+
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
                 <input type="text" id="cod_ut" name="codice" class="text-area">
                 
@@ -16,7 +18,7 @@ include 'header.php';
                 <input type="text" id="ind" name="indirizzo" class="text-area">
                 
                 <label class="campo">Città: </label>
-                <input type="text" id="cit" name="città" class="text-area">
+                <input type="text" id="cit" name="citta" class="text-area">
                 
                 <div class="attività">
                     <label class="campo">Stato: </label>
@@ -58,6 +60,18 @@ include 'header.php';
                             <th id="col_stato">Stato</th>
                             <th id="col_data_chiusura">Data chiusura</th>
                         </tr>
+
+                        <?php foreach ($utenze as $u) { ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($u['Città']); ?></td>
+                            <td><?php echo htmlspecialchars($u['Cliente']); ?></td>
+                            <td><?php echo htmlspecialchars($u['Codice']); ?></td>
+                            <td><?php echo htmlspecialchars($u['DataAp']); ?></td>
+                            <td><?php echo htmlspecialchars($u['DataCh']); ?></td>
+                            <td><?php echo htmlspecialchars($u['Indirizzo']); ?></td>
+                            <td><?php echo htmlspecialchars($u['Stato']); ?></td>
+                        </tr><?php } ?>
+
                     </table>
                 </div>
                 

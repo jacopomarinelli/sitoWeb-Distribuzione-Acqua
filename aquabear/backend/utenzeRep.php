@@ -3,12 +3,14 @@
 require_once "connessione.php";
 
 $codice = $_GET['codice'] ?? '';
-$cod_fisc = $_GET['codice_fiscale'] ?? '';
-$rag_soc = $_GET['ragione_sociale'] ?? '';
+$cod_fisc = $_GET['cod_fis'] ?? '';
 $indirizzo = $_GET['indirizzo'] ?? '';
 $citta = $_GET['citta'] ?? '';
+$stato = $_GET['stato'] ?? '';
+$apertura = $_GET['data_ap'] ?? '';
+$chiusura = $_GET['data_ch'] ?? '';
 
-$query  = "SELECT * FROM CLIENTI";
+$query  = "SELECT * FROM UTENZE";
 $params = [];
 $types  = "";
 
@@ -19,14 +21,8 @@ if ($codice !== '') {
 }
 
 if ($cod_fisc !== '') {
-    $query .= " AND codice_fiscale LIKE ?";
+    $query .= " AND cod_fisc LIKE ?";
     $params[] = "%$cod_fisc%";
-    $types .= "s";
-}
-
-if ($rag_soc !== '') {
-    $query .= " AND ragione_sociale LIKE ?";
-    $params[] = "%$rag_soc%";
     $types .= "s";
 }
 
@@ -48,7 +44,7 @@ if (!empty($params)) {
 }
 $stmt->execute();
 $result  = $stmt->get_result();
-$clienti = [];
+$utenze = [];
 while ($row = $result->fetch_assoc()) {
-    $clienti[] = $row;
+    $utenze[] = $row;
 }
