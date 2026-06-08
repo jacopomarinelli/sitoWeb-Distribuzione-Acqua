@@ -1,50 +1,56 @@
 <?php
+// backend/ClientiRepository.php
 
-require_once "connessione.php";
+class UtenzeRepository {
+    private PDO $db;
 
-$codice = $_GET['codice'] ?? '';
-$cod_fisc = $_GET['cod_fis'] ?? '';
-$indirizzo = $_GET['indirizzo'] ?? '';
-$citta = $_GET['citta'] ?? '';
-$stato = $_GET['stato'] ?? '';
-$apertura = $_GET['data_ap'] ?? '';
-$chiusura = $_GET['data_ch'] ?? '';
+    public function __construct() {
+        $this->db = Database::getConnection();
+    }
 
-$query  = "SELECT * FROM UTENZE";
-$params = [];
-$types  = "";
+    public function cerca(array $filtri): array {
+        $conditions = [];
+        $params = [];
 
-if ($codice !== '') {
-    $query .= " AND codice = ?";
-    $params[] = $codice;
-    $types .= "s";
-}
+        if (!empty($filtri['codice'])) {
+            $conditions[] = "CODICE = :codice";
+            $params['codice'] = $filtri['codice'];
+        }
+        if (!empty($filtri['cod_fis'])) {
+            $conditions[] = "CODICE_FISCALE LIKE :cod_fis";
+            $params['cod_fis'] = "%" . $filtri['cod_fis'] . "%";
+        }
+        if (!empty($filtri['indirizzo'])) {
+            $conditions[] = "INDIRIZZO LIKE :indirizzo";
+            $params['indirizzo'] = "%" . $filtri['indirizzo'] . "%";
+        }
+        if (!empty($filtri['citta'])) {
+            $conditions[] = "CITTA LIKE :citta";
+            $params['citta'] = "%" . $filtri['citta'] . "%";
+        }
+        if (!empty($filtri['stato'])) {
+            $conditions[] = "STATO LIKE :stato";
+            $params['stato'] = "%" . $filtri['stato'] . "%";
+        }
+        if (!empty($filtri['data_ap'])) {
+            $conditions[] = "DATA_APERTURA LIKE :data_ap";
+            $params['data_ap'] = "%" . $filtri['data_ap'] . "%";
+        }
+        if (!empty($filtri['data_ch'])) {
+            $conditions[] = "DATA_CHIUSURA LIKE :data_ch";
+            $params['data_ch'] = "%" . $filtri['data_ch'] . "%";
+        }
 
-if ($cod_fisc !== '') {
-    $query .= " AND cod_fisc LIKE ?";
-    $params[] = "%$cod_fisc%";
-    $types .= "s";
-}
+        $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";
+        $stmt = $this->db->prepare("SELECT * FROM UTENZE $where");
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-if ($indirizzo !== '') {
-    $query .= " AND indirizzo LIKE ?";
-    $params[] = "%$indirizzo%";
-    $types .= "s";
-}
-
-if ($citta !== '') {
-    $query .= " AND citta LIKE ?";
-    $params[] = "%$citta%";
-    $types .= "s";
-}
-
-$stmt = $conn->prepare($query);
-if (!empty($params)) {
-    $stmt->bind_param($types, ...$params);
-}
-$stmt->execute();
-$result  = $stmt->get_result();
-$utenze = [];
-while ($row = $result->fetch_assoc()) {
-    $utenze[] = $row;
+    public function trovaPerId(string $codice): ?array {
+        $stmt = $this->db->prepare("SELECT * FROM UTENZE WHERE CODICE = :codice");
+        $stmt->execute(['codice' => $codice]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ?: null;
+    }
 }

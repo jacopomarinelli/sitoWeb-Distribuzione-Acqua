@@ -1,54 +1,77 @@
 <?php
+// backend/ClientiRepository.php
 
-require_once "connessione.php";
+class ClientiRepository {
+    // Oggetto PDO che rappresenta la connessione al database
+    private PDO $db;
 
-$codice = $_GET['codice'] ?? '';
-$cod_fisc = $_GET['codice_fiscale'] ?? '';
-$rag_soc = $_GET['ragione_sociale'] ?? '';
-$indirizzo = $_GET['indirizzo'] ?? '';
-$citta = $_GET['citta'] ?? '';
+    public function __construct() {
+        // Quando la classe viene creata, recupera la connessione al DB
+        $this->db = Database::getConnection();
+    }
 
-$query  = "SELECT * FROM CLIENTI";
-$params = [];
-$types  = "";
+    public function cerca(array $filtri): array {
+        // Qui accumuliamo le condizioni SQL (WHERE dinamico)
+        $conditions = [];
 
-if ($codice !== '') {
-    $query .= " AND codice = ?";
-    $params[] = $codice;
-    $types .= "s";
-}
+        // Qui accumuliamo i parametri da passare in modo sicuro alla query
+        $params = [];
 
-if ($cod_fisc !== '') {
-    $query .= " AND codice_fiscale LIKE ?";
-    $params[] = "%$cod_fisc%";
-    $types .= "s";
-}
+        // Se esiste un filtro "codice", cerchiamo corrispondenza esatta
+        if (!empty($filtri['codice'])) {
+            $conditions[] = "CODICE = :codice";
+            $params['codice'] = $filtri['codice'];
+        }
 
-if ($rag_soc !== '') {
-    $query .= " AND ragione_sociale LIKE ?";
-    $params[] = "%$rag_soc%";
-    $types .= "s";
-}
+        // Se esiste "codice_fiscale", cerchiamo corrispondenza parziale
+        if (!empty($filtri['codice_fiscale'])) {
+            $conditions[] = "CODICE_FISCALE LIKE :cod_fisc";
+            // I % servono per dire: "qualsiasi cosa prima e dopo"
+            $params['cod_fisc'] = "%" . $filtri['codice_fiscale'] . "%";
+        }
 
-if ($indirizzo !== '') {
-    $query .= " AND indirizzo LIKE ?";
-    $params[] = "%$indirizzo%";
-    $types .= "s";
-}
+        // Ricerca per ragione sociale (parziale)
+        if (!empty($filtri['ragione_sociale'])) {
+            $conditions[] = "RAGIONE_SOCIALE LIKE :rag_soc";
+            $params['rag_soc'] = "%" . $filtri['ragione_sociale'] . "%";
+        }
 
-if ($citta !== '') {
-    $query .= " AND citta LIKE ?";
-    $params[] = "%$citta%";
-    $types .= "s";
-}
+        // Ricerca per città (parziale)
+        if (!empty($filtri['citta'])) {
+            $conditions[] = "CITTA LIKE :citta";
+            $params['citta'] = "%" . $filtri['citta'] . "%";
+        }
 
-$stmt = $conn->prepare($query);
-if (!empty($params)) {
-    $stmt->bind_param($types, ...$params);
-}
-$stmt->execute();
-$result  = $stmt->get_result();
-$clienti = [];
-while ($row = $result->fetch_assoc()) {
-    $clienti[] = $row;
+        // Ricerca per indirizzo (parziale)
+        if (!empty($filtri['indirizzo'])) {
+            $conditions[] = "INDIRIZZO LIKE :indirizzo";
+            $params['indirizzo'] = "%" . $filtri['indirizzo'] . "%";
+        }
+
+        // Se ci sono condizioni, le uniamo con AND, altrimenti query senza WHERE
+        $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";
+
+        // Costruiamo la query finale
+        $stmt = $this->db->prepare("SELECT * FROM CLIENTI $where");
+
+        // Eseguiamo la query passando i parametri in modo sicuro
+        $stmt->execute($params);
+
+        // Restituiamo tutti i risultati come array associativo
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function trovaPerId(string $codice): ?array {
+        // Query per cercare un cliente specifico tramite codice
+        $stmt = $this->db->prepare("SELECT * FROM CLIENTI WHERE CODICE = :codice");
+
+        // Passiamo il parametro in modo sicuro
+        $stmt->execute(['codice' => $codice]);
+
+        // Prendiamo una sola riga (non una lista)
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Se non trova nulla, ritorna null invece di false
+        return $result ?: null;
+    }
 }

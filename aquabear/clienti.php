@@ -1,6 +1,9 @@
 <?php
 include 'header.php';
-include '../backend/clientiRep.php';
+require_once '../backend/Database.php';
+require_once '../backend/ClientiRep.php';
+
+$repo = new ClientiRepository();
 ?>
 <!-- Qui va inserito codice pagina -->
         
@@ -45,14 +48,23 @@ include '../backend/clientiRep.php';
                         <th id="col_città_cliente">Città</th>
                     </tr>
                     
-                    <?php foreach ($clienti as $c) { ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($c['CODICE']); ?></td>
-                        <td><?php echo htmlspecialchars($c['CODICE_FISCALE']); ?></td>
-                        <td><?php echo htmlspecialchars($c['RAGIONE_SOCIALE']); ?></td>
-                        <td><?php echo htmlspecialchars($c['INDIRIZZO']); ?></td>
-                        <td><?php echo htmlspecialchars($c['CITTA']); ?></td>
-                    </tr><?php } ?>
+                    <?php
+
+                        $clienti = $repo->cerca($_GET);
+                        
+                        foreach ($clienti as $cliente) {
+
+                        echo "<tr>";
+
+                        echo "<td>" . htmlspecialchars($cliente['CODICE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($cliente['CODICE_FISCALE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($cliente['RAGIONE_SOCIALE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($cliente['INDIRIZZO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($cliente['CITTA']) . "</td>";
+
+                        echo "</tr>";
+                        
+                    }?>
                     
                 </table>
 

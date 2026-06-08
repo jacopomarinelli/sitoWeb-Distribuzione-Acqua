@@ -1,6 +1,6 @@
 <?php
-include 'header.php';
-include '../backend/utenzeRep.php';
+require_once '../backend/Database.php';
+require_once '../backend/UtenzeRep.php';
 ?>
 <!-- Sezione contenente il codice della pagina -->
 
@@ -61,16 +61,25 @@ include '../backend/utenzeRep.php';
                             <th id="col_data_chiusura">Data chiusura</th>
                         </tr>
 
-                        <?php foreach ($utenze as $u) { ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($u['Città']); ?></td>
-                            <td><?php echo htmlspecialchars($u['Cliente']); ?></td>
-                            <td><?php echo htmlspecialchars($u['Codice']); ?></td>
-                            <td><?php echo htmlspecialchars($u['DataAp']); ?></td>
-                            <td><?php echo htmlspecialchars($u['DataCh']); ?></td>
-                            <td><?php echo htmlspecialchars($u['Indirizzo']); ?></td>
-                            <td><?php echo htmlspecialchars($u['Stato']); ?></td>
-                        </tr><?php } ?>
+                        <?php
+
+                        $utenze = $repo->cerca($_GET);
+                        
+                        foreach ($utenze as $utenza) {
+
+                        echo "<tr>";
+
+                        echo "<td>" . htmlspecialchars($utenze['CODICE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenze['CODICE_FISCALE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenze['INDIRIZZO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenze['CITTA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenze['STATO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenze['DATA_APERTURA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenze['DATA_CHIUSURA']) . "</td>";
+                        
+                        echo "</tr>";
+                        
+                    }?>
 
                     </table>
                 </div>
