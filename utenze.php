@@ -1,11 +1,16 @@
 <?php
 include 'header.php';
+require_once 'backend/Database.php';
+require_once 'backend/UtenzeRep.php';
+
+$repo = new UtenzeRepository();
 ?>
 <!-- Sezione contenente il codice della pagina -->
 
         <div class="utenze">
 
             <form action="" method="GET" class="ricerca">
+
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
                 <input type="text" id="cod_ut" name="codice" class="text-area">
                 
@@ -61,6 +66,27 @@ include 'header.php';
                             <th id="col_stato">Stato</th>
                             <th id="col_data_chiusura">Data chiusura</th>
                         </tr>
+
+                        <?php
+
+                        $utenze = $repo->cerca($_GET);
+                        
+                        foreach ($utenze as $utenza) {
+
+                        echo "<tr>";
+
+                        echo "<td>" . htmlspecialchars($utenza['CODICE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['CLIENTE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['INDIRIZZO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['CITTA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
+                        
+                        echo "</tr>";
+                        
+                    }?>
+
                     </table>
                 </div>
                 

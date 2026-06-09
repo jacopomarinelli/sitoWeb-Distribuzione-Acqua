@@ -1,5 +1,9 @@
 <?php
 include 'header.php';
+require_once 'backend/Database.php';
+require_once 'backend/LettureRep.php';
+
+$repo = new LettureRepository();
 ?>
 <!-- Qui va inserito codice pagina -->
 
@@ -7,10 +11,10 @@ include 'header.php';
 
             <form autocomplete="off" action="" method="GET" class="ricerca">
                 <label for="num_let" class="campo">Numero lettura: </label>
-                <input type="text" id="num_let" name="num_lettura" class="text-area">
+                <input type="text" id="num_let" name="numero" class="text-area">
                 
                 <label for="cod_ute" class="campo">Codice utenza: </label>
-                <input type="text" id="cod_ute" name="codice_utenza" class="text-area">
+                <input type="text" id="cod_ute" name="utenza" class="text-area">
                 
                 <label for="fattura" class="campo">Codice fattura (opzionale): </label>
                 <input type="text" id="fattura" name="fattura" class="text-area">
@@ -50,6 +54,24 @@ include 'header.php';
                         <th id="col_data">Data</th>
                         <th id="col_valore">Valore</th>
                     </tr>
+
+                    <?php
+
+                        $letture = $repo->cerca($_GET);
+                        
+                        foreach ($letture as $lettura) {
+
+                        echo "<tr>";
+
+                        echo "<td>" . htmlspecialchars($lettura['NUMERO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($lettura['UTENZA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($lettura['FATTURA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($lettura['DATA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($lettura['VALORE']) . "</td>";
+                        
+                        echo "</tr>";
+                        
+                    }?>
                     
                 </table>
 
