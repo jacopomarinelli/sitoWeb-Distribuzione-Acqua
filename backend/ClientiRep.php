@@ -1,5 +1,4 @@
 <?php
-// backend/ClientiRepository.php
 
 class ClientiRepository {
     // Oggetto PDO che rappresenta la connessione al database

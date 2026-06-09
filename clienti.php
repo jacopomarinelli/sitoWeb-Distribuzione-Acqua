@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
-require_once '../backend/Database.php';
-require_once '../backend/ClientiRep.php';
+require_once 'backend/Database.php';
+require_once 'backend/ClientiRep.php';
 
 $repo = new ClientiRepository();
 ?>
