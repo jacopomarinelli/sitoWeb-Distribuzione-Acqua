@@ -20,8 +20,8 @@ $repo = new UtenzeRepository();
                 <label for="ind" class="campo">Indirizzo: </label>
                 <input type="text" id="ind" name="indirizzo" class="text-area">
                 
-                <label class="campo">Città: </label>
-                <input type="text" id="cit" name="citta" class="text-area">
+                <label for="cit_ut" class="campo">Città: </label>
+                <div class="autocomplete"><input type="text" id="cit_ut" name="citta" class="text-area"></div>
                 
                 <div class="attività">
                     <label class="campo">Stato: </label>
@@ -42,7 +42,10 @@ $repo = new UtenzeRepository();
                     </div>
                 </div>
                 
-                <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                <div class="pulsanti-ricerca">
+                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
+                    <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                </div>
 
             </form>
 

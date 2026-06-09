@@ -19,15 +19,18 @@ $repo = new ClientiRepository();
                 <input type="text" id="cod_fis" name="codice_fiscale" class="text-area">
                 
                 <label for="rag_soc" class="campo">Nome dell'azienda: </label>
-                <input type="text" id="rag_soc" name="ragione_sociale" class="text-area"> 
+                <div class="autocomplete"><input type="text" id="rag_soc" name="ragione_sociale" class="text-area"></div>
                 
-                <label for="ind" class="campo">Indirizzo: </label>
-                <input type="text" id="ind" name="indirizzo" class="text-area">
+                <label for="ind_cli" class="campo">Indirizzo: </label>
+                <input type="text" id="ind_cli" name="indirizzo" class="text-area">
                 
-                <label for="cit" class="campo">Città: </label>
-                <input type="text" id="cit" name="citta" class="text-area">
+                <label for="cit_cli" class="campo">Città: </label>
+                <div class="autocomplete"><input type="text" id="cit_cli" name="citta" class="text-area"></div>
                 
-                <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                <div class="pulsanti-ricerca">
+                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
+                    <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                </div> 
 
             </form>
 
