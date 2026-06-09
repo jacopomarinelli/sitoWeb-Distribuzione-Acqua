@@ -17,7 +17,7 @@
                     <li><a href="clienti.php" id="clienti">Clienti</a></li>
                     <li><a href="utenze.php" id="utenze">Utenze</a></li>
                     <li><a href="letture.php" id="letture">Letture</a></li>
-                    <li><a href="" id="fatture">Fatture</a></li>
+                    <li><a href="fatture.php" id="fatture">Fatture</a></li>
                 </ul>
             </nav>
         </div>

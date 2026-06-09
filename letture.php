@@ -7,7 +7,7 @@ $repo = new LettureRepository();
 ?>
 <!-- Qui va inserito codice pagina -->
 
-        <div class="cliente">
+        <div class="pagina">
 
             <form autocomplete="off" action="" method="GET" class="ricerca">
                 <label for="num_let" class="campo">Numero lettura: </label>

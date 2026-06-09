@@ -7,7 +7,7 @@ $repo = new UtenzeRepository();
 ?>
 <!-- Sezione contenente il codice della pagina -->
 
-        <div class="utenze">
+        <div class="pagina">
 
             <form action="" method="GET" class="ricerca">
 

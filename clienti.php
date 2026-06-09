@@ -7,7 +7,7 @@ $repo = new ClientiRepository();
 ?>
 <!-- Qui va inserito codice pagina -->
         
-        <div class="cliente">
+        <div class="pagina">
 
             <form action="clienti.php" method="GET" class="ricerca">
                 <label for="cod" class="campo">Codice del cliente: </label>
