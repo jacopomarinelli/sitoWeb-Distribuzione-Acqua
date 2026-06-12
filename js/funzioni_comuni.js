@@ -108,7 +108,7 @@ function verificaStato() {  // abilita e disabilita la data di chiusura
         data.disabled = false;  // abilita campo data
     }
 }
-document.addEventListener("DOMContentLoader", function () {
+document.addEventListener("DOMContentLoaded", function () {
     verificaStato();
 
     const radios = document.querySelectorAll(".attività input[type='radio']");
