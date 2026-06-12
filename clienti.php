@@ -77,8 +77,6 @@ $repo = new ClientiRepository();
 
         </div>
 
-        <script src="js/funzioni_comuni.js"></script>
-
 <!-- Qui va inserito codice pagina -->
 <?php
 include 'footer.php';

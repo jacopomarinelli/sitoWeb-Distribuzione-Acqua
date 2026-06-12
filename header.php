@@ -2,6 +2,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/stile.css">
+        <!-- L'ordine degli import deve essere funzioni_comuni e poi le altre -->
+        <script src="js/funzioni_comuni.js"></script>
+        <script src="js/fatture.js"></script>
+        <script src="js/utenze.js"></script>
     </head>
     <body>
         
