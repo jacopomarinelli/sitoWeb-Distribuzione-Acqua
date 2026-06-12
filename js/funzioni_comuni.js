@@ -1,5 +1,5 @@
 // Array contenente tutte le aziende (ragioni sociali)
-var aziende = ["PureFlow Idrica Srl di Alessandro Ricci", "Rete Idrica Nazionale SpA di Matteo Colombo",
+const aziende = ["PureFlow Idrica Srl di Alessandro Ricci", "Rete Idrica Nazionale SpA di Matteo Colombo",
 "BluFonte Distribuzione SpA di Giovanni Greco", "Acquedotto Peninsulare SpA di Lorenzo Conti", "Acqua & Territorio SpA di Davide Gallo",
 "Servizi Idrici del Nord Srl di Stefano Bruno", "BluAcqua Forniture Srl di Giuseppe Esposito", "AcquaPura Italia Srl di Maria Costa",
 "Acque del Sud Italia SpA di Elena Giordano", "Fonti Chiare Distribuzione Srl di Laura Mancini", "Acqua Sicura Forniture Srl di Chiara Lombardi",
@@ -7,7 +7,8 @@ var aziende = ["PureFlow Idrica Srl di Alessandro Ricci", "Rete Idrica Nazionale
 "Gestione Idrica Integrata SpA di Francesco Bianchi", "Acquedotto Centrale Italiano Srl di Antonio Romano", "Acque Chiare Servizi Srl di Marco Rossi",
 "Sorgenti d'Italia Srl di Roberto Marino", "Idro Distribuzione Italiana SpA di Luca Russo", "Idrogest Italia SpA di Paolo De Luca"];
 
-var città = ["Ancona", "Andria", "Arezzo", "Bari", "Bergamo", "Bologna", "Bolzano", "Brescia", "Cagliari", "Catania", "Catanzaro", "Cesena",
+// Array contenente tutte le città
+const città = ["Ancona", "Andria", "Arezzo", "Bari", "Bergamo", "Bologna", "Bolzano", "Brescia", "Cagliari", "Catania", "Catanzaro", "Cesena",
 "Cosenza", "Ferrara", "Firenze", "Foggia", "Forlì", "Genova", "Latina", "Lecce", "Livorno", "Milano", "Modena", "Monza", "Napoli", "Novara",
 "Padova", "Palermo", "Parma", "Perugia", "Pescara", "Piacenza", "Prato", "Ravenna", "Reggio Calabria", "Reggio Emilia", "Rimini", "Roma",
 "Salerno", "Sassari", "Siracusa", "Taranto", "Terni", "Torino", "Trento", "Trieste", "Udine", "Venezia", "Verona", "Vicenza"];
@@ -56,7 +57,7 @@ function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di po
     
     function addActive(x) {  // classifica un elemento lista come 'attivo'
         if (!x) return false;
-        removeActive(x);  // rimuova 'attivo' da tutti gli altri elementi
+        removeActive(x);  // spiegata dopo
         if (currentFocus >= x.length) currentFocus = 0;
         if (currentFocus < 0) currentFocus = (x.length - 1);
         x[currentFocus].classList.add("autocomplete-active");
@@ -81,7 +82,7 @@ function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di po
         closeAllLists(e.target);
     });
 }
-document.addEventListener("DOMContentLoaded", function () {  // collega autocompletamento senza usare html
+document.addEventListener("DOMContentLoaded", function () {
     const config = [
         { id: "rag_soc", list: aziende },
         { id: "cit_cli", list: città },
@@ -114,20 +115,3 @@ document.addEventListener("DOMContentLoaded", function () {
         radio.addEventListener("change", verificaStato);
     });
 });
-
-
-function verificaTotale(event) {  // controllo sui campi legati al costo della fattura
-    // per i decimali, la virgola va trasformata in un punto
-    let imponibile = document.getElementById("imp").value.replace(",", ".");
-    let iva = document.getElementById("iva").value.replace(",", ".");
-    let totale = document.getElementById("cos_tot").value.replace(",", ".");
-    // dati del form aggiornati a due cifre decimali
-    document.getElementById("imp").value = Math.round(imponibile * 100) / 100;
-    document.getElementById("iva").value = Math.round(iva * 100) / 100;
-    document.getElementById("cos_tot").value = Math.round(totale * 100) / 100;
-    // confronta valori aventi due cifre decimali
-    if ((imponibile + iva).toFixed(2) !== totale.toFixed(2)){
-        event.preventDefault();  // evita invio del form
-        alert("Il costo totale della fattura non corrisponde alla somma dei suoi campi, ricontrolla i dati inseriti");
-    }
-}
