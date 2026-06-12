@@ -5,7 +5,7 @@ include 'header.php';
         
         <div class="pagina">
 
-            <form action="" method="GET" class="ricerca">
+            <form action="" method="GET" class="ricerca" onsubmit="verificaTotale(event)">
                 <label for="num_fat" class="campo">Numero della fattura: </label>
                 <input type="text" id="num_fat" name="numero_fattura" class="text-area">
                 
@@ -45,7 +45,7 @@ include 'header.php';
                     </div>
                     
                     <div class="pulsante-nuova">
-                        <input type="button" id="nuova_fattura" value="NUOVA">
+                        <i class="fa-solid fa-square-plus"></i>
                     </div>
 
                 </div>

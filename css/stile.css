@@ -380,14 +380,12 @@ td{
 
 .pulsante-nuova{
     margin: 15px 15px 0 0;
-    margin-left: auto;
-}
-#nuova_fattura{
-    background-color: var(--beige);
-    color: var(--ciano);
-    margin-bottom: 10px;
-    padding: 10px 15px 10px 15px;
-    border-radius: 100px;
+    margin-left: auto;  /* mette tutto a sinistra icona */
+    font-size: 30px;  /* grandezza icona */
+    background: none;  /* nessuno sfondo o border */
+    border: none;
+    color: var(--ciano); /* per cambiare colore pulsante */
+    cursor: pointer; /* aiuta a visualizzare cliccabilità */
 }
 
 #col_num_fattura, #col_data_fattura, #col_imponibile, #col_iva, #col_totale{
