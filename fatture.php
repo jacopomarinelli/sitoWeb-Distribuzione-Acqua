@@ -1,5 +1,9 @@
 <?php
 include 'header.php';
+require_once 'backend/Database.php';
+require_once 'backend/FattureRep.php';
+
+$repo = new FattureRepository();
 ?>
 <!-- Qui va inserito codice pagina -->
         
@@ -60,6 +64,24 @@ include 'header.php';
                         <th id="col_iva">Iva</th>
                         <th id="col_totale">Totale</th>
                     </tr>
+
+                    <?php
+
+                        $fatture = $repo->cerca($_GET);
+                        
+                        foreach ($fatture as $fattura) {
+
+                        echo "<tr>";
+
+                        echo "<td>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['DATA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['IVA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['TOTALE']) . "</td>";
+
+                        echo "</tr>";
+                        
+                    }?>
                     
                 </table>
 
