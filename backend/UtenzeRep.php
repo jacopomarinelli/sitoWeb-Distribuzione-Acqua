@@ -1,4 +1,5 @@
 <?php
+// backend/ClientiRepository.php
 
 class UtenzeRepository {
     private PDO $db;
@@ -25,20 +26,22 @@ class UtenzeRepository {
             $params['codice'] = $filtri['codice'];
         }
         if (!empty($filtri['data_ap'])) {
-            $conditions[] = "DATA_APERTURA LIKE :data_ap";
-            $params['data_ap'] = "%" . $filtri['data_ap'] . "%";
+            $data = DateTime::createFromFormat('Y-m-d', $filtri['data_ap']);
+            $conditions[] = "DATA_APERTURA = :data_ap";
+            $params['data_ap'] = $data ? $data->format('d/m/Y') : $filtri['data_ap'];
         }
         if (!empty($filtri['data_ch'])) {
-            $conditions[] = "DATA_CHIUSURA LIKE :data_ch";
-            $params['data_ch'] = "%" . $filtri['data_ch'] . "%";
+            $data = DateTime::createFromFormat('Y-m-d', $filtri['data_ch']);
+            $conditions[] = "DATA_CHIUSURA = :data_ch";
+            $params['data_ch'] = $data ? $data->format('d/m/Y') : $filtri['data_ch'];
         }
         if (!empty($filtri['indirizzo'])) {
             $conditions[] = "INDIRIZZO LIKE :indirizzo";
             $params['indirizzo'] = "%" . $filtri['indirizzo'] . "%";
         }
-        if (!empty($filtri['stato'])) {
-            $conditions[] = "STATO LIKE :stato";
-            $params['stato'] = "%" . $filtri['stato'] . "%";
+        if (isset($filtri['stato']) && $filtri['stato'] !== '') {
+            $conditions[] = "STATO = :stato";
+            $params['stato'] = ($filtri['stato'] === 'attiva') ? 'Attivo' : 'Inattivo';
         }
 
         $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";

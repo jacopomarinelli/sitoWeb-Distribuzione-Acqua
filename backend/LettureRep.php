@@ -13,8 +13,9 @@ class LettureRepository {
 
 
         if (!empty($filtri['data'])) {
-            $conditions[] = "DATA LIKE :data";
-            $params['data'] = "%" . $filtri['data'] . "%";
+            $data = DateTime::createFromFormat('Y-m-d', $filtri['data']);
+            $conditions[] = "DATA = :data";
+            $params['data'] = $data ? $data->format('d/m/Y') : $filtri['data'];
         }
         if (!empty($filtri['fattura'])) {
             $conditions[] = "FATTURA LIKE :fattura";
