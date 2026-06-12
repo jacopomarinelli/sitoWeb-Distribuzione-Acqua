@@ -13,6 +13,7 @@ const città = ["Ancona", "Andria", "Arezzo", "Bari", "Bergamo", "Bologna", "Bol
 "Padova", "Palermo", "Parma", "Perugia", "Pescara", "Piacenza", "Prato", "Ravenna", "Reggio Calabria", "Reggio Emilia", "Rimini", "Roma",
 "Salerno", "Sassari", "Siracusa", "Taranto", "Terni", "Torino", "Trento", "Trieste", "Udine", "Venezia", "Verona", "Vicenza"];
 
+/* GESTIONE AUTOCOMPLETE */
 function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di possibili opzioni
     var currentFocus;
     inp.addEventListener("input", function(e) {  // esegue quando viene scritto nel campo text
@@ -107,7 +108,7 @@ function verificaStato() {  // abilita e disabilita la data di chiusura
         data.disabled = false;  // abilita campo data
     }
 }
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoader", function () {
     verificaStato();
 
     const radios = document.querySelectorAll(".attività input[type='radio']");
@@ -115,3 +116,37 @@ document.addEventListener("DOMContentLoaded", function () {
         radio.addEventListener("change", verificaStato);
     });
 });
+
+
+/* FUNZIONI POPUP */
+function creaMessaggioErrore(messaggio) {  // mostra messaggio di errore nel popup
+    const contenuto = document.getElementById("messaggio_popup");
+
+    const icona = document.createElement("i");
+    icona.classList.add("fa-solid");
+    icona.classList.add("fa-triangle-exclamation");
+    icona.classList.add("icona-popup");
+
+    const testo = document.createElement("div");
+    testo.className = "testo-popup";
+    nuovo_messaggio = messaggio+"<br>Ricontrolla i dati inseriti.";
+    testo.innerHTML = nuovo_messaggio;
+
+    contenuto.appendChild(icona);
+    contenuto.appendChild(testo);
+}
+
+function apriPopup() { 
+    document.getElementById("popup").style.display = "flex";
+}
+
+function chiudiPopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("messaggio_popup") = "";  // pulisce contenuto del popup
+}
+
+function chiudiSeFuori(event) {
+    if (event.target.id === "popup") {
+        chiudiPopup();
+    }
+}

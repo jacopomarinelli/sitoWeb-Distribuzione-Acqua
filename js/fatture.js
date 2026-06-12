@@ -1,3 +1,8 @@
+/* CONTROLLO GENERALE */
+function verificaFattura(event){
+    verificaPrezzoTotale(event);
+}
+
 /* CONTROLLO PREZZI FATTURA */
 function verificaPrezzoTotale(event) {
     // per i decimali, la virgola va trasformata in un punto
@@ -11,6 +16,7 @@ function verificaPrezzoTotale(event) {
     // confronta somma e totale
     if ((imponibile + iva).toFixed(2) !== totale.toFixed(2)){
         event.preventDefault();  // evita invio del form
-        alert("Il costo totale della fattura non corrisponde alla somma dei suoi campi, ricontrolla i dati inseriti");
+        creaMessaggioErrore("Il costo totale della fattura non corrisponde alla somma dei suoi campi.");
+        apriPopup();
     }
 }

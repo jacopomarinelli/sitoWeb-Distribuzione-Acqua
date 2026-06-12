@@ -9,7 +9,7 @@ $repo = new UtenzeRepository();
 
         <div class="pagina">
 
-            <form action="" method="GET" class="ricerca">
+            <form action="" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
 
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
                 <input type="text" id="cod_ut" name="codice" class="text-area">

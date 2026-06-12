@@ -9,7 +9,7 @@ $repo = new FattureRepository();
         
         <div class="pagina">
 
-            <form action="" method="GET" class="ricerca" onsubmit="verificaTotale(event)">
+            <form action="" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
                 <label for="num_fat" class="campo">Numero della fattura: </label>
                 <input type="text" id="num_fat" name="numero_fattura" class="text-area">
                 
