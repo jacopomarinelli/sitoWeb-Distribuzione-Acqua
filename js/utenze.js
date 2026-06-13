@@ -13,3 +13,17 @@ function verificaCronologicamenteDate(event) {
         apriPopup();
     }
 }
+
+/* CONTROLLO SU STATO E DATA DI CHIUSURA */
+function verificaStato() {  // abilita e disabilita la data di chiusura
+    var data = document.getElementById("data_ch");
+    var stato = document.querySelector(".attività input[type='radio']:checked")?.value;
+    if (stato ===  "attiva") {
+        data.classList.add("data_non_ammessa");  // aggiunge classe 
+        data.disabled = true;  // disabilita campo data
+        data.value = "";  // svuota scelta già presente
+    } else {
+        data.classList.remove("data_non_ammessa");  // rimuove classe
+        data.disabled = false;  // abilita campo data
+    }
+}

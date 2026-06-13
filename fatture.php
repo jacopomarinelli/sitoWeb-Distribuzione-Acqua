@@ -89,6 +89,42 @@ $repo = new FattureRepository();
 
             </div>
 
+            <!-- popup usato per la creazione/modifica di una fattura -->
+            <div id="azione_fattura" class="finestra-fattura">
+                <button class="pulsante-chiusura" onclick="chiudiFormFattura()">
+                    <i class="fa-solid fa-square-xmark pulsante-chiusura"></i>
+                </button>
+
+                <h5 id="compito-azione">INSERISCI I DATI</h5>
+
+                <form action="" method="GET" class="contenuto-fattura" onsubmit="verificaFattura(event)">
+                    <label for="nuovo_num_fat" class="campo">Numero della fattura: </label>
+                    <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area">
+                
+                    <label for="nuova_data_fat" class="campo">Data: </label>
+                    <input type="date" id="nuova_data_fat" name="nuova_data_fattura" class="text-area">
+                
+                    <div class="sezione-prezzo">
+                        <div class="campo-prezzo">
+                            <label for="nuovo_imp" class="campo">Imponibile: </label>
+                            <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area">
+                        </div>
+
+                        <div class="campo-prezzo">
+                            <label for="nuova_iva" class="campo">Iva: </label>
+                            <input type="text" id="nuova_iva" name="nuova_iva" class="text-area">
+                        </div>
+
+                        <div class="campo-prezzo">
+                            <label for="nuovo_cos_tot" class="campo">Totale: </label>
+                            <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area">
+                        </div>
+                    </div>
+
+                    <input type="submit" id="avvio" value="AGGIUNGI" class="pulsante-fattura">
+                </form>
+            </div>
+
         </div>
 
 <!-- Qui va inserito codice pagina -->

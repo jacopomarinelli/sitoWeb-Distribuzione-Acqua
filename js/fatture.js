@@ -3,6 +3,11 @@ function verificaFattura(event){
     verificaPrezzoTotale(event);
 }
 
+function verificaNuovaFattura(event){
+    verificaPrezzoTotale(event);
+}
+
+
 /* CONTROLLO PREZZI FATTURA */
 function verificaPrezzoTotale(event) {
     // per i decimali, la virgola va trasformata in un punto
@@ -21,43 +26,10 @@ function verificaPrezzoTotale(event) {
     }
 }
 
-/* FUNZIONI CREAZIONE FATTURA */
-function inserisciFormNelPopup() {
-    document.getElementById("messaggio_popup").innerHTML = `
-        <form action="" method="GET" class="ricerca-popup" onsubmit="verificaPrezzoTotale(event)">
-            
-            <label for="num_fat" class="campo">Numero della fattura: </label>
-            <input type="text" id="num_fat" name="numero_fattura" class="text-area">
-
-            <label for="data_fat" class="campo">Data: </label>
-            <input type="date" id="data_fat" name="data_fattura" class="text-area">
-
-            <div class="prezzo-fattura">
-
-                <div class="campo-prezzo">
-                    <label for="imp" class="campo">Imponibile: </label>
-                    <input type="text" id="imp" name="imponibile" class="text-area">
-                </div>
-
-                <div class="campo-prezzo">
-                    <label for="iva" class="campo">Iva: </label>
-                    <input type="text" id="iva" name="iva" class="text-area">
-                </div>
-
-                <div class="campo-prezzo">
-                    <label for="cos_tot" class="campo">Totale: </label>
-                    <input type="text" id="cos_tot" name="totale" class="text-area">
-                </div>
-
-            </div>
-
-            <input type="submit" value="AGGIUNGI" class="avvio-ricerca-popup">
-
-        </form>
-    `;
+/* FUNZIONI FORM AZIONE FATTURA */
+function apriFormFattura(){
+    document.getElementById("azione_fattura").display = "flex";
 }
-
-function creaFattura() {
-    inserisciFormNelPopup();
-    apriPopup();
+function chiudiFormFattura(){
+    document.getElementById("azione_fattura").display = "none";
 }
