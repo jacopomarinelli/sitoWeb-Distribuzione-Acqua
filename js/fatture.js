@@ -28,8 +28,8 @@ function verificaPrezzoTotale(event) {
 
 /* FUNZIONI FORM AZIONE FATTURA */
 function apriFormFattura(){
-    document.getElementById("azione_fattura").display = "flex";
+    document.getElementById("azione_fattura").style.display = "flex";
 }
 function chiudiFormFattura(){
-    document.getElementById("azione_fattura").display = "none";
+    document.getElementById("azione_fattura").style.display = "none";
 }

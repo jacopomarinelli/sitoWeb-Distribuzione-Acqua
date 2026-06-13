@@ -91,11 +91,13 @@ $repo = new FattureRepository();
 
             <!-- popup usato per la creazione/modifica di una fattura -->
             <div id="azione_fattura" class="finestra-fattura">
-                <button class="pulsante-chiusura" onclick="chiudiFormFattura()">
-                    <i class="fa-solid fa-square-xmark pulsante-chiusura"></i>
-                </button>
+                <div class="header-fattura">
+                    <h3 id="compito-azione">INSERISCI I DATI</h3>
 
-                <h5 id="compito-azione">INSERISCI I DATI</h5>
+                    <button class="pulsante-chiusura" onclick="chiudiFormFattura()">
+                        <i class="fa-solid fa-square-xmark pulsante-chiusura"></i>
+                    </button>
+                </div>    
 
                 <form action="" method="GET" class="contenuto-fattura" onsubmit="verificaFattura(event)">
                     <label for="nuovo_num_fat" class="campo">Numero della fattura: </label>

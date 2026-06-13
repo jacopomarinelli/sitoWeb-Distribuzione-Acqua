@@ -139,7 +139,7 @@ footer{
     font-size: small;
 }
 
-/* ELEMENTI POPUP*/
+/* ELEMENTI POPUP PER MESSAGGI */
 .finestra-popup{
     position: fixed;
     top: 0;
@@ -153,7 +153,7 @@ footer{
 }
 
 .contenuto-popup{
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     background: white;
     padding: 5px;
@@ -169,22 +169,6 @@ footer{
 
 .testo-popup{
     display: flex;
-}
-
-.ricerca-popup{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: -15px;
-    padding: 10px 15px 10px 15px;
-    border-radius: 15px;
-}
-
-.avvio-ricerca-popup{
-    margin-top: 10px;
-    padding: 5px 10px 5px 10px;
-    border-radius: 100px;
-    width: 100%;
 }
 
 
@@ -324,7 +308,7 @@ footer{
 }
 
 /* ELEMENTI RICERCA FATTURE */
-.prezzo-fattura{
+.sezione-prezzo{
     display: flex;
     width: 100%;
 }
@@ -334,6 +318,55 @@ footer{
     display: flex;
     flex-direction: column;
     width: 33%;
+}
+
+/* ELEMENTI AZIONI FATTURA */
+.finestra-fattura{
+    background-color: var(--bianco);
+    display: none;  /* modificato con js per attivare/disattivare elemento */
+    flex-direction: column;
+    position: fixed;
+    top: 33%;
+    left: 35%;
+    margin: 25px;
+    padding: 15px;
+    width: 380px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.header-fattura{
+    display: flex;
+    width: 100%;
+}
+
+#compito-azione{
+    text-align: center;
+    margin: 5px;
+    padding: 4px 0 4px 0;
+}
+
+.pulsante-chiusura{
+    float: inline-end;
+    font-size: 20px;
+    margin: 5px;
+    margin-left: auto;
+    background: none;  /* nessuno sfondo o border */
+    border: none;
+    color: var(--rosso_errore); /* per cambiare colore pulsante */
+    cursor: pointer; /* aiuta a visualizzare cliccabilità */
+}
+
+.contenuto-fattura{
+    display: flex;
+    flex-direction: column;
+}
+
+.pulsante-fattura{
+    padding: 5px 10px 5px 10px;
+    border-radius: 100px;
+    width: 100%;
 }
 
 
