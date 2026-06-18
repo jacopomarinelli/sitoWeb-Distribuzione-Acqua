@@ -11,7 +11,8 @@ $repo = new FattureRepository();
 
             <form action="" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
                 <label for="num_fat" class="campo">Numero della fattura: </label>
-                <input type="text" id="num_fat" name="numero_fattura" class="text-area">
+                <input type="text" id="num_fat" name="numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
+                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero">
                 
                 <label for="data_fat" class="campo">Data: </label>
                 <input type="date" id="data_fat" name="data_fattura" class="text-area">
@@ -101,7 +102,8 @@ $repo = new FattureRepository();
 
                 <form action="" method="GET" class="contenuto-fattura" onsubmit="verificaFattura(event)">
                     <label for="nuovo_num_fat" class="campo">Numero della fattura: </label>
-                    <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area">
+                    <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
+                        pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero">
                 
                     <label for="nuova_data_fat" class="campo">Data: </label>
                     <input type="date" id="nuova_data_fat" name="nuova_data_fattura" class="text-area">

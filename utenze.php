@@ -10,12 +10,13 @@ $repo = new UtenzeRepository();
         <div class="pagina">
 
             <form action="" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
-
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
-                <input type="text" id="cod_ut" name="codice" class="text-area">
+                <input type="text" id="cod_ut" name="codice" class="text-area" placeholder="es: 12345678"
+                    pattern="[0-9]{8}" title="8 numeri di seguito">
                 
                 <label for="cod_cli" class="campo">Codice del cliente: </label>
-                <input type="text" id="cod_cli" name="cod_fis" class="text-area">
+                <input type="text" id="cod_cli" name="cod_fis" class="text-area" placeholder="es: AAA111"
+                    pattern="[A-Z]{3}[0-9]{3}" title="3 lettere seguite da 3 numeri">
                 
                 <label for="ind" class="campo">Indirizzo: </label>
                 <input type="text" id="ind" name="indirizzo" class="text-area">

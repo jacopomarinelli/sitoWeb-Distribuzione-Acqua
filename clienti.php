@@ -11,12 +11,12 @@ $repo = new ClientiRepository();
 
             <form action="clienti.php" method="GET" class="ricerca">
                 <label for="cod" class="campo">Codice del cliente: </label>
-                <!-- in tutti input sotto da aggiungere value="es: esempio" e onclick="{document.getElementById('id').value = ''}"
-                 che al click puliscono la scritta interna ma la rimettiono appena tolto il click -->
-                <input type="text" id="cod" name="codice" class="text-area">
+                <input type="text" id="cod" name="codice" class="text-area" placeholder="es: AAA111"
+                    pattern="[A-Z]{3}[0-9]{3}" title="3 lettere seguite da 3 numeri">
                 
                 <label for="cod_fis" class="campo">Codice fiscale del cliente: </label>
-                <input type="text" id="cod_fis" name="codice_fiscale" class="text-area">
+                <input type="text" id="cod_fis" name="codice_fiscale" class="text-area" placeholder="es: ABCDEF12G34H567I" 
+                    pattern="[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}" title="Codice fiscale">
                 
                 <label for="rag_soc" class="campo">Nome dell'azienda: </label>
                 <div class="autocomplete"><input type="text" id="rag_soc" name="ragione_sociale" class="text-area"></div>
