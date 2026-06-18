@@ -11,13 +11,16 @@ $repo = new LettureRepository();
 
             <form autocomplete="off" action="" method="GET" class="ricerca">
                 <label for="num_let" class="campo">Numero lettura: </label>
-                <input type="text" id="num_let" name="numero" class="text-area">
+                <input type="text" id="num_let" name="num_lettura" class="text-area" placeholder="es: 12345678"
+                    pattern="[0-9]{8}" title="8 numeri di seguito">
                 
                 <label for="cod_ute" class="campo">Codice utenza: </label>
-                <input type="text" id="cod_ute" name="utenza" class="text-area">
+                <input type="text" id="cod_ute" name="codice_utenza" class="text-area" placeholder="es: 12345678"
+                    pattern="[0-9]{8}" title="8 numeri di seguito">
                 
-                <label for="fattura" class="campo">Codice fattura (opzionale): </label>
-                <input type="text" id="fattura" name="fattura" class="text-area">
+                <label for="fattura" class="campo">Codice fattura: </label>
+                <input type="text" id="fattura" name="fattura" class="text-area" placeholder="es: FT-2010-12345"
+                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero">
                 
                 <div class="dati-lettura">
                     <div class="data-lettura">
