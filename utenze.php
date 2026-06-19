@@ -26,10 +26,10 @@ $repo = new UtenzeRepository();
                 
                 <div class="attività">
                     <label class="campo">Stato: </label>
-                    <input type="radio" id="attiva" name="stato" value="attiva">
+                    <input type="radio" id="attiva" name="stato" value="attiva" onchange="verificaStato()">
                     <label for="attiva">Attiva</label>
-                    <input type="radio" id="disattiva" name="stato" value="disattiva">
-                    <label for="disattiva">Disattiva</label>
+                    <input type="radio" id="disattiva" name="stato" value="disattiva" onchange="verificaStato()">
+                    <label for="disattiva">Inattiva</label>
                 </div>
 
                 <div class="date-area">
