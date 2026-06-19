@@ -1,11 +1,15 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+/*f19d*/
 
 :root{
-    --beige: #fbf5ec; /* prova questo come beige: #d8be9f */
+    --beige: #ede4d8; /* prova questo come beige: #fbf5ec */
     --arancione: #f28810;
-    --ciano: #327a8d;
+    --ciano: #704c2d;
     --bianco: #fdfbf9;
     --rosso_errore: #cc0000;
+    --beige_Medio:#91826b; /*beige_Medio:#afa28e;*/
+    --nuovo-ciano: #2f7183;
+    --azzurro:#d6ab76;
     
     --ampiezza_ricerca: 18%;  /* larghezza occupata da .ricerca */
 }
@@ -14,7 +18,7 @@
 
 /* ELEMENTI GENERALI */
 body{
-    color: var(--ciano);  /* colore testo */
+    color: var(--nuovo-ciano);  /* colore testo */
     font-weight: 700;
     font-size: 14px;
     
@@ -27,26 +31,56 @@ body{
     margin-bottom: 15px;
     padding: 0;
 }
+.banner::before{
+    content: "\e4ce";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800; /*400 per i simboli vuoti, 800 per i pieni*/
+    font-size: 40px;
+    margin-right: 20px;
+}
 
 .banner{
+
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+    margin: 0 auto;   /* QUESTO lo centra nella pagina */
+
     background-color: var(--beige);
-    text-align: center;
-    padding: 13px;
+    padding: 12px 30px;
 }
 
 /* ELEMENTI NAVIGAZIONE */
 ul {
+    display: flex;
+    justify-content: center;
+
     background-color: var(--bianco);
     list-style-type: none;
+
     margin: 0;
+    margin-left: 450px;
+    margin-right: 450px;
+    margin-bottom: 20px;
+
     padding: 0 0 0 25px;
     overflow: visible;
 
-    box-shadow: 0px 0px 100px 13px rgba(0, 0, 0, 0.05);
-    box-shadow: 0px 3px 0px 0px var(--arancione);
+    border-radius: 20px 20px 20px 20px;
+
+    box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.05),
+                0px 3px 0px 0px var(--nuovo-ciano);
+
+    transition: transform 0.3s ease;
+}
+
+ul:hover{
+    transform: scale(1.02);
 }
 
 ul::after {  /* serve a rendere nav visibile dalla pagina */
+    transition: transform 0.3s ease;
     content: "";
     display: block;
     clear: both;
@@ -58,7 +92,7 @@ ul li {
 
 ul li a {
     display: block;
-    color: var(--ciano);
+    color: var(--nuovo-ciano);
     font-weight: 700;
     text-align: center;
     padding: 15px 20px 15px 20px;
@@ -71,8 +105,8 @@ ul li a:hover {
     background-color: var(--bianco);
     transform: scale(1.2); /* modifica larghezza testo */
 
-    color: var(--arancione);
-    box-shadow: inset 0px 0px 0px 1.5px var(--arancione);
+    color: var(--azzurro);
+    box-shadow: inset 0px 0px 0px 1.5px var(--azzurro);
     border-radius: 15px;
 }
 
@@ -112,9 +146,28 @@ ul li a:hover {
     margin-right: 10px;
 }
 
+.active{
+    background-color: var(--nuovo-ciano);
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+    padding: 5px 12px;
+    margin-top: 10px;
+}
+
 /* PAGINA HOME */
 .home{
     padding: 15px 10px;
+    text-align: center;
+}
+
+.home h3{
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.home p{
+    font-size: 18px;
 }
 
 /* PAGINE (NON HOME) */
@@ -126,16 +179,37 @@ ul li a:hover {
 }
 
 /* ELEMENTI FOOTER */
+footer::before{
+    content: "\f19d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800; /*400 per i simboli vuoti, 800 per i pieni*/
+    font-size: 20px;
+    margin-right: 20px;
+
+    display: block;
+}
+
 footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     color: var(--bianco);
-    background-color: var(--ciano);
-    position: fixed;  /* Posizione è fissa nella pagina web */
-    bottom: 0px;    /* Queste tre righe garantiscono che il footer sia sempre in fondo alla pagina */
-    left: 0px;
-    right: 0px;
+    background-color: var(--nuovo-ciano);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
     text-align: center;
-    padding: 1px;
+    padding: 5px;
     font-size: small;
+    transition: 1s ease;
+}
+
+footer:hover{
+    box-shadow: 0px -14px 65px 0px rgba(82, 245, 250, 1.00);
+    border-radius: 0px;
 }
 
 /* ELEMENTI POPUP PER MESSAGGI */
@@ -178,9 +252,9 @@ footer{
     display: flex;
     flex-direction: column;
     width: var(--ampiezza_ricerca);
-    margin: 25px;
+    margin: 10px;
     padding: 10px 15px 10px 15px;
-    box-shadow: 0px 0px 100px 13px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
 }
 
@@ -211,15 +285,38 @@ footer{
 .svuota-ricerca, .avvio-ricerca{
     padding: 5px 10px 5px 10px;
     border-radius: 100px;
-    box-shadow: 2px 2px rgb(176, 148, 148, 0.7);
+    /*box-shadow: 2px 2px rgb(176, 148, 148, 0.7);*/
     width: 100%;
+
+    cursor: pointer;
 }
 
-#svuota, #avvio{
-    background-color: var(--beige);
-    color: var(--ciano);
+.svuota-ricerca:active {
+    background-color: var(--bianco);
+    color: var(--grigio_testo);
+    transform: scale(0.97);
+}
+
+.avvio-ricerca:active {
+    background-color: var(--bianco);
+    color: var(--grigio_testo);
+    transform: scale(0.97);
+}
+
+#svuota{
+    background-color: var(--bianco);
+    color: var(--nuovo-ciano);
     height: 30px;
     margin: 5px -6px 5px 0;
+    border-color: var(--nuovo-ciano);
+}
+
+#avvio{
+    background-color: var(--nuovo-ciano);
+    color: var(--bianco);
+    height: 30px;
+    margin: 5px -6px 5px 0;
+    border: none;
 }
 
 /* AUTOCOMPLETAMENTO */
@@ -373,13 +470,13 @@ footer{
 .mostra-risultati{
     background-color: var(--bianco);
     flex: 1;  /* prende tutto lo spazio disponibile oltre a .ricerca in .cliente */
-    margin: 25px;
+    margin: 10px;
     padding: 5px 10px 5px 10px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
 
-    box-shadow: 0px 0px 100px 13px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.05);
 }
 
 .campo-ricerca{
@@ -389,7 +486,7 @@ footer{
 }
 
 .risultati{
-    background-color: var(--ciano);
+    background-color: var(--nuovo-ciano);
     flex: 1;
     margin: 5px;
     margin-top: 2px;
@@ -402,7 +499,7 @@ footer{
 /* TABELLA RISULTATI */
 table{
     background-color: var(--beige);
-    border: 3px solid var(--ciano);
+    border: none/*3px solid var(--nuovo-ciano);*/;
     border-collapse: collapse;
     width: 100%;
 }
@@ -412,9 +509,9 @@ tr:nth-child(even) {
 }
 
 th{
-    background-color: var(--ciano);
+    background-color: var(--nuovo-ciano);
     color: var(--bianco);
-    border: 3px solid var(--ciano);
+    border:/*border: 3px solid var(--nuovo-ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
     padding-top: 2px;
@@ -423,7 +520,7 @@ th{
     top: -1px;
 }
 td{
-    border: 3px solid var(--ciano);
+    border: /*3px solid var(--nuovo-ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
     padding-top: 2px;

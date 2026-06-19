@@ -1,5 +1,7 @@
 <!-- questo file va incluso in tutte le pagine -->
 <html>
+    <?php $page = basename($_SERVER['PHP_SELF']);?>
+    
     <head>
         <link rel="stylesheet" href="css/stile.css">
         <!-- L'ordine degli import deve essere funzioni_comuni e poi le altre -->
@@ -17,11 +19,11 @@
 
             <nav>
                 <ul>
-                    <li><a href="index.php" id="home">Home</a></li>
-                    <li><a href="clienti.php" id="clienti">Clienti</a></li>
-                    <li><a href="utenze.php" id="utenze">Utenze</a></li>
-                    <li><a href="letture.php" id="letture">Letture</a></li>
-                    <li><a href="fatture.php" id="fatture">Fatture</a></li>
+                     <li><a href="index.php" id="home" class="<?= $page == 'index.php' ? 'active' : '' ?>">Home</a></li>
+                     <li><a href="clienti.php" id="clienti" class="<?= $page == 'clienti.php' ? 'active' : '' ?>">Clienti</a></li>
+                     <li><a href="utenze.php" id="utenze" class="<?= $page == 'utenze.php' ? 'active' : '' ?>">Utenze</a></li>
+                     <li><a href="letture.php" id="letture" class="<?= $page == 'letture.php' ? 'active' : '' ?>">Letture</a></li>
+                     <li><a href="fatture.php" id="fatture" class="<?= $page == 'fatture.php' ? 'active' : '' ?>">Fatture</a></li>
                 </ul>
             </nav>
         </div>

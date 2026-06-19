@@ -28,8 +28,8 @@ $repo = new ClientiRepository();
                 <div class="autocomplete"><input type="text" id="cit_cli" name="citta" class="text-area"></div>
                 
                 <div class="pulsanti-ricerca">
-                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
                     <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
                 </div> 
 
             </form>

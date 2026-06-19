@@ -44,8 +44,8 @@ $repo = new UtenzeRepository();
                 </div>
                 
                 <div class="pulsanti-ricerca">
-                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
                     <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">
+                    <input type="reset" id="svuota" value="SVUOTA" class="svuota-ricerca">
                 </div>
 
             </form>
