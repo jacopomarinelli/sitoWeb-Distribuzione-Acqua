@@ -9,13 +9,13 @@ $repo = new LettureRepository();
 
         <div class="pagina">
 
-            <form autocomplete="off" action="" method="GET" class="ricerca">
+            <form novalidate action="" method="GET" class="ricerca">
                 <label for="num_let" class="campo">Numero lettura: </label>
                 <input type="text" id="num_let" name="num_lettura" class="text-area" placeholder="es: 12345678"
                     pattern="[0-9]{8}" title="8 numeri di seguito">
                 
                 <label for="cod_ute" class="campo">Codice utenza: </label>
-                <input type="text" id="cod_ute" name="codice_utenza" class="text-area" placeholder="es: 12345678"
+                <input type="text" id="cod_ute" name="codice_utenza" class="text-area" placeholder="es: 10001234"
                     pattern="[0-9]{8}" title="8 numeri di seguito">
                 
                 <label for="fattura" class="campo">Codice fattura: </label>
@@ -30,7 +30,7 @@ $repo = new LettureRepository();
 
                     <div class="valore-lettura" id="valore-lettura">
                         <label for="valore" class="campo">Valore letto: </label>
-                        <input type="number" id="valore" name="valore" class="text-area">
+                        <input type="number" id="valore" name="valore" class="text-area" min="0">
                     </div>
                 </div>
                 
@@ -55,7 +55,7 @@ $repo = new LettureRepository();
                         <th id="col_cod_ute">Codice utenza</th>
                         <th id="cod_cod_fatt">Codice fattura</th>
                         <th id="col_data">Data</th>
-                        <th id="col_valore">Valore</th>
+                        <th id="col_valore">Valore lettura (m<sup>3</sup>)</th>
                     </tr>
 
                     <?php

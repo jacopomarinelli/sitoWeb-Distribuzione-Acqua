@@ -9,7 +9,7 @@ $repo = new FattureRepository();
         
         <div class="pagina">
 
-            <form action="" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
+            <form novalidate action="" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
                 <label for="num_fat" class="campo">Numero della fattura: </label>
                 <input type="text" id="num_fat" name="numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
                     pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero">
@@ -17,7 +17,7 @@ $repo = new FattureRepository();
                 <label for="data_fat" class="campo">Data: </label>
                 <input type="date" id="data_fat" name="data_fattura" class="text-area">
                 
-                <div class="prezzo-fattura">
+                <div class="sezione-prezzo">
                     <div class="campo-prezzo">
                         <label for="imp" class="campo">Imponibile: </label>
                         <input type="text" id="imp" name="imponibile" class="text-area">
@@ -50,7 +50,7 @@ $repo = new FattureRepository();
                     </div>
                     
                     <div class="pulsante-nuova">
-                        <i class="fa-solid fa-square-plus"></i>
+                        <i class="fa-solid fa-square-plus" onclick="apriFormFattura()"></i>
                     </div>
 
                 </div>
@@ -91,6 +91,8 @@ $repo = new FattureRepository();
             </div>
 
             <!-- popup usato per la creazione/modifica di una fattura -->
+            <div id="blocco_schermo"></div>
+
             <div id="azione_fattura" class="finestra-fattura">
                 <div class="header-fattura">
                     <h3 id="compito-azione">INSERISCI I DATI</h3>
@@ -100,28 +102,34 @@ $repo = new FattureRepository();
                     </button>
                 </div>    
 
-                <form action="" method="GET" class="contenuto-fattura" onsubmit="verificaFattura(event)">
-                    <label for="nuovo_num_fat" class="campo">Numero della fattura: </label>
-                    <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
-                        pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero">
-                
-                    <label for="nuova_data_fat" class="campo">Data: </label>
-                    <input type="date" id="nuova_data_fat" name="nuova_data_fattura" class="text-area">
-                
+                <form novalidate action="" method="GET" class="contenuto-fattura" onsubmit="verificaNuovaFattura(event)">
+                    <div class="sezione-info">
+                        <div class="campo-info" id="primo_campo_info">
+                            <label for="nuovo_num_fat" class="campo">Numero della fattura: *</label>
+                            <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
+                                pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero" required>
+                        </div>
+
+                        <div class="campo-info">
+                            <label for="nuova_data_fat" class="campo">Data: *</label>
+                            <input type="date" id="nuova_data_fat" name="nuova_data_fattura" class="text-area" required>
+                        </div>
+                    </div>
+
                     <div class="sezione-prezzo">
-                        <div class="campo-prezzo">
-                            <label for="nuovo_imp" class="campo">Imponibile: </label>
-                            <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area">
+                        <div class="campo-prezzo" id="primo_campo_prezzo">
+                            <label for="nuovo_imp" class="campo">Imponibile: *</label>
+                            <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area" required>
                         </div>
 
                         <div class="campo-prezzo">
-                            <label for="nuova_iva" class="campo">Iva: </label>
-                            <input type="text" id="nuova_iva" name="nuova_iva" class="text-area">
+                            <label for="nuova_iva" class="campo">Iva: *</label>
+                            <input type="text" id="nuova_iva" name="nuova_iva" class="text-area" required>
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuovo_cos_tot" class="campo">Totale: </label>
-                            <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area">
+                            <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area" required>
                         </div>
                     </div>
 

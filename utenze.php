@@ -9,9 +9,9 @@ $repo = new UtenzeRepository();
 
         <div class="pagina">
 
-            <form action="" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
+            <form novalidate action="" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
-                <input type="text" id="cod_ut" name="codice" class="text-area" placeholder="es: 12345678"
+                <input type="text" id="cod_ut" name="codice" class="text-area" placeholder="es: 10001234"
                     pattern="[0-9]{8}" title="8 numeri di seguito">
                 
                 <label for="cod_cli" class="campo">Codice del cliente: </label>
