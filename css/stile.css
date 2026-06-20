@@ -2,14 +2,15 @@
 /*f19d*/
 
 :root{
-    --beige: #ede4d8; /* prova questo come beige: #fbf5ec */
-    --arancione: #f28810;
-    --ciano: #704c2d;
+    --beige: #ede4d8;
+    --arancione: #f28810; /*NON USATO*/
+    --marrone: #704c2d;
     --bianco: #fdfbf9;
     --rosso_errore: #cc0000;
-    --beige_Medio:#91826b; /*beige_Medio:#afa28e;*/
-    --nuovo_ciano: #2f7183;
-    --azzurro:#d6ab76;
+    --beige_Medio: #91826b; /*beige_Medio:#afa28e;*/
+    --nuovo_ciano: #67d4f2; /*#2f7183*/
+    --beige_chiaro: #d6ab76;
+    --colore_testo: #2f7183;
     
     --ampiezza_ricerca: 18%;  /* larghezza occupata da .ricerca */
 }
@@ -18,7 +19,7 @@
 
 /* ELEMENTI GENERALI */
 body{
-    color: var(--nuovo_ciano);  /* colore testo */
+    color: var(--colore_testo);  /* colore testo */
     font-weight: 700;
     font-size: 14px;
     
@@ -92,7 +93,7 @@ ul li {
 
 ul li a {
     display: block;
-    color: var(--nuovo_ciano);
+    color: var(--colore_testo);
     font-weight: 700;
     text-align: center;
     padding: 15px 20px 15px 20px;
@@ -105,8 +106,8 @@ ul li a:hover {
     background-color: var(--bianco);
     transform: scale(1.2); /* modifica larghezza testo */
 
-    color: var(--azzurro);
-    box-shadow: inset 0px 0px 0px 1.5px var(--azzurro);
+    color: var(--beige_chiaro);
+    box-shadow: inset 0px 0px 0px 1.5px var(--beige_chiaro);
     border-radius: 15px;
 }
 
@@ -529,12 +530,12 @@ table{
 }
 
 tr:nth-child(even) {
-    background-color: white;
+    background-color: var(--bianco);
 }
 
 th{
     background-color: var(--nuovo_ciano);
-    color: var(--bianco);
+    color: var(--colore_testo);
     border:/*border: 3px solid var(--nuovo_ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
@@ -598,7 +599,7 @@ td{
     font-size: 30px;  /* grandezza icona */
     background: none;  /* nessuno sfondo o border */
     border: none;
-    color: var(--ciano); /* per cambiare colore pulsante */
+    color: var(--marrone); /* per cambiare colore pulsante */
     cursor: pointer; /* aiuta a visualizzare cliccabilità */
 }
 
