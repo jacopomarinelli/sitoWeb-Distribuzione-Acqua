@@ -9,23 +9,25 @@ $repo = new ClientiRepository();
         
         <div class="pagina">
 
-            <form novalidate action="clienti.php" method="GET" class="ricerca">
+            <form action="clienti.php" method="GET" class="ricerca">
                 <label for="cod" class="campo">Codice del cliente: </label>
                 <input type="text" id="cod" name="codice" class="text-area" placeholder="es: AAA111"
-                    pattern="[A-Z]{3}[0-9]{3}" title="3 lettere seguite da 3 numeri" >
+                    pattern="[A-Z]{3}[0-9]{3}" title="COdice di 3 lettere seguite da 3 numeri" >
                 
                 <label for="cod_fis" class="campo">Codice fiscale del cliente: </label>
                 <input type="text" id="cod_fis" name="codice_fiscale" class="text-area" placeholder="es: ABCDEF12G34H567I" 
                     pattern="[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}" title="Codice fiscale">
                 
                 <label for="rag_soc" class="campo">Nome dell'azienda: </label>
-                <div class="autocomplete"><input type="text" id="rag_soc" name="ragione_sociale" class="text-area"></div>
+                <div class="autocomplete"><input type="text" id="rag_soc" name="ragione_sociale" class="text-area"
+                    placeholder="Inserisci nome dell'azienda"></div>
                 
                 <label for="ind_cli" class="campo">Indirizzo: </label>
-                <input type="text" id="ind_cli" name="indirizzo" class="text-area">
+                <input type="text" id="ind_cli" name="indirizzo" class="text-area" placeholder="Inserisci indirizzo del cliente">
                 
                 <label for="cit_cli" class="campo">Città: </label>
-                <div class="autocomplete"><input type="text" id="cit_cli" name="citta" class="text-area"></div>
+                <div class="autocomplete"><input type="text" id="cit_cli" name="citta" class="text-area"
+                    placeholder="Inserisci nome della città"></div>
                 
                 <div class="pulsanti-ricerca">
                     <input type="submit" id="avvio" value="CERCA" class="avvio-ricerca">

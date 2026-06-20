@@ -9,28 +9,29 @@ $repo = new LettureRepository();
 
         <div class="pagina">
 
-            <form novalidate action="" method="GET" class="ricerca">
+            <form action="" method="GET" class="ricerca">
                 <label for="num_let" class="campo">Numero lettura: </label>
                 <input type="text" id="num_let" name="num_lettura" class="text-area" placeholder="es: 12345678"
-                    pattern="[0-9]{8}" title="8 numeri di seguito">
+                    pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="cod_ute" class="campo">Codice utenza: </label>
                 <input type="text" id="cod_ute" name="codice_utenza" class="text-area" placeholder="es: 10001234"
-                    pattern="[0-9]{8}" title="8 numeri di seguito">
+                    pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="fattura" class="campo">Codice fattura: </label>
                 <input type="text" id="fattura" name="fattura" class="text-area" placeholder="es: FT-2010-12345"
-                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero">
+                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT(in maiuscolo)-anno-numero di 5 cifre">
                 
                 <div class="dati-lettura">
                     <div class="data-lettura">
                         <label for="data" class="campo">Data: </label>
-                        <input type="date" id="data" name="data" class="text-area">
+                        <input type="text" id="data" name="data" class="text-area" placeholder="es: 01/01/2001"
+                            pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
                     </div>
 
                     <div class="valore-lettura" id="valore-lettura">
                         <label for="valore" class="campo">Valore letto: </label>
-                        <input type="number" id="valore" name="valore" class="text-area" min="0">
+                        <input type="number" id="valore" name="valore" class="text-area" min="0" placeholder="Inserisci valore">
                     </div>
                 </div>
                 

@@ -9,20 +9,21 @@ $repo = new UtenzeRepository();
 
         <div class="pagina">
 
-            <form novalidate action="" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
+            <form action="" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
                 <input type="text" id="cod_ut" name="codice" class="text-area" placeholder="es: 10001234"
-                    pattern="[0-9]{8}" title="8 numeri di seguito">
+                    pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="cod_cli" class="campo">Codice del cliente: </label>
                 <input type="text" id="cod_cli" name="cod_fis" class="text-area" placeholder="es: AAA111"
-                    pattern="[A-Z]{3}[0-9]{3}" title="3 lettere seguite da 3 numeri">
+                    pattern="[A-Z]{3}[0-9]{3}" title="Codice di 3 lettere seguite da 3 numeri">
                 
                 <label for="ind" class="campo">Indirizzo: </label>
-                <input type="text" id="ind" name="indirizzo" class="text-area">
+                <input type="text" id="ind" name="indirizzo" class="text-area" placeholder="Inserisci indirizzo del cliente">
                 
                 <label for="cit_ut" class="campo">Città: </label>
-                <div class="autocomplete"><input type="text" id="cit_ut" name="citta" class="text-area"></div>
+                <div class="autocomplete"><input type="text" id="cit_ut" name="citta" class="text-area"
+                    placeholder="Inserisci nome della città"></div>
                 
                 <div class="attività">
                     <label class="campo">Stato: </label>
@@ -35,11 +36,13 @@ $repo = new UtenzeRepository();
                 <div class="date-area">
                     <div class="campo-data">
                         <label for="data_ap" class="campo">Data apertura: </label>
-                        <input type="date" id="data_ap" name="data_ap" class="data-area">
+                        <input type="text" id="data_ap" name="data_ap" class="date-area" placeholder="es: 01/01/2001"
+                            pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
                     </div>
                     <div class="campo-data" id="campo-data-chiusura">
                         <label for="data_ch" class="campo">Data chiusura: </label>
-                        <input type="date" id="data_ch" name="data_ch" class="date-area">
+                        <input type="text" id="data_ch" name="data_ch" class="date-area" placeholder="es: 01/01/2001"
+                            pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
                     </div>
                 </div>
                 
@@ -61,10 +64,10 @@ $repo = new UtenzeRepository();
                         <tr>
                             <th id="col_cod_utenza">Codice utenza</th>
                             <th id="col_cod_cliente">Codice cliente</th>
-                            <th id="col_data_apertura">Data apertura</th>
                             <th id="col_indirizzo">Indirizzo</th>
                             <th id="col_città">Città</th>
                             <th id="col_stato">Stato</th>
+                            <th id="col_data_apertura">Data apertura</th>
                             <th id="col_data_chiusura">Data chiusura</th>
                         </tr>
 
@@ -78,10 +81,10 @@ $repo = new UtenzeRepository();
 
                         echo "<td>" . htmlspecialchars($utenza['CODICE']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['CLIENTE']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['INDIRIZZO']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['CITTA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
+                        echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
                         
                         echo "</tr>";
