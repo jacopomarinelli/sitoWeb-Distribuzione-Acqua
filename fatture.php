@@ -142,8 +142,11 @@ $repo = new FattureRepository();
             </div>
 
         </div>
+        
 
-<!-- Qui va inserito codice pagina -->
+        <script src="js/fatture.js" defer></script>
+
+<!--  -->
 <?php
 include 'footer.php';
 ?>

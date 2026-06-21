@@ -4,11 +4,9 @@
     
     <head>
         <link rel="stylesheet" href="css/stile.css">
-        <!-- L'ordine degli import deve essere funzioni_comuni e poi le altre -->
+        <!-- import di file js che servono a tutte le pagine -->
         <script src="js/funzioni_comuni.js" defer></script>
         <script src="js/autocompletamento.js" defer></script>
-        <script src="js/fatture.js" defer></script>
-        <script src="js/utenze.js" defer></script>
     </head>
     <body>
         

@@ -9,10 +9,10 @@ $repo = new ClientiRepository();
         
         <div class="pagina">
 
-            <form action="clienti.php" method="GET" class="ricerca">
+            <form action="clienti.php" method="GET" class="ricerca" onsubmit="verificaCliente(event)">
                 <label for="cod" class="campo">Codice del cliente: </label>
                 <input type="text" id="cod" name="codice" class="text-area" placeholder="es: AAA111"
-                    pattern="[A-Z]{3}[0-9]{3}" title="COdice di 3 lettere seguite da 3 numeri" >
+                    pattern="[A-Z]{3}[0-9]{3}" title="Codice di 3 lettere seguite da 3 numeri" >
                 
                 <label for="cod_fis" class="campo">Codice fiscale del cliente: </label>
                 <input type="text" id="cod_fis" name="codice_fiscale" class="text-area" placeholder="es: ABCDEF12G34H567I" 
@@ -79,7 +79,10 @@ $repo = new ClientiRepository();
 
         </div>
 
-<!-- Qui va inserito codice pagina -->
+
+        <script src="js/clienti.js" defer></script>
+
+<!--  -->
 <?php
 include 'footer.php';
 ?>

@@ -85,7 +85,10 @@ $repo = new LettureRepository();
 
         </div>
 
-<!-- Qui va inserito codice pagina -->
+
+        <script src="js/letture.js" defer></script>
+
+<!--  -->
 <?php
 include 'footer.php';
 ?>

@@ -1,7 +1,9 @@
 /* CONTROLLO GENERALE */
 function verificaUtenza(event) {
-    verificaCronologicamenteDate(event);
+    if (!verificaCronologicamenteDate(event)) {return};
+    salvaUtenza();
 }
+
 
 /* CONTROLLO CHE DATA CHIUSURA SIA DOPO DATA APERTURA */
 function verificaCronologicamenteDate(event) {
@@ -27,3 +29,36 @@ function verificaStato() {  // abilita e disabilita la data di chiusura
         data.disabled = false;  // abilita campo data
     }
 }
+
+/* SALVA DATI DELLA RICERCA */
+function salvaUtenza() {
+    const utenza = {
+        cod_utenza: document.getElementById("cod_ut").value,
+        cod_cliente: document.getElementById("cod_cli").value,
+        indirizzo: document.getElementById("ind").value,
+        città: document.getElementById("cit_ut").value,
+        attiva: document.getElementById("attiva").value,
+        disattiva: document.getElementById("disattiva").value,
+        data_apertura: document.getElementById("data_ap").value,
+        data_chiusura: document.getElementById("data_ch").value
+    };
+    sessionStorage.setItem(
+        "ricercaUtenza",
+        JSON.stringify(utenza)
+    );
+}
+document.addEventListener("DOMContentLoaded", function() {
+    const dati = JSON.parse(
+        sessionStorage.getItem("ricercaUtenza")
+    );
+
+    if (!dati) return;
+    document.getElementById("cod_ut").value = dati.cod_utenza;
+    document.getElementById("cod_cli").value = dati.cod_cliente;
+    document.getElementById("ind").value = dati.indirizzo;
+    document.getElementById("cit_ut").value = dati.città;
+    document.getElementById("attiva").value = dati.attiva;
+    document.getElementById("disattiva").value = dati.disattiva;
+    document.getElementById("data_ap").value = dati.data_apertura;
+    document.getElementById("data_ch").value = dati.data_chiusura;
+});

@@ -97,6 +97,9 @@ $repo = new UtenzeRepository();
             </div>
 
         </div>
+        
+
+        <script src="js/utenze.js" defer></script>
 
 <!--  -->
 <?php

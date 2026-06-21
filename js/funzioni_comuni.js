@@ -14,8 +14,8 @@ function apriPopup() {
 }
 
 function chiudiPopup() {
+    document.getElementById("messaggio_popup").innerText = "";  // pulisce contenuto del popup
     document.getElementById("popup").style.display = "none";
-    document.getElementById("messaggio_popup") = "";  // pulisce contenuto del popup
 }
 
 function chiudiSeFuori(event) {
