@@ -7,11 +7,22 @@ const aziende = ["PureFlow Idrica Srl di Alessandro Ricci", "Rete Idrica Naziona
 "Gestione Idrica Integrata SpA di Francesco Bianchi", "Acquedotto Centrale Italiano Srl di Antonio Romano", "Acque Chiare Servizi Srl di Marco Rossi",
 "Sorgenti d'Italia Srl di Roberto Marino", "Idro Distribuzione Italiana SpA di Luca Russo", "Idrogest Italia SpA di Paolo De Luca"];
 
-// Array contenente tutte le città
-const città = ["Ancona", "Andria", "Arezzo", "Bari", "Bergamo", "Bologna", "Bolzano", "Brescia", "Cagliari", "Catania", "Catanzaro", "Cesena",
+// Array contenente tutte le città dei clienti
+const cittàClienti = ["Ancona", "Andria", "Arezzo", "Bari", "Bergamo", "Bologna", "Bolzano", "Brescia", "Cagliari", "Catania", "Catanzaro", "Cesena",
 "Cosenza", "Ferrara", "Firenze", "Foggia", "Forlì", "Genova", "Latina", "Lecce", "Livorno", "Milano", "Modena", "Monza", "Napoli", "Novara",
 "Padova", "Palermo", "Parma", "Perugia", "Pescara", "Piacenza", "Prato", "Ravenna", "Reggio Calabria", "Reggio Emilia", "Rimini", "Roma",
 "Salerno", "Sassari", "Siracusa", "Taranto", "Terni", "Torino", "Trento", "Trieste", "Udine", "Venezia", "Verona", "Vicenza"];
+
+// Array contenente tutte le città delle utenze
+const cittàUtenze = ["Agrigento", "Alessandria", "Ancona", "Andria", "Arezzo", "Ascoli Piceno", "Asti", "Avellino", "Bari", "Barletta",
+"Belluno", "Benevento", "Bergamo", "Biella", "Bologna", "Bolzano", "Brescia", "Brindisi", "Cagliari", "Caltanissetta", "Caserta", "Catania",
+"Catanzaro", "Cesena", "Chieti", "Como", "Cosenza", "Cremona", "Crotone", "Cuneo", "Fermo", "Ferrara", "Firenze", "Foggia", "Foligno", "Forlì",
+"Frosinone", "Giugliano", "Gorizia", "Grosseto", "L'Aquila", "Latina", "Lecce", "Lecco", "Livorno", "Lodi", "Lucca", "Macerata", "Mantova",
+"Messina", "Milano", "Modena", "Monza", "Napoli", "Novara", "Nuoro", "Olbia", "Oristano", "Padova", "Palermo", "Parma", "Pavia", "Perugia",
+"Pesaro", "Pescara", "Piacenza", "Pisa", "Pistoia", "Pordenone", "Prato", "Ragusa", "Ravenna", "Reggio Calabria", "Reggio Emilia", "Rieti",
+"Rimini", "Roma", "Rovereto", "Rovigo", "Salerno", "Sassari", "Siena", "Siracusa", "Sondrio", "Spoleto", "Taranto", "Teramo", "Terni", "Torino",
+"Trapani", "Trento", "Treviso", "Trieste", "Udine", "Varese", "Venezia", "Vercelli", "Verona", "Vibo Valentia", "Vicenza", "Viterbo"
+];
 
 /* GESTIONE AUTOCOMPLETE */
 function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di possibili opzioni
@@ -86,8 +97,8 @@ function autocomplete(inp, arr) {  // argomenti sono il campo text e lista di po
 document.addEventListener("DOMContentLoaded", function () {
     const config = [
         { id: "rag_soc", list: aziende },
-        { id: "cit_cli", list: città },
-        { id: "cit_ut", list: città }
+        { id: "cit_cli", list: cittàClienti },
+        { id: "cit_ut", list: cittàUtenze }
     ];
     config.forEach(item => {
         const el = document.getElementById(item.id);

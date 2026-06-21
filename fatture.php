@@ -9,13 +9,13 @@ $repo = new FattureRepository();
         
         <div class="pagina">
 
-            <form action="" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
+            <form action="fatture.php" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
                 <label for="num_fat" class="campo">Numero della fattura: </label>
                 <input type="text" id="num_fat" name="numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
                     pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT(in maiuscolo)-anno-numero di 5 cifre">
                 
                 <label for="data_fat" class="campo">Data: </label>
-                <input type="text" id="data_fat" name="data_fattura" class="text-area" placeholder="es: 01/01/2001"
+                <input type="text" id="data_fat" name="data_fattura" class="text-area" placeholder="es: 01/01/2026"
                     pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
                 
                 <div class="sezione-prezzo">
@@ -113,7 +113,7 @@ $repo = new FattureRepository();
 
                         <div class="campo-info">
                             <label for="nuova_data_fat" class="campo">Data: *</label>
-                            <input type="date" id="nuova_data_fat" name="nuova_data_fattura" class="text-area" required placeholder="es: 01/01/2001"
+                            <input type="text" id="nuova_data_fat" name="nuova_data_fattura" class="text-area" required placeholder="es: 01/01/2001"
                                 pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
                         </div>
                     </div>
@@ -122,18 +122,18 @@ $repo = new FattureRepository();
                         <div class="campo-prezzo" id="primo_campo_prezzo">
                             <label for="nuovo_imp" class="campo">Imponibile: *</label>
                             <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area" required
-                                onchange="calcolaTotale()">
+                                placeholder="Inserisci valore" onchange="calcolaTotale()">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuova_iva" class="campo">Iva: *</label>
                             <input type="text" id="nuova_iva" name="nuova_iva" class="text-area" required
-                                onchange="calcolaTotale()">
+                                placeholder="Inserisci valore" onchange="calcolaTotale()">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuovo_cos_tot" class="campo">Totale: </label>
-                            <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area">
+                            <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area" placeholder="Inserisci valore">
                         </div>
                     </div>
 

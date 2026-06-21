@@ -6,14 +6,22 @@ function verificaUtenza(event) {
 
 
 /* CONTROLLO CHE DATA CHIUSURA SIA DOPO DATA APERTURA */
+function modificaTipoData(id_data) {
+    const valore = document.getElementById(id_data).value;
+    const [giorno, mese, anno] = valore.split("/");
+    return new Date(anno, mese-1, giorno);
+}
+
 function verificaCronologicamenteDate(event) {
-    let apertura = new Date(document.getElementById("data_ap").value);
-    let chiusura = new Date(document.getElementById("data_ch").value);
+    let apertura = modificaTipoData("data_ap");
+    let chiusura = modificaTipoData("data_ch");
     if (apertura > chiusura){
         event.preventDefault();
         creaMessaggioErrore("La data di chiusura precede la data di apertura.");
         apriPopup();
+        return false;
     }
+    return true;
 }
 
 /* CONTROLLO SU STATO E DATA DI CHIUSURA */
