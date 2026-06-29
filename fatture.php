@@ -1,9 +1,52 @@
 <?php
-include 'header.php';
 require_once 'backend/Database.php';
 require_once 'backend/FattureRep.php';
 
 $repo = new FattureRepository();
+
+if (isset($_GET['action']) && $_GET['action'] === 'inserisci') {
+
+    $fattura = [
+        'numero' => $_POST['nuovo_numero_fattura'],
+        'data' => $_POST['nuova_data_fattura'],
+        'imponibile' => $_POST['nuovo_imponibile'],
+        'iva' => $_POST['nuova_iva'],
+        'totale' => $_POST['nuovo_totale']
+    ];
+
+    if ($repo->insertOperation($fattura)) {
+        header("Location: fatture.php");
+        exit;
+    }
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'elimina') {
+
+    $fatture = json_decode(file_get_contents("php://input"), true);
+
+    $repo->deleteOperation($fatture);
+
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'modifica') {
+
+    $fattura = [
+        'numero' => $_POST['nuovo_numero_fattura'],
+        'data' => $_POST['nuova_data_fattura'],
+        'imponibile' => $_POST['nuovo_imponibile'],
+        'iva' => $_POST['nuova_iva'],
+        'totale' => $_POST['nuovo_totale']
+    ];
+
+    if ($repo->updateOperation($fattura)) {
+        header("Location: fatture.php");
+        exit;
+    }
+}
+
+include 'header.php';
+
 ?>
 <!-- Qui va inserito codice pagina -->
         
@@ -51,7 +94,9 @@ $repo = new FattureRepository();
                     </div>
                     
                     <div class="pulsante-nuova">
-                        <i class="fa-solid fa-square-plus" onclick="apriFormFattura()"></i>
+                        <i class="fa-solid fa-square-plus" onclick="nuovaFattura()"></i>
+                        <i class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="modificaFattura()"></i>
                     </div>
 
                 </div>
@@ -73,7 +118,7 @@ $repo = new FattureRepository();
                         
                         foreach ($fatture as $fattura) {
 
-                        echo "<tr>";
+                        echo "<tr data-numero='" . htmlspecialchars($fattura['NUMERO']) . "'>";
 
                         echo "<td>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['DATA']) . "</td>";
@@ -82,7 +127,6 @@ $repo = new FattureRepository();
                         echo "<td>" . htmlspecialchars($fattura['TOTALE']) . "</td>";
 
                         echo "</tr>";
-                        
                     }?>
                     
                 </table>
@@ -103,7 +147,7 @@ $repo = new FattureRepository();
                     </button>
                 </div>    
 
-                <form action="" method="GET" class="contenuto-fattura" onsubmit="verificaNuovaFattura(event)">
+                <form action="fatture.php?action=inserisci" method="POST" class="contenuto-fattura" onsubmit="">
                     <div class="sezione-info">
                         <div class="campo-info" id="primo_campo_info">
                             <label for="nuovo_num_fat" class="campo">Numero della fattura: *</label>
@@ -145,6 +189,7 @@ $repo = new FattureRepository();
         
 
         <script src="js/fatture.js" defer></script>
+        <script src="js/selezione.js" defer></script>
 
 <!--  -->
 <?php

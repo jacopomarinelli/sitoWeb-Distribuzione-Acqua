@@ -42,8 +42,56 @@ class FattureRepository {
 
     public function trovaPerId(string $codice): ?array {
         $stmt = $this->db->prepare("SELECT * FROM FATTURE WHERE NUMERO = :numero_fatture");
-        $stmt->execute(['utenza' => $codice]);
+        $stmt->execute(['numero_fatture' => $codice]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result ?: null;
     }
+
+    public function insertOperation(array $fattura){
+        $sql = "INSERT INTO FATTURE(DATA, IMPONIBILE, IVA, NUMERO, TOTALE) 
+                VALUES(:data, :imponibile, :iva, :numero, :totale)";
+        $stm = $this->db->prepare($sql);
+        return $stm->execute([
+            'numero' => $fattura['numero'],
+            'data' => $fattura['data'],
+            'imponibile' => $fattura['imponibile'],
+            'iva' => $fattura['iva'],
+            'totale' => $fattura['totale']
+        ]);
+        
+    }
+
+    public function deleteOperation(array $fatture): bool {
+
+    $sql = "DELETE FROM FATTURE WHERE NUMERO = :numero";
+    $stmt = $this->db->prepare($sql);
+
+    foreach ($fatture as $numero) {
+        $stmt->execute([
+            'numero' => $numero
+        ]);
+    }
+
+    return true;
+}
+    public function updateOperation(array $fattura): bool {
+
+    $sql = "UPDATE FATTURE
+            SET DATA = :data,
+                IMPONIBILE = :imponibile,
+                IVA = :iva,
+                TOTALE = :totale
+            WHERE NUMERO = :numero";
+
+    $stmt = $this->db->prepare($sql);
+
+    return $stmt->execute([
+        'numero' => $fattura['numero'],
+        'data' => $fattura['data'],
+        'imponibile' => $fattura['imponibile'],
+        'iva' => $fattura['iva'],
+        'totale' => $fattura['totale']
+    ]);
+}
+
 }

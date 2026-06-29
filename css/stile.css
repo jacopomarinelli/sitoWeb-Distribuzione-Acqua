@@ -11,6 +11,7 @@
     --sfumatura_ciano: #92dbef;
     --beige_chiaro: #eadac7;
     --colore_testo: #246171;
+    --selezione: #b3aff9;
     
     --ampiezza_ricerca: 18%;  /* larghezza occupata da .ricerca */
 }
@@ -606,4 +607,19 @@ td{
 
 #col_num_fattura, #col_data_fattura, #col_imponibile, #col_iva, #col_totale{
     width: 20%;
+}
+
+/*SELEZIONE ED INTERAZIONE*/
+
+table tr.selezionata {
+    background-color: var(--selezione) !important;
+    opacity: 1 !important;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--ciano);
+}
+
+table tr:nth-child(odd) {
+    background-color: var(--bianco);
 }

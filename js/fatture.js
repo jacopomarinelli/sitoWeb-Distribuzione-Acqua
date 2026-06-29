@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* FUNZIONI FORM AZIONE FATTURA */
 function apriFormFattura(){
+    document.querySelector(".contenuto-fattura").action ="fatture.php?action=inserisci";
     document.getElementById("blocco_schermo").style.display = "block"; // blocca interazioni con pagina sottostante
     document.getElementById("azione_fattura").style.display = "flex"; // mostra finestra
 }
