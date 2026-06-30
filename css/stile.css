@@ -12,6 +12,9 @@
     --beige_chiaro: #eadac7;
     --colore_testo: #246171;
     --selezione: rgba(3, 228, 228, 0.37);
+
+    --verde: #1eff00;
+    --giallo: #ffd900;
     
     --ampiezza_ricerca: 18%;  /* larghezza occupata da .ricerca */
 }
@@ -26,7 +29,6 @@ body{
     
     font-family: sans-serif;
     background-color: var(--beige_chiaro);
-    display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0;
@@ -61,15 +63,14 @@ ul {
     background-color: var(--bianco);
     list-style-type: none;
 
-    margin: 0;
-    margin-left: 450px;
-    margin-right: 450px;
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 625px;
+    margin: 0 auto 20px auto;
 
-    padding: 0 0 0 25px;
+    padding: 0 0 0 0px;
     overflow: visible;
 
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
 
     box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.05),
                 0px 3px 0px 0px var(--nuovo_ciano);
@@ -432,6 +433,7 @@ footer:hover{
 }
 
 /* ELEMENTI AZIONI FATTURA */
+
 #blocco_schermo{
     display: none;  /* modificato con js per attivare/disattivare elemento */
     position: fixed;
@@ -439,6 +441,17 @@ footer:hover{
     background: rgba(0, 0, 0, 0.3);
     z-index: 999;   /* sta sotto finestra-fattura ma sopra la pagina */
 }
+
+#btn-aggiungi:hover{
+    color: var(--verde);
+}
+#btn-elimina:hover{
+    color: var(--rosso_errore);
+}
+#btn-modifica:hover{
+    color: var(--giallo);
+}
+
 
 .finestra-fattura{
     background-color: var(--bianco);
@@ -567,8 +580,8 @@ th{
     border:/*border: 3px solid var(--nuovo_ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     position: sticky;  /* blocca prima riga tabella in alto */
     top: -1px;
 }
@@ -576,8 +589,8 @@ td{
     border: /*3px solid var(--nuovo_ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 #col_cod_cli, #col_città_cliente{

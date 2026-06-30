@@ -94,9 +94,9 @@ include 'header.php';
                     </div>
                     
                     <div class="pulsante-nuova">
-                        <i class="fa-solid fa-square-plus" onclick="cambiaTitolo('inserisci'); nuovaFattura();"></i>
-                        <i class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
-                        <i class="fa-solid fa-pen-to-square" onclick="cambiaTitolo('modifica'); modificaFattura()"></i>
+                        <i id="btn-aggiungi" class="fa-solid fa-square-plus" onclick="cambiaTitolo('inserisci'); nuovaFattura();"></i>
+                        <i id="btn-elimina" class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
+                        <i id="btn-modifica" class="fa-solid fa-pen-to-square" onclick="cambiaTitolo('modifica'); modificaFattura()"></i>
                     </div>
 
                 </div>
