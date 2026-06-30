@@ -101,3 +101,13 @@ function chiudiFormFattura(){
     document.getElementById("blocco_schermo").style.display = ""; // annulla blocco schermo
     document.getElementById("azione_fattura").style.display = "none"; // nasconde finestra
 }
+
+function cambiaTitolo(stato) {
+    if(stato === "inserisci") {
+        document.getElementById("compito-azione").textContent = "INSERISCI I DATI";
+        document.getElementById("popup_invio").value = "AGGIUNGI";
+    } else if(stato === "modifica") {
+        document.getElementById("compito-azione").textContent = "MODIFICA I DATI";
+        document.getElementById("popup_invio").value = "SALVA E CHIUDI";
+    }
+}

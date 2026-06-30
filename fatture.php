@@ -94,9 +94,9 @@ include 'header.php';
                     </div>
                     
                     <div class="pulsante-nuova">
-                        <i class="fa-solid fa-square-plus" onclick="nuovaFattura()"></i>
+                        <i class="fa-solid fa-square-plus" onclick="cambiaTitolo('inserisci'); nuovaFattura();"></i>
                         <i class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
-                        <i class="fa-solid fa-pen-to-square" onclick="modificaFattura()"></i>
+                        <i class="fa-solid fa-pen-to-square" onclick="cambiaTitolo('modifica'); modificaFattura()"></i>
                     </div>
 
                 </div>
@@ -140,7 +140,7 @@ include 'header.php';
 
             <div id="azione_fattura" class="finestra-fattura">
                 <div class="header-fattura">
-                    <h3 id="compito-azione">INSERISCI I DATI</h3>
+                    <h3 id="compito-azione"></h3>
 
                     <button class="pulsante-chiusura" onclick="chiudiFormFattura()">
                         <i class="fa-solid fa-square-xmark pulsante-chiusura"></i>
@@ -181,7 +181,7 @@ include 'header.php';
                         </div>
                     </div>
 
-                    <input type="submit" id="avvio" value="AGGIUNGI" class="pulsante-fattura">
+                    <input type="submit" id="popup_invio" value="" class="pulsante-fattura">
                 </form>
             </div>
 

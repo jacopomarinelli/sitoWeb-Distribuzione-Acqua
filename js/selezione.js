@@ -56,15 +56,13 @@ function modificaFattura() {
         return;
     }
 
-    // 1. APRI PRIMA IL FORM: in questo modo eventuali reset
-    // predefiniti della modale vengono eseguiti subito
     apriFormFattura();
 
     // 2. RECUPERA I DATI DALLA RIGA SELEZIONATA
     const riga = document.querySelector("tr.selezionata");
     const celle = riga.querySelectorAll("td");
 
-    // 3. INIETTA I DATI (usando .trim() per rimuovere eventuali spazi invisibili)
+    // 3. INIETTA I DATI
     const inputNumero = document.getElementById("nuovo_num_fat");
     inputNumero.value = celle[0].textContent.trim();
     
@@ -101,7 +99,8 @@ function nuovaFattura() {
     document.getElementById("nuovo_imp").value = "";
     document.getElementById("nuova_iva").value = "";
     document.getElementById("nuovo_cos_tot").value = "";
+    
 
-    // 5. Infine, chiama la funzione esistente per mostrare il popup a schermo
+    // 5. chiama la funzione esistente per mostrare il popup a schermo
     apriFormFattura();
 }
