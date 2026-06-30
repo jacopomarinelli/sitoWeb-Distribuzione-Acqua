@@ -48,18 +48,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
 include 'header.php';
 
 ?>
+<script src="js/selezione.js" defer></script>
 <!-- Qui va inserito codice pagina -->
         
         <div class="pagina">
 
             <form action="fatture.php" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
                 <label for="num_fat" class="campo">Numero della fattura: </label>
-                <input type="text" id="num_fat" name="numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
+                <input type="text" id="num_fat" name="numero_fattura" class="text-area" placeholder="es: FT-2026-12345"
                     pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT(in maiuscolo)-anno-numero di 5 cifre">
                 
                 <label for="data_fat" class="campo">Data: </label>
-                <input type="text" id="data_fat" name="data_fattura" class="text-area" placeholder="es: 01/01/2026"
-                    pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
+                <input type="text" id="data_fat" name="data_fattura" class="text-area widget-data" placeholder="gg/mm/aaaa"
+                    readonly>
                 
                 <div class="sezione-prezzo">
                     <div class="campo-prezzo">
@@ -151,14 +152,14 @@ include 'header.php';
                     <div class="sezione-info">
                         <div class="campo-info" id="primo_campo_info">
                             <label for="nuovo_num_fat" class="campo">Numero della fattura: *</label>
-                            <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area" placeholder="es: FT-2010-12345"
+                            <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area" placeholder="es: FT-2026-12345"
                                 pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero" required>
                         </div>
 
                         <div class="campo-info">
                             <label for="nuova_data_fat" class="campo">Data: *</label>
-                            <input type="text" id="nuova_data_fat" name="nuova_data_fattura" class="text-area" required placeholder="es: 01/01/2001"
-                                pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
+                            <input type="text" id="nuova_data_fat" name="nuova_data_fattura" class="text-area widget-data" required
+                                placeholder="gg/mm/aaaa" readonly>
                         </div>
                     </div>
 
@@ -189,7 +190,6 @@ include 'header.php';
         
 
         <script src="js/fatture.js" defer></script>
-        <script src="js/selezione.js" defer></script>
 
 <!--  -->
 <?php

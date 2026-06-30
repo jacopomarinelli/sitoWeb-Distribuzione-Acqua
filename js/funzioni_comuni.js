@@ -1,3 +1,15 @@
+/* FUNZIONE WIDGET DATA */
+$(function () {
+    $.datepicker.setDefaults($.datepicker.regional["it"]); // mette in italiano
+    $(".widget-data").datepicker({  // aggiunge widget a tutti elementi con classe widget-data
+        dateFormat: "dd/mm/yy",  // selezione formato 
+        firstDay: 1, // parte da lunedì
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "2020:2030"
+    });
+});
+
 /* FUNZIONI POPUP */
 function creaMessaggioErrore(messaggio) {  // mostra messaggio di errore nel popup
     document.getElementById("messaggio_popup").innerHTML = `

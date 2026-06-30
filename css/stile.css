@@ -1,5 +1,4 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
-/*f19d*/
 
 :root{
     --beige: #ede4d8;
@@ -105,12 +104,12 @@ ul li a {
 }
 
 ul li a:hover {
-    background-color: var(--bianco);
-    transform: scale(1.2); /* modifica larghezza testo */
-
-    color: var(--beige_chiaro);
-    box-shadow: inset 0px 0px 0px 1.5px var(--beige_chiaro);
-    border-radius: 15px;
+    background-color: var(--beige_chiaro);
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-top: 10px;
 }
 
 #home::before{
@@ -154,7 +153,7 @@ ul li a:hover {
     color: white;
     border-radius: 20px;
     display: inline-block;
-    padding: 5px 12px;
+    padding: 5px 15px;
     margin-top: 10px;
 }
 
@@ -179,6 +178,53 @@ ul li a:hover {
     margin: 0px 3px 15px 3px;
     padding: 5px 2px 5px 2px;
     align-items: flex-start;  /* fa in modo che blocchi si autoregolino */ 
+}
+
+/* DATEPICKER */
+.widget-data{  /* classe css a cui assegnare datepicker */
+    cursor: pointer;
+}
+#ui-datepicker-div {  /* zona contenente il datepicker */
+    z-index: 9999 !important;
+    border: 4px solid var(--colore_testo);
+}
+.ui-datepicker-header {  /* header del datepicker */
+    border: none;
+    background: var(--colore_testo);
+    color: var(--bianco);
+    padding: 8px;
+    padding-top: 2px;
+}
+.ui-datepicker-calendar th {
+    font-weight: bold;  /* nomi dei giorni della settimana in grassetto */
+}
+.ui-datepicker-calendar td a {
+    text-align: center;
+}
+.ui-datepicker-calendar td a:hover {
+    color: var(--nuovo_ciano); /* evidenzia giorno selezionato */
+}
+.ui-datepicker-current-day a {
+    background: var(--bianco) !important;
+    color: var(--nuovo_ciano) !important;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+    cursor: pointer;
+    width: 2px;
+    height: 2px;
+}
+.ui-datepicker-prev span, .ui-datepicker-next span {
+    display: none; /* non mostrate parole prev e next ma solo simboli */
+}
+.ui-datepicker-prev::before {
+    content: "◀";
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.ui-datepicker-next::before {
+    content: "▶";
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 /* ELEMENTI FOOTER */
@@ -227,6 +273,7 @@ footer:hover{
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 2000;
 }
 
 .contenuto-popup{

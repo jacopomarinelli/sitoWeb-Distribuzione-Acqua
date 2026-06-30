@@ -27,5 +27,5 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("cod_ute").value = dati.cod_utenza;
     document.getElementById("fattura").value = dati.cod_fattura;
     document.getElementById("data").value = dati.data_lettura;
-    document.getElementById("data").value = dati.valore_letto;
+    document.getElementById("valore").value = dati.valore_letto;
 });

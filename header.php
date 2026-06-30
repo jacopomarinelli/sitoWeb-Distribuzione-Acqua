@@ -4,6 +4,9 @@
     
     <head>
         <link rel="stylesheet" href="css/stile.css">
+        <!-- import di jquery e localizzazione italiana -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+        <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js" defer></script>
         <!-- import di file js che servono a tutte le pagine -->
         <script src="js/funzioni_comuni.js" defer></script>
         <script src="js/autocompletamento.js" defer></script>

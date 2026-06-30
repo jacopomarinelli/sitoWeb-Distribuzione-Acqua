@@ -9,7 +9,7 @@ $repo = new UtenzeRepository();
 
         <div class="pagina">
 
-            <form action="" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
+            <form action="utenze.php" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
                 <input type="text" id="cod_ut" name="codice" class="text-area" placeholder="es: 10001234"
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
@@ -36,13 +36,13 @@ $repo = new UtenzeRepository();
                 <div class="date-area">
                     <div class="campo-data">
                         <label for="data_ap" class="campo">Data apertura: </label>
-                        <input type="text" id="data_ap" name="data_ap" class="date-area" placeholder="es: 01/01/2001"
-                            pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
+                        <input type="text" id="data_ap" name="data_ap" class="date-area widget-data" placeholder="gg/mm/aaaa"
+                            readonly>
                     </div>
                     <div class="campo-data" id="campo-data-chiusura">
                         <label for="data_ch" class="campo">Data chiusura: </label>
-                        <input type="text" id="data_ch" name="data_ch" class="date-area" placeholder="es: 01/01/2001"
-                            pattern="([1-9]|0[1-9]|[12][0-9]|3[01])/([1-9]|0[1-9]|1[0-2])/[0-9]{4}" title="Formato gg/mm/aaaa">
+                        <input type="text" id="data_ch" name="data_ch" class="date-area widget-data" placeholder="gg/mm/aaaa"
+                            readonly>
                     </div>
                 </div>
                 
