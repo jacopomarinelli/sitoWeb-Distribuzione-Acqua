@@ -642,28 +642,37 @@ td{
     padding: 4px 10px; /* <-- Modificato: dà respiro anche a destra e sinistra */
 }
 
-#col_cod_cli, #col_città_cliente{
+#col_cod_cli{
     width: 12%;
 }
 #col_cod_fis{
     width: 18%;
 }
 #cod_rag_soc{
-    width: 34%;
+    width: 36%;
 }
 #col_indirizzo_cliente{
     width: 22%;
 }
+#col_città_cliente{
+    width: 8%;
+}
+#col_num_cliente-utenze{
+    width: 4%;
+}
 
 /* ELEMENTI RISULTATI UTENZE */
-#col_cod_utenza, #col_cod_cliente, #col_città_utenza, #col_stato{
+#col_cod_utenza, #col_cod_cliente, #col_data_apertura, #col_data_chiusura{
     width: 13%;
 }
-#col_data_apertura, #col_data_chiusura{
-    width: 14%;
-}
 #col_indirizzo_utenza{
-    width: 20%;
+    width: 26%;
+}
+#col_città_utenza, #col_stato{
+    width: 8%;
+}
+#numero_utenza-lettura{
+    width: 6%;
 }
 
 /* ELEMENTI RISULTATI LETTURE */
@@ -694,7 +703,10 @@ td{
 }
 
 #col_num_fattura, #col_data_fattura, #col_imponibile, #col_iva, #col_totale{
-    width: 20%;
+    width: 19%;
+}
+#numero_fatture-letture{
+    width: 5%;
 }
 
 /*SELEZIONE ED INTERAZIONE*/
