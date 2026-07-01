@@ -30,8 +30,7 @@ function verificaConfrontoAnno(event) {  // verifica che anno in codice fattua e
     const [giorno_fat, mese_fat, anno_fat] = document.getElementById("nuova_data_fat").value.split("/");
     if (cod_anno !== anno_fat) {
         event.preventDefault();
-        creaMessaggioErrore("L'anno nel codice della fattura e l'anno della data inserita non corrispondono!");
-        apriPopup();
+        creaMessaggioErrore("L'anno nel codice della fattura e l'anno della data inserita non corrispondono! <br>Ricontrolla i dati inseriti.");
         return false;
     }
     return true;
@@ -44,8 +43,7 @@ function verificaPercentualeIva(event, id1, id2){
         let percentuale = iva / imponibile;
         if (percentuale < 0.10 || percentuale > 0.20) {
             event.preventDefault();
-            creaMessaggioErrore("L'iva dovrebbe essere compresa tra il 10% e 20%.");
-            apriPopup();
+            creaMessaggioErrore("L'iva dovrebbe essere compresa tra il 10% e 20%. <br>Ricontrolla i dati inseriti.");
             return false;
         }
     }
@@ -60,8 +58,7 @@ function verificaPrezzoTotale(event, id1, id2, id3) {
         // confronta somma e totale
         if ((imponibile + iva).toFixed(2) !== totale.toFixed(2)){
             event.preventDefault();
-            creaMessaggioErrore("Il costo totale della fattura non corrisponde alla somma dei suoi campi.");
-            apriPopup();
+            creaMessaggioErrore("Il costo totale della fattura non corrisponde alla somma dei suoi campi. <br>Ricontrolla i dati inseriti.");
             return false;
         }
     }

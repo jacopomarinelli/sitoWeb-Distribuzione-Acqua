@@ -5,6 +5,7 @@ require_once 'backend/ClientiRep.php';
 
 $repo = new ClientiRepository();
 ?>
+<script src="js/clienti.js" defer></script>
 <!-- Qui va inserito codice pagina -->
         
         <div class="pagina">
@@ -82,9 +83,6 @@ $repo = new ClientiRepository();
             </div>
 
         </div>
-
-
-        <script src="js/clienti.js" defer></script>
 
 <!--  -->
 <?php

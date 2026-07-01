@@ -17,8 +17,7 @@ function verificaCronologicamenteDate(event) {
     let chiusura = modificaTipoData("data_ch");
     if (apertura > chiusura){
         event.preventDefault();
-        creaMessaggioErrore("La data di chiusura precede la data di apertura.");
-        apriPopup();
+        creaMessaggioErrore("La data di chiusura precede la data di apertura. <br>Ricontrolla i dati inseriti.");
         return false;
     }
     return true;

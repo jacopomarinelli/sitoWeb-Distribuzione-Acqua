@@ -5,6 +5,7 @@ require_once 'backend/LettureRep.php';
 
 $repo = new LettureRepository();
 ?>
+<script src="js/letture.js" defer></script>
 <!-- Qui va inserito codice pagina -->
 
         <div class="pagina">
@@ -84,9 +85,6 @@ $repo = new LettureRepository();
             </div>
 
         </div>
-
-
-        <script src="js/letture.js" defer></script>
 
 <!--  -->
 <?php

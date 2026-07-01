@@ -15,14 +15,10 @@ function creaMessaggioErrore(messaggio) {  // mostra messaggio di errore nel pop
     document.getElementById("messaggio_popup").innerHTML = `
         <i class="fa-solid fa-triangle-exclamation icona-popup"></i>
         <div class="testo-popup">
-            ${messaggio}<br>
-            Ricontrolla i dati inseriti.
+            ${messaggio}
         </div>
     `;
-}
-
-function apriPopup() { 
-    document.getElementById("popup").style.display = "flex";
+    document.getElementById("popup").style.display = "flex";   // apre popup
 }
 
 function chiudiPopup() {

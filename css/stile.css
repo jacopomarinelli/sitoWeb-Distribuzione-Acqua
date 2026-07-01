@@ -287,7 +287,7 @@ footer:hover{
 
 .icona-popup{
     color: var(--rosso_errore);
-    font-size: 35px;
+    font-size: 30px;
     margin-bottom: 4px;
 }
 
@@ -514,7 +514,7 @@ footer:hover{
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    z-index: 1000;  /* sta sopra overlay */
+    z-index: 1000;  /* sta sopra blocco_schermo */
 }
 
 .header-fattura{

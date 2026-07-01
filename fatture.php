@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
 include 'header.php';
 
 ?>
+<script src="js/fatture.js" defer></script>
 <script src="js/selezione.js" defer></script>
 <!-- Qui va inserito codice pagina -->
         
@@ -96,8 +97,8 @@ include 'header.php';
                     
                     <div class="pulsante-nuova">
                         <i id="btn-aggiungi" class="fa-solid fa-square-plus" onclick="cambiaTitolo('inserisci'); nuovaFattura();"></i>
-                        <i id="btn-elimina" class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
                         <i id="btn-modifica" class="fa-solid fa-pen-to-square" onclick="cambiaTitolo('modifica'); modificaFattura()"></i>
+                        <i id="btn-elimina" class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
                     </div>
 
                 </div>
@@ -111,7 +112,6 @@ include 'header.php';
                         <th id="col_imponibile">Imponibile</th>
                         <th id="col_iva">Iva</th>
                         <th id="col_totale">Totale</th>
-
                         <th id="numero_fatture-letture">Letture</th>
                     </tr>
 
@@ -128,7 +128,6 @@ include 'header.php';
                         echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['IVA']) . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['TOTALE']) . "</td>";
-
                         echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
 
                         echo "</tr>";
@@ -191,9 +190,6 @@ include 'header.php';
             </div>
 
         </div>
-        
-
-        <script src="js/fatture.js" defer></script>
 
 <!--  -->
 <?php

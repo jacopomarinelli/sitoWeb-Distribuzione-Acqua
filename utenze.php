@@ -5,6 +5,7 @@ require_once 'backend/UtenzeRep.php';
 
 $repo = new UtenzeRepository();
 ?>
+<script src="js/utenze.js" defer></script>
 <!-- Sezione contenente il codice della pagina -->
 
         <div class="pagina">
@@ -69,7 +70,6 @@ $repo = new UtenzeRepository();
                             <th id="col_stato">Stato</th>
                             <th id="col_data_apertura">Data apertura</th>
                             <th id="col_data_chiusura">Data chiusura</th>
-
                             <th id="numero_utenza-lettura">Letture</th>
                         </tr>
 
@@ -88,7 +88,6 @@ $repo = new UtenzeRepository();
                         echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
-
                         echo "<td>" . htmlspecialchars($utenza['NUMERO_LETTURE']) . "</td>";
                         
                         echo "</tr>";
@@ -101,9 +100,6 @@ $repo = new UtenzeRepository();
             </div>
 
         </div>
-        
-
-        <script src="js/utenze.js" defer></script>
 
 <!--  -->
 <?php

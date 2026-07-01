@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function eliminaFatture() {
 
     if (fattureSelezionate.size === 0) {
-        alert("Seleziona almeno una fattura.");
+        creaMessaggioErrore("Seleziona almeno una fattura!");
         return;
     }
 
@@ -47,12 +47,12 @@ function eliminaFatture() {
 function modificaFattura() {
 
     if(fattureSelezionate.size === 0) {
-        alert("Seleziona almeno una fattura.");
+        creaMessaggioErrore("Seleziona almeno una fattura!");
         return;
     }
 
     if(fattureSelezionate.size > 1) {
-        alert("Puoi modificare solo una fattura per volta.");
+        creaMessaggioErrore("Puoi modificare solo una fattura per volta!");
         return;
     }
 
