@@ -50,8 +50,17 @@ class ClientiRepository {
         // Se ci sono condizioni, le uniamo con AND, altrimenti query senza WHERE
         $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";
 
-        // Costruiamo la query finale
-        $stmt = $this->db->prepare("SELECT * FROM CLIENTI $where");
+        // Costruiamo la query finale usando LEFT JOIN e GROUP BY
+        $query = "
+        SELECT CLIENTI.*, 
+        COUNT(UTENZE.CODICE) AS NUMERO_UTENZE 
+        FROM CLIENTI 
+        LEFT JOIN UTENZE ON UTENZE.CLIENTE = CLIENTI.CODICE 
+        $where
+        GROUP BY CLIENTI.CODICE
+    ";
+        
+        $stmt = $this->db->prepare($query);
 
         // Eseguiamo la query passando i parametri in modo sicuro
         $stmt->execute($params);

@@ -6,7 +6,7 @@
     --bianco: #fdfbf9;
     --rosso_errore: #cc0000;
     --beige_Medio: #91826b; /*beige_Medio:#afa28e;*/
-    --nuovo_ciano: #67d4f2; /*#2f7183*/
+    --nuovo_ciano: #67d4f2; /*#2f7183, #67d4f2*/
     --sfumatura_ciano: #92dbef;
     --beige_chiaro: #eadac7;
     --colore_testo: #246171;
@@ -598,15 +598,16 @@ footer:hover{
     font-size: medium;
 }
 
-.risultati{
+.risultati {
     background-color: var(--nuovo_ciano);
     flex: 1;
     margin: 5px;
     margin-top: 2px;
-    padding: -2px 6px 7px 6px;
+    padding: 0; /* Rimuove il bordino azzurro ai lati */
     border-radius: 5px;
-    max-height: 400px;  /* altezza massima della tabella con i risultati */
-    overflow-y: auto;  /* permette lo scorrimento */
+    max-height: 400px;  
+    overflow-y: auto;  /* Barra di scorrimento verticale */
+    overflow-x: hidden; /* Fondamentale: impedisce alla tabella di sbordare! */
 }
 
 /* TABELLA RISULTATI */
@@ -627,8 +628,9 @@ th{
     border:/*border: 3px solid var(--nuovo_ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
-    padding-top: 4px;
-    padding-bottom: 4px;
+
+    padding: 4px 10px; /* <-- Modificato: dà respiro anche a destra e sinistra */
+
     position: sticky;  /* blocca prima riga tabella in alto */
     top: -1px;
 }
@@ -636,8 +638,8 @@ td{
     border: /*3px solid var(--nuovo_ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
-    padding-top: 4px;
-    padding-bottom: 4px;
+
+    padding: 4px 10px; /* <-- Modificato: dà respiro anche a destra e sinistra */
 }
 
 #col_cod_cli, #col_città_cliente{

@@ -45,7 +45,17 @@ class UtenzeRepository {
         }
 
         $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";
-        $stmt = $this->db->prepare("SELECT * FROM UTENZE $where");
+
+        $query = "
+            SELECT UTENZE.*, 
+                   COUNT(LETTURE.NUMERO) AS NUMERO_LETTURE 
+            FROM UTENZE 
+            LEFT JOIN LETTURE ON LETTURE.UTENZA = UTENZE.CODICE 
+            $where
+            GROUP BY UTENZE.CODICE
+        ";
+
+        $stmt = $this->db->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

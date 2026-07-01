@@ -51,6 +51,7 @@ $repo = new ClientiRepository();
                         <th id="cod_rag_soc">Ragione sociale</th>
                         <th id="col_indirizzo_cliente">Indirizzo</th>
                         <th id="col_città_cliente">Città</th>
+                        <th id="numero_cliente-utenze">Utenze</th>
                     </tr>
                     
                     <?php
@@ -66,6 +67,9 @@ $repo = new ClientiRepository();
                         echo "<td>" . htmlspecialchars($cliente['RAGIONE_SOCIALE']) . "</td>";
                         echo "<td>" . htmlspecialchars($cliente['INDIRIZZO']) . "</td>";
                         echo "<td>" . htmlspecialchars($cliente['CITTA']) . "</td>";
+
+                        // stampa il numero di utenze
+                        echo "<td>" . htmlspecialchars($cliente['NUMERO_UTENZE']) . "</td>";
 
                         echo "</tr>";
                         

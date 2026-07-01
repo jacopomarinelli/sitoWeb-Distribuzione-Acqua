@@ -13,29 +13,46 @@ class FattureRepository {
 
 
         if (!empty($filtri['numero_fattura'])) {
-            $conditions[] = "NUMERO LIKE :numero_fattura";
+            $conditions[] = "FATTURE.NUMERO LIKE :numero_fattura";
             $params['numero_fattura'] = "%" . $filtri['numero_fattura'] . "%";
         }
         if (!empty($filtri['data_fattura'])) {
             $data = DateTime::createFromFormat('Y-m-d', $filtri['data_fattura']);
-            $conditions[] = "DATA = :data";
+            $conditions[] = "FATTURE.DATA = :data";
             $params['data'] = $data ? $data->format('d/m/Y') : $filtri['data_fattura'];
         }
         if (!empty($filtri['imponibile'])) {
-            $conditions[] = "IMPONIBILE = :imponibile";
-            $params['imponibile'] = $filtri['imponibile'];
+        $imponibile_pulito = str_replace('.', ',', $filtri['imponibile']);
+        $imponibile_pulito = preg_replace('/[^0-9,]/', '', $imponibile_pulito);
+        $conditions[] = "IMPONIBILE LIKE :imponibile";
+        $params['imponibile'] = "%" . $imponibile_pulito . "%";
         }
+
         if (!empty($filtri['iva'])) {
-            $conditions[] = "IVA LIKE :iva";
-            $params['iva'] = "%" . $filtri['iva'] . "%";
+        $iva_pulita = str_replace('.', ',', $filtri['iva']);
+        $iva_pulita = preg_replace('/[^0-9,]/', '', $iva_pulita);
+        $conditions[] = "IVA LIKE :iva";
+        $params['iva'] = "%" . $iva_pulita . "%";
         }
+
         if (!empty($filtri['totale'])) {
-            $conditions[] = "TOTALE LIKE :totale";
-            $params['totale'] = "%" . $filtri['totale'] . "%";
+        $totale_pulito = str_replace('.', ',', $filtri['totale']);
+        $totale_pulito = preg_replace('/[^0-9,]/', '', $totale_pulito);
+        $conditions[] = "TOTALE LIKE :totale";
+        $params['totale'] = "%" . $totale_pulito . "%";
         }
 
         $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";
-        $stmt = $this->db->prepare("SELECT * FROM FATTURE $where");
+        $query = "
+            SELECT FATTURE.*, 
+                   COUNT(LETTURE.NUMERO) AS NUMERO_LETTURE 
+            FROM FATTURE 
+            LEFT JOIN LETTURE ON LETTURE.FATTURA = FATTURE.NUMERO 
+            $where
+            GROUP BY FATTURE.NUMERO
+        ";
+
+        $stmt = $this->db->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

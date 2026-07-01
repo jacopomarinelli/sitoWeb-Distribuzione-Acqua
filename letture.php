@@ -11,11 +11,11 @@ $repo = new LettureRepository();
 
             <form action="letture.php" method="GET" class="ricerca" onsubmit="verificaLettura(event)">
                 <label for="num_let" class="campo">Numero lettura: </label>
-                <input type="text" id="num_let" name="num_lettura" class="text-area" placeholder="es: 12345678"
+                <input type="text" id="num_let" name="numero" class="text-area" placeholder="es: 12345678"
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="cod_ute" class="campo">Codice utenza: </label>
-                <input type="text" id="cod_ute" name="codice_utenza" class="text-area" placeholder="es: 10001234"
+                <input type="text" id="cod_ute" name="utenza" class="text-area" placeholder="es: 10001234"
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="fattura" class="campo">Codice fattura: </label>

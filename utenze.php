@@ -15,7 +15,7 @@ $repo = new UtenzeRepository();
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="cod_cli" class="campo">Codice del cliente: </label>
-                <input type="text" id="cod_cli" name="cod_fis" class="text-area" placeholder="es: AAA111"
+                <input type="text" id="cod_cli" name="cliente" class="text-area" placeholder="es: AAA111"
                     pattern="[A-Z]{3}[0-9]{3}" title="Codice di 3 lettere seguite da 3 numeri">
                 
                 <label for="ind" class="campo">Indirizzo: </label>
@@ -69,6 +69,8 @@ $repo = new UtenzeRepository();
                             <th id="col_stato">Stato</th>
                             <th id="col_data_apertura">Data apertura</th>
                             <th id="col_data_chiusura">Data chiusura</th>
+
+                            <th id="numero_utenza-lettura">Letture</th>
                         </tr>
 
                         <?php
@@ -86,6 +88,8 @@ $repo = new UtenzeRepository();
                         echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
+
+                        echo "<td>" . htmlspecialchars($utenza['NUMERO_LETTURE']) . "</td>";
                         
                         echo "</tr>";
                         
