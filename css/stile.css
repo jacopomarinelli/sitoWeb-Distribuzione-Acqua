@@ -159,8 +159,13 @@ ul li a:hover {
 
 /* PAGINA HOME */
 .home{
-    padding: 15px 10px;
+    background-color: var(--bianco);
+    padding: 15px 10px 300px;
     text-align: center;
+    border-radius: 25px;
+    width: 95%;
+
+    margin: 0 auto;
 }
 
 .home h3{
@@ -170,6 +175,25 @@ ul li a:hover {
 
 .home p{
     font-size: 18px;
+}
+
+.dati-totali{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dati-totali h5 {
+    background-color: var(--bianco);         /* Colore di sfondo del blocchetto */
+    color: var(--colore_testo);              /* Colore del testo interno */
+    padding: 10px 20px;                      /* Spazio interno: sopra/sotto e destra/sinistra */
+    border-radius: 12px;                     /* Angoli smussati eleganti */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);/* Un'ombra leggera per dare profondità */
+    border: 1px solid rgba(0, 0, 0, 0.08);   /* Un bordino quasi invisibile per rifinire */
+    margin: 0;                               /* Rimuove i margini di default dell'h2 */
+    text-align: center;
+    flex: 1;                                 /* Opzionale: rende tutti i blocchetti della stessa identica larghezza */
 }
 
 /* PAGINE (NON HOME) */
@@ -239,6 +263,8 @@ footer::before{
 }
 
 footer{
+    z-index: 9999; /* Lo porta in primissimo piano sopra a tutto */
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -721,4 +747,64 @@ table tr:nth-child(even) {
 
 table tr:nth-child(odd) {
     background-color: var(--bianco);
+}
+
+/* CARTINA */
+
+.home-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 35px;               /* Spazio di distacco tra la mappa e la colonna destra */
+    margin: 30px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;        /* Allinea a sinistra i testi nella colonna destra */
+}
+
+/* Il guscio esterno della mappa: piccola, stretta e fissa */
+.mappa-container {
+    width: 400px;            /* Larghezza della mappa */
+    height: 450px;           /* Altezza della mappa */
+    background-color: var(--bianco);
+    padding: 15px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    flex-shrink: 0;          /* Impedisce alla mappa di rimpicciolirsi */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05); /* Un leggero effetto ombra elegante */
+}
+
+/* La mappa vera e propria */
+#map {
+    width: 100%;
+    height: 420px;
+    min-height: 420px;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+/* La colonna destra che occuperà tutto lo spazio rimanente */
+.contenuto-destra {
+    flex-grow: 1;            /* Si allarga automaticamente per riempire lo schermo */
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+
+/* STILE PERSONALIZZATO PER I NOMI DELLE CITTÀ SULLA MAPPA */
+.leaflet-tooltip {
+    background-color: var(--colore_testo) !important; /* Usa il blu scuro del tuo sito */
+    color: var(--bianco) !important;                /* Testo bianco pulito */
+    font-weight: 700;                               /* Grassetto come i tuoi font */
+    border: none !important;                        /* Rimuove il bordo brutto di default */
+    border-radius: 8px !important;                  /* Angoli smussati ed eleganti */
+    padding: 5px 10px !important;                   /* Spazio interno al testo */
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.15) !important; /* Ombra leggera */
+    
+    /* EVITA LO SFARFALLIO: Impedisce al testo di intercettare il mouse al posto del marker */
+    pointer-events: none !important; 
+}
+
+/* Cambia il colore della freccetta minuscola sotto il testo */
+.leaflet-tooltip-top:before {
+    border-top-color: var(--colore_testo) !important;
 }
