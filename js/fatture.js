@@ -25,17 +25,6 @@ function modificaDatiPrezzo(id1, id2, id3){
     document.getElementById(id3).value = Math.round(totale * 100) / 100;
 }
 
-function verificaConfrontoAnno(event) {  // verifica che anno in codice fattua e anno in data corrispondono
-    const [cod, cod_anno, cod_num] = document.getElementById("nuovo_num_fat").value.split("-");
-    const [giorno_fat, mese_fat, anno_fat] = document.getElementById("nuova_data_fat").value.split("/");
-    if (cod_anno !== anno_fat) {
-        event.preventDefault();
-        creaMessaggioErrore("L'anno nel codice della fattura e l'anno della data inserita non corrispondono! <br>Ricontrolla i dati inseriti.");
-        return false;
-    }
-    return true;
-}
-
 function verificaPercentualeIva(event, id1, id2){
     if (document.getElementById(id2).value !== ""){ // se campo iva non è vuoto fa controllo
         let imponibile = Number(document.getElementById(id1).value);
@@ -65,6 +54,27 @@ function verificaPrezzoTotale(event, id1, id2, id3) {
     return true;
 }
 
+function verificaConfrontoAnno(event) {  // verifica che anno in codice fattua e anno in data corrispondono
+    const [cod, cod_anno, cod_num] = document.getElementById("nuovo_num_fat").value.split("-");
+    const [giorno_fat, mese_fat, anno_fat] = document.getElementById("nuova_data_fat").value.split("/");
+    if (cod_anno !== anno_fat) {
+        event.preventDefault();
+        creaMessaggioErrore("L'anno nel codice della fattura e l'anno della data inserita non corrispondono! <br>Ricontrolla i dati inseriti.");
+        return false;
+    }
+    return true;
+}
+
+function calcolaNuovoTotale() {
+    const imp = document.getElementById("nuovo_imp");
+    const iva = document.getElementById("nuova_iva");
+    const totale = document.getElementById("nuovo_cos_tot");
+
+    if (imp.value && iva.value) {
+        totale.value = Number(imp.value) + Number(iva.value);
+    }
+}
+
 /* SALVA DATI DELLA RICERCA */
 function salvaFattura() {
     const fattura = {
@@ -91,15 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("iva").value = dati.iva;
     document.getElementById("cos_tot").value = dati.totale;
 });
-
-function calcolaNuovoTotale() {
-    if (document.getElementById("nuovo_imp").value !== "" && document.getElementById("nuova_iva").value !== ""){
-        let imponibile = Number(document.getElementById("nuovo_imp").value);
-        let iva = Number(document.getElementById("nuova_iva").value);
-        let totale = imponibile + iva;
-        document.getElementById("nuovo_cos_tot").value = totale;
-    }
-}
 
 /* FUNZIONI FORM AZIONE FATTURA */
 function apriFormFattura(){

@@ -170,13 +170,13 @@ include 'header.php';
                         <div class="campo-prezzo" id="primo_campo_prezzo">
                             <label for="nuovo_imp" class="campo">Imponibile: *</label>
                             <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area" required
-                                placeholder="Inserisci valore" onchange="calcolaTotale()">
+                                placeholder="Inserisci valore" onchange="calcolaNuovoTotale()">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuova_iva" class="campo">Iva: *</label>
                             <input type="text" id="nuova_iva" name="nuova_iva" class="text-area" required
-                                placeholder="Inserisci valore" onchange="calcolaTotale()">
+                                placeholder="Inserisci valore" onchange="calcolaNuovoTotale()">
                         </div>
 
                         <div class="campo-prezzo">
