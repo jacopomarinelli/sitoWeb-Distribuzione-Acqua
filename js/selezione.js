@@ -27,14 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-function eliminaFatture() {
+async function eliminaFatture() {
 
     if (fattureSelezionate.size === 0) {
         creaMessaggioErrore("Seleziona almeno una fattura!");
         return;
     }
 
-    if (!confirm("Eliminare le fatture selezionate?")) {
+    const confermato = await confermaEliminazione(fattureSelezionate.size);
+    if (!confermato) {
         return;
     }
 
