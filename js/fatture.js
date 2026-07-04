@@ -65,7 +65,7 @@ function verificaConfrontoAnno(event) {  // verifica che anno in codice fattua e
     return true;
 }
 
-function calcolaNuovoTotale() {
+function calcolaNuovoTotale() {   //PRENDENDO VALORI PRIMA CHE VENGANO MODIFICATI DA PROBLEMI
     const imp = document.getElementById("nuovo_imp");
     const iva = document.getElementById("nuova_iva");
     const totale = document.getElementById("nuovo_cos_tot");
@@ -73,6 +73,46 @@ function calcolaNuovoTotale() {
     if (imp.value && iva.value) {
         totale.value = Number(imp.value) + Number(iva.value);
     }
+}
+
+/* FUNZIONI ELIMINAZIONE */
+function confermaEliminazione(selezionate) {
+    return new Promise(resolve => {
+        creaMessaggioEliminazione(selezionate, resolve)
+    });
+}
+
+function creaMessaggioEliminazione(selezionate, resolve) { // in futuro possibilità di separare creazione messaggio in una funzione separata
+    let messaggio;
+    if (selezionate == 1){
+        messaggio = "Stai eliminando una fattura.";
+    } else {
+        messaggio = "Stai eliminando " + selezionate + " fatture.";
+    }
+    document.getElementById("messaggio_popup").innerHTML = `
+        <div class="contenuto-eliminazione">
+            <div class="testo-popup">
+                ${messaggio}<br>
+                Per confermare digita ELIMINA nella casella sottostante.
+            </div>
+            <input type=text id="testo_conferma" placeholder="Inserisci qui">
+        </div>
+        <button id="pulsante_conferma" disabled>Elimina definitivamente</button>
+    `;
+    document.getElementById("popup").style.display = "flex";   // apre popup
+
+    const input = document.getElementById("testo_conferma");
+    const pulsante = document.getElementById("pulsante_conferma");
+
+    input.addEventListener("input", () => {
+        const valido = input.value === "ELIMINA";
+        pulsante.disabled = !valido;  // disabled deve essere il contrario di valido
+        pulsante.classList.toggle("abilitato", valido); // se valido=true aggiunge "abilitato", in caso contrario lo toglie
+    });
+    pulsante.addEventListener("click", () => {
+        chiudiPopup();
+        resolve(true);
+    });
 }
 
 /* SALVA DATI DELLA RICERCA */

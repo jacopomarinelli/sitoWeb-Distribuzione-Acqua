@@ -151,7 +151,7 @@ include 'header.php';
                     </button>
                 </div>    
 
-                <form action="fatture.php?action=inserisci" method="POST" class="contenuto-fattura" onsubmit="">
+                <form action="fatture.php?action=inserisci" method="POST" class="contenuto-fattura" onsubmit="verificaNuovaFattura(event)">
                     <div class="sezione-info">
                         <div class="campo-info" id="primo_campo_info">
                             <label for="nuovo_num_fat" class="campo">Numero della fattura: *</label>
