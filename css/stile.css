@@ -11,6 +11,7 @@
     --beige_chiaro: #eadac7;
     --colore_testo: #246171;
     --selezione: rgba(3, 228, 228, 0.37);
+    --home_icone: #e8f1f9;
 
     --verde: #1eff00;
     --giallo: #ffd900;
@@ -160,7 +161,7 @@ ul li a:hover {
 /* PAGINA HOME */
 .home{
     background-color: var(--bianco);
-    padding: 15px 10px 300px;
+    padding: 15px 10px;
     text-align: center;
     border-radius: 25px;
     width: 95%;
@@ -177,24 +178,99 @@ ul li a:hover {
     font-size: 18px;
 }
 
-.dati-totali{
+/* IL CONTENITORE DELLE QUATTRO CARD */
+.dati-totali {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch; /* Mantiene tutte le card alla stessa altezza */
+    gap: 25px;            /* Distanza uniforme e pulita tra le card */
+    margin-bottom: 25px;  /* Spazio prima della mappa */
+    margin: 0 30px;
 }
 
+/* LA SINGOLA CARD */
 .dati-totali h5 {
     background-color: var(--bianco);
     color: var(--colore_testo);
-    padding: 10px 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 20px 15px;
+    border-radius: 16px;  /* Angoli elegantemente arrotondati come da foto */
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.06); /* Ombra leggerissima e moderna */
     margin: 0;
-    text-align: center;
-    flex: 1;   /* rende blocchi della stessa identica larghezza */
+    flex: 1;              /* Distribuisce la larghezza in parti uguali */
+    
+    /* Layout orizzontale: Icona a sinistra, Info a destra */
+    display: flex;
+    flex-direction: row;
+    align-items: center;  /* Centra verticalmente l'icona con il testo */
+    justify-content: flex-start;
+    gap: 15px;            /* Spazio tra il quadratino dell'icona e i testi */
 }
+
+/* IL QUADRATINO DELL'ICONA (A SINISTRA) */
+.dati-totali h5 .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    /* Crea un azzurro chiarissimo trasparente usando il tuo ciano di root */
+    background-color: rgba(103, 212, 242, 0.12); 
+    color: var(--colore_testo); /* Il tuo blu scuro per l'icona interna */
+    border-radius: 12px;        /* Angoli smussati per il guscio dell'icona */
+    font-size: 20px;            /* Dimensione dell'icona FontAwesome */
+    flex-shrink: 0;             /* Impedisce all'icona di stringersi su schermi piccoli */
+}
+
+/* IL CONTENITORE DEI TESTI (A DESTRA) */
+.dati-totali h5 .card-info {
+    display: flex;
+    flex-direction: column;   /* Incolonna il titolo sopra e il numero sotto */
+    align-items: flex-start;  /* Allinea i testi a sinistra */
+    text-align: left;
+}
+
+/* SCRITTA PICCOLA IN ALTO */
+.dati-totali h5 .titolo-card {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--colore_testo);
+    opacity: 0.7;             /* Rende il titolo leggermente più soft rispetto al numero */
+    margin-bottom: 2px;       /* Distanza minima dal numero sottostante */
+}
+
+/* NUMERO GRANDE IN BASSO */
+.dati-totali h5 .numero-grande {
+    font-size: 26px;
+    font-weight: 800;         /* Extra-grassetto per metterlo in risalto */
+    color: var(--colore_testo);
+    line-height: 1.1;
+}
+
+.icon-home-clienti::before,
+.icon-home-utenze::before,
+.icon-home-letture::before,
+.icon-home-fatture::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 800;
+    font-size: 18px;
+    background-color: var(--nuovo_ciano); /* Usa il tuo colore di root */
+    color: var(--bianco);                 /* Colore dell'icona interna */
+    
+    /* Costruzione del pallino */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+/* Assegnazione dei singoli simboli FontAwesome */
+.icon-home-clienti::before { content: "\f500"; }
+.icon-home-utenze::before  { content: "\f043"; }
+.icon-home-letture::before { content: "\f201"; }
+.icon-home-fatture::before { content: "\f15c"; }
 
 /* PAGINE (NON HOME) */
 .pagina{
@@ -263,6 +339,8 @@ footer::before{
 }
 
 footer{
+    z-index: 9999; /* Lo porta in primissimo piano sopra a tutto */
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -779,8 +857,9 @@ table tr:nth-child(odd) {
     flex-direction: row;
     align-items: flex-start;
     gap: 35px;               /* Spazio di distacco tra la mappa e la colonna destra */
-    margin: 30px 15px;
-    width: 100%;
+    margin: 30px 30px; /* 30px sopra/sotto, 30px di distanza dai bordi esterni */
+    box-sizing: border-box;
+    width: auto;
     box-sizing: border-box;
     text-align: left;        /* Allinea a sinistra i testi nella colonna destra */
 }
@@ -811,6 +890,8 @@ table tr:nth-child(odd) {
     flex-grow: 1;   /* Si allarga automaticamente per riempire lo schermo */
     box-sizing: border-box;
     padding-top: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
 }
 
 /* STILE PERSONALIZZATO PER I NOMI DELLE CITTÀ SULLA MAPPA */
@@ -830,4 +911,90 @@ table tr:nth-child(odd) {
 /* Cambia il colore della freccetta minuscola sotto il testo */
 .leaflet-tooltip-top:before {
     border-top-color: var(--colore_testo) !important;
+}
+
+/* FORNITORI */
+
+/* SPAZIO SOTTO IL TITOLO E SPOSTAMENTO A DESTRA */
+.fornitori-header {
+    margin-bottom: 25px; /* Aggiunge spazio tra l'intestazione e i risultati */
+    margin-left: 20px;   /* Sposta anche il titolo verso destra */
+}
+
+/* LISTA FORNITORI */
+.lista-fornitori {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;     /* Sposta tutta la lista verso destra */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100%;             
+    max-height: 340px;           
+    overflow-y: auto;            
+    padding-right: 15px;         
+    box-shadow: none;            
+    border-radius: 0;            
+}
+
+.lista-fornitori:hover {
+    transform: none;
+}
+
+/* LA SINGOLA RIGA (Gestita con Flexbox) */
+.lista-fornitori li {
+    float: none;                 
+    padding: 12px 10px;          /* Un po' di respiro ai lati della riga */
+    border-bottom: 1px solid rgba(36, 97, 113, 0.08);
+    
+    display: flex;               /* Allinea gli elementi in orizzontale */
+    align-items: center;         /* Centra gli elementi verticalmente */
+    gap: 15px;                   /* Spazio tra pallino, nome e numero */
+}
+
+.lista-fornitori li:last-child {
+    border-bottom: none; 
+}
+
+/* 1. IL PALLINO CON L'INIZIALE */
+.iniziale-azienda {
+    width: 38px;
+    height: 38px;
+    /* Usa un azzurro tenue per lo sfondo e il tuo testo blu scuro */
+    background-color: rgba(103, 212, 242, 0.2); 
+    color: var(--colore_testo); 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    flex-shrink: 0; /* Impedisce che il pallino si rimpicciolisca */
+}
+
+/* 2. IL NOME DELL'AZIENDA */
+.dati-azienda {
+    flex-grow: 1; /* Il "trucco": occupa tutto lo spazio libero, spingendo il numero a destra! */
+    display: flex;
+    flex-direction: column;
+}
+
+.dati-azienda strong {
+    font-size: 15px; 
+    color: var(--colore_testo);
+    line-height: 1.3;
+}
+
+/* 3. IL NUMERO IN FONDO A DESTRA */
+.numero-azienda {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--beige_Medio);  /* Colore neutro per non rubare l'attenzione */
+    flex-shrink: 0;
+}
+
+.blocco-fornitori {
+    max-width: 95%;         /* <- IL SEGRETO È QUI: Accorcia le linee rispetto allo schermo. Puoi scendere al 70% o 80% se le vuoi ancora più corte */
+    box-sizing: border-box; /* Assicura che i padding non allarghino l'elemento facendolo sbordare */
 }

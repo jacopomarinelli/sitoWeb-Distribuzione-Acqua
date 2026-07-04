@@ -46,4 +46,10 @@ class LettureRepository {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result ?: null;
     }
+
+    public function contaTutti(): int {
+        $stmt = $this->db->query("SELECT COUNT(*) as totale FROM LETTURE");
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return (int) $result['totale'];
+    }
 }

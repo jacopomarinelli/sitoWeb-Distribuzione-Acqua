@@ -82,4 +82,27 @@ class ClientiRepository {
         // Se non trova nulla, ritorna null invece di false
         return $result ?: null;
     }
+
+    public function contaTutti(): int {
+        // Query per contare tutte le tuple nella tabella CLIENTI
+        $stmt = $this->db->query("SELECT COUNT(*) as totale FROM CLIENTI");
+        
+        // Estraiamo il risultato
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Restituiamo il valore numerico
+        return (int) $result['totale'];
+    }
+
+    public function ottieniAziendeDistinte(): array {
+        $query = "SELECT DISTINCT RAGIONE_SOCIALE 
+                  FROM CLIENTI 
+                  WHERE RAGIONE_SOCIALE IS NOT NULL AND RAGIONE_SOCIALE != '' 
+                  ORDER BY RAGIONE_SOCIALE ASC";
+                  
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

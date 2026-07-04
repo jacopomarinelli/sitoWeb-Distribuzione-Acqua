@@ -111,4 +111,10 @@ class FattureRepository {
     ]);
 }
 
+public function contaTutti(): int {
+        $stmt = $this->db->query("SELECT COUNT(*) as totale FROM FATTURE");
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return (int) $result['totale'];
+    }
+
 }
