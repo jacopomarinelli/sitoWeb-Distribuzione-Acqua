@@ -18,32 +18,32 @@ class ClientiRepository {
 
         // Se esiste un filtro "codice", cerchiamo corrispondenza esatta
         if (!empty($filtri['codice'])) {
-            $conditions[] = "CODICE = :codice";
+            $conditions[] = "CLIENTI.CODICE = :codice";
             $params['codice'] = $filtri['codice'];
         }
 
         // Se esiste "codice_fiscale", cerchiamo corrispondenza parziale
         if (!empty($filtri['codice_fiscale'])) {
-            $conditions[] = "CODICE_FISCALE LIKE :cod_fisc";
+            $conditions[] = "CLIENTI.CODICE_FISCALE LIKE :cod_fisc";
             // I % servono per dire: "qualsiasi cosa prima e dopo"
             $params['cod_fisc'] = "%" . $filtri['codice_fiscale'] . "%";
         }
 
         // Ricerca per ragione sociale (parziale)
         if (!empty($filtri['ragione_sociale'])) {
-            $conditions[] = "RAGIONE_SOCIALE LIKE :rag_soc";
+            $conditions[] = "CLIENTI.RAGIONE_SOCIALE LIKE :rag_soc";
             $params['rag_soc'] = "%" . $filtri['ragione_sociale'] . "%";
         }
 
         // Ricerca per città (parziale)
         if (!empty($filtri['citta'])) {
-            $conditions[] = "CITTA LIKE :citta";
+            $conditions[] = "CLIENTI.CITTA LIKE :citta";
             $params['citta'] = "%" . $filtri['citta'] . "%";
         }
 
         // Ricerca per indirizzo (parziale)
         if (!empty($filtri['indirizzo'])) {
-            $conditions[] = "INDIRIZZO LIKE :indirizzo";
+            $conditions[] = "CLIENTI.INDIRIZZO LIKE :indirizzo";
             $params['indirizzo'] = "%" . $filtri['indirizzo'] . "%";
         }
 
@@ -71,7 +71,7 @@ class ClientiRepository {
 
     public function trovaPerId(string $codice): ?array {
         // Query per cercare un cliente specifico tramite codice
-        $stmt = $this->db->prepare("SELECT * FROM CLIENTI WHERE CODICE = :codice");
+        $stmt = $this->db->prepare("SELECT * FROM CLIENTI C WHERE C.CODICE = :codice");
 
         // Passiamo il parametro in modo sicuro
         $stmt->execute(['codice' => $codice]);

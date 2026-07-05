@@ -4,17 +4,22 @@
     --beige: #ede4d8;
     --marrone: #a37f60;
     --bianco: #fdfbf9;
+    --bianco2: #fffcf8;
     --rosso_errore: #cc0000;
     --beige_Medio: #91826b; /*beige_Medio:#afa28e;*/
-    --nuovo_ciano: #67d4f2; /*#2f7183, #67d4f2*/
+    --nuovo_ciano: #56aec1; /*#2f7183, #67d4f2*/
     --sfumatura_ciano: #92dbef;
     --beige_chiaro: #eadac7;
     --colore_testo: #246171;
+    --colore_testo2: #67d4f2;
     --selezione: rgba(3, 228, 228, 0.37);
     --home_icone: #e8f1f9;
+    --ciano: #ede4d8;
 
     --verde: #1eff00;
     --giallo: #ffd900;
+
+    --colore: red;
     
     --ampiezza_ricerca: 18%;  /* larghezza occupata da .ricerca */
 }
@@ -67,8 +72,8 @@ ul {
     max-width: 625px;
     margin: 0 auto 20px auto;
 
-    padding: 0 0 0 0px;
     overflow: visible;
+    padding-left: 0;
 
     border-radius: 20px;
 
@@ -98,19 +103,20 @@ ul li a {
     color: var(--colore_testo);
     font-weight: 700;
     text-align: center;
-    padding: 15px 20px 15px 20px;
+
+    padding: 15px 20px;
+    border-radius: 20px;
     text-decoration: none;
 
-    transition: transform 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 ul li a:hover {
-    background-color: var(--beige_chiaro);
+    background-color: var(--colore_testo2);
     color: white;
-    border-radius: 20px;
-    display: inline-block;
-    padding: 5px 15px;
-    margin-top: 10px;
+
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(36, 97, 113, 0.15);
 }
 
 #home::before{
@@ -153,14 +159,12 @@ ul li a:hover {
     background-color: var(--nuovo_ciano);
     color: white;
     border-radius: 20px;
-    display: inline-block;
-    padding: 5px 15px;
-    margin-top: 10px;
+    padding: 15px 20px;
 }
 
 /* PAGINA HOME */
 .home{
-    background-color: var(--bianco);
+    background-color: var(--bianco2);
     padding: 15px 10px;
     text-align: center;
     border-radius: 25px;
@@ -461,6 +465,7 @@ footer:hover{
 }
 
 .svuota-ricerca, .avvio-ricerca{
+    background-color: var(--colore_testo2);
     padding: 5px 10px 5px 10px;
     border-radius: 100px;
     /*box-shadow: 2px 2px rgb(176, 148, 148, 0.7);*/
@@ -751,7 +756,7 @@ tr:nth-child(even) {
 
 th{
     background-color: var(--nuovo_ciano);
-    color: var(--colore_testo);
+    color: var(--bianco);
     border:/*border: 3px solid var(--nuovo_ciano);*/none;
     border-collapse: collapse;  
     text-align: center; 
@@ -789,7 +794,7 @@ td{
 }
 
 /* ELEMENTI RISULTATI UTENZE */
-#col_cod_utenza, #col_cod_cliente, #col_data_apertura, #col_data_chiusura{
+#col_cod_utenza, #col_cod_cliente{
     width: 13%;
 }
 #col_indirizzo_utenza{
@@ -798,8 +803,13 @@ td{
 #col_città_utenza, #col_stato{
     width: 8%;
 }
+
+#col_data_apertura, #col_data_chiusura {
+    width: 12%;
+}
+
 #numero_utenza-lettura{
-    width: 6%;
+    width: 8%;
 }
 
 /* ELEMENTI RISULTATI LETTURE */
@@ -887,6 +897,7 @@ table tr:nth-child(odd) {
 
 /* La colonna destra che occuperà tutto lo spazio rimanente */
 .contenuto-destra {
+    background-color:var(--bianco);
     flex-grow: 1;   /* Si allarga automaticamente per riempire lo schermo */
     box-sizing: border-box;
     padding-top: 5px;
@@ -908,25 +919,22 @@ table tr:nth-child(odd) {
     pointer-events: none !important; 
 }
 
-/* Cambia il colore della freccetta minuscola sotto il testo */
 .leaflet-tooltip-top:before {
     border-top-color: var(--colore_testo) !important;
 }
 
 /* FORNITORI */
 
-/* SPAZIO SOTTO IL TITOLO E SPOSTAMENTO A DESTRA */
 .fornitori-header {
-    margin-bottom: 25px; /* Aggiunge spazio tra l'intestazione e i risultati */
-    margin-left: 20px;   /* Sposta anche il titolo verso destra */
+    margin-bottom: 25px;
+    margin-left: 20px;
 }
 
-/* LISTA FORNITORI */
 .lista-fornitori {
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-left: 20px;     /* Sposta tutta la lista verso destra */
+    padding-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -942,26 +950,23 @@ table tr:nth-child(odd) {
     transform: none;
 }
 
-/* LA SINGOLA RIGA (Gestita con Flexbox) */
 .lista-fornitori li {
     float: none;                 
-    padding: 12px 10px;          /* Un po' di respiro ai lati della riga */
+    padding: 12px 10px;
     border-bottom: 1px solid rgba(36, 97, 113, 0.08);
     
-    display: flex;               /* Allinea gli elementi in orizzontale */
-    align-items: center;         /* Centra gli elementi verticalmente */
-    gap: 15px;                   /* Spazio tra pallino, nome e numero */
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .lista-fornitori li:last-child {
     border-bottom: none; 
 }
 
-/* 1. IL PALLINO CON L'INIZIALE */
 .iniziale-azienda {
     width: 38px;
     height: 38px;
-    /* Usa un azzurro tenue per lo sfondo e il tuo testo blu scuro */
     background-color: rgba(103, 212, 242, 0.2); 
     color: var(--colore_testo); 
     border-radius: 50%;
@@ -970,12 +975,11 @@ table tr:nth-child(odd) {
     justify-content: center;
     font-size: 16px;
     font-weight: 800;
-    flex-shrink: 0; /* Impedisce che il pallino si rimpicciolisca */
+    flex-shrink: 0;
 }
 
-/* 2. IL NOME DELL'AZIENDA */
 .dati-azienda {
-    flex-grow: 1; /* Il "trucco": occupa tutto lo spazio libero, spingendo il numero a destra! */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
@@ -986,15 +990,14 @@ table tr:nth-child(odd) {
     line-height: 1.3;
 }
 
-/* 3. IL NUMERO IN FONDO A DESTRA */
 .numero-azienda {
     font-size: 15px;
     font-weight: 800;
-    color: var(--beige_Medio);  /* Colore neutro per non rubare l'attenzione */
+    color: var(--beige_Medio);
     flex-shrink: 0;
 }
 
 .blocco-fornitori {
-    max-width: 95%;         /* <- IL SEGRETO È QUI: Accorcia le linee rispetto allo schermo. Puoi scendere al 70% o 80% se le vuoi ancora più corte */
-    box-sizing: border-box; /* Assicura che i padding non allarghino l'elemento facendolo sbordare */
+    max-width: 95%;
+    box-sizing: border-box;
 }

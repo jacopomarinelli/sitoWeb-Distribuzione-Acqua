@@ -77,7 +77,7 @@ $totaleFatture = $fattureRep->contaTutti();
     <div class="blocco-fornitori">
         
         <div class="fornitori-header">
-            <h3>Aziende Clienti</h3>
+            <h3>Aziende attive</h3>
             <span class="badge-fornitori"><?php echo $totaleAziende; ?> Attive</span>
         </div>
 
