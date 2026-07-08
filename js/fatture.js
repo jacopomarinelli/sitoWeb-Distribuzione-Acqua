@@ -14,21 +14,21 @@ function verificaNuovaFattura(event){
 }
 
 /* CONTROLLO PREZZI FATTURA */
-function modificaDatiPrezzo(id1, id2, id3){
+function modificaDatiPrezzo(id_imp, id_iva, id_tot){
     // per i decimali, la virgola va trasformata in un punto
-    let imponibile = Number(document.getElementById(id1).value.replace(",", "."));
-    let iva = Number(document.getElementById(id2).value.replace(",", "."));
-    let totale = Number(document.getElementById(id3).value.replace(",", "."));
+    let imponibile = Number(document.getElementById(id_imp).value.replace(",", "."));
+    let iva = Number(document.getElementById(id_iva).value.replace(",", "."));
+    let totale = Number(document.getElementById(id_tot).value.replace(",", "."));
     // dati del form aggiornati
     document.getElementById(id1).value = Math.round(imponibile * 100) / 100;
     document.getElementById(id2).value = Math.round(iva * 100) / 100;
     document.getElementById(id3).value = Math.round(totale * 100) / 100;
 }
 
-function verificaPercentualeIva(event, id1, id2){
+function verificaPercentualeIva(event, id_imp, id_iva){
     if (document.getElementById(id2).value !== ""){ // se campo iva non è vuoto fa controllo
-        let imponibile = Number(document.getElementById(id1).value);
-        let iva = Number(document.getElementById(id2).value);
+        let imponibile = Number(document.getElementById(id_imp).value);
+        let iva = Number(document.getElementById(id_iva).value);
         let percentuale = iva / imponibile;
         if (percentuale < 0.10 || percentuale > 0.20) {
             event.preventDefault();
@@ -39,11 +39,12 @@ function verificaPercentualeIva(event, id1, id2){
     return true;
 }
 
-function verificaPrezzoTotale(event, id1, id2, id3) {
-    if (document.getElementById(id1).value !== "" && document.getElementById(id2).value !== ""){ // se campi imp e iva non sono vuoti fa controllo
-        let imponibile = Number(document.getElementById(id1).value);
-        let iva = Number(document.getElementById(id2).value);
-        let totale = Number(document.getElementById(id3).value);
+/* CON LA FUNZIONE calcolaTotale() QUESTA FUNZIONE PRATICAMENTE NON VIENE USATA POICHE SEMPRE VERA */
+function verificaPrezzoTotale(event, id_imp, id_iva, id_tot) {
+    if (document.getElementById(id_imp).value !== "" && document.getElementById(id_iva).value !== ""){ // se campi imp e iva non sono vuoti fa controllo
+        let imponibile = Number(document.getElementById(id_imp).value);
+        let iva = Number(document.getElementById(id_iva).value);
+        let totale = Number(document.getElementById(id_tot).value);
         // confronta somma e totale
         if ((imponibile + iva).toFixed(2) !== totale.toFixed(2)){
             event.preventDefault();
@@ -54,7 +55,7 @@ function verificaPrezzoTotale(event, id1, id2, id3) {
     return true;
 }
 
-function verificaConfrontoAnno(event) {  // verifica che anno in codice fattua e anno in data corrispondono
+function verificaConfrontoAnno(event) {  // verifica che anno in codice fattura e anno in data corrispondono
     const [cod, cod_anno, cod_num] = document.getElementById("nuovo_num_fat").value.split("-");
     const [giorno_fat, mese_fat, anno_fat] = document.getElementById("nuova_data_fat").value.split("/");
     if (cod_anno !== anno_fat) {
@@ -65,12 +66,12 @@ function verificaConfrontoAnno(event) {  // verifica che anno in codice fattua e
     return true;
 }
 
-function calcolaNuovoTotale() {   //PRENDENDO VALORI PRIMA CHE VENGANO MODIFICATI DA PROBLEMI
-    const imp = document.getElementById("nuovo_imp");
-    const iva = document.getElementById("nuova_iva");
-    const totale = document.getElementById("nuovo_cos_tot");
+function calcolaTotale(id_imp, id_iva, id_tot) {   //PRENDENDO VALORI PRIMA CHE VENGANO MODIFICATI DA PROBLEMI
+    const imp = document.getElementById(id_imp);
+    const iva = document.getElementById(id_iva);
+    const totale = document.getElementById(id_tot);
 
-    if (imp.value && iva.value) {
+    if (imp.value && iva.value) {  // se entrambi campi compilati
         totale.value = Number(imp.value) + Number(iva.value);
     }
 }

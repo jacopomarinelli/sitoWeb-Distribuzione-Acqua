@@ -17,7 +17,7 @@ $repo = new ClientiRepository();
                 
                 <label for="cod_fis" class="campo">Codice fiscale del cliente: </label>
                 <input type="text" id="cod_fis" name="codice_fiscale" class="text-area" placeholder="es: ABCDEF12G34H567I" 
-                    pattern="[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}" title="Codice fiscale">
+                    pattern="[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}" title="Codice fiscale: LLLLLLNNLNNLNNNL (L lettera, N numero)">
                 
                 <label for="rag_soc" class="campo">Nome dell'azienda: </label>
                 <div class="autocomplete"><input type="text" id="rag_soc" name="ragione_sociale" class="text-area"

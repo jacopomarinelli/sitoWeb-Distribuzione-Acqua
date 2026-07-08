@@ -12,7 +12,7 @@ $repo = new UtenzeRepository();
 
             <form action="utenze.php" method="GET" class="ricerca" onsubmit="verificaUtenza(event)">
                 <label for="cod_ut" class="campo">Codice dell'utenza: </label>
-                <input type="text" id="cod_ut" name="codice" class="text-area" placeholder="es: 10001234"
+                <input type="text" id="cod_ut" name="codice" class="text-area" placeholder="Inserisci il codice dell'utenza"
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="cod_cli" class="campo">Codice del cliente: </label>

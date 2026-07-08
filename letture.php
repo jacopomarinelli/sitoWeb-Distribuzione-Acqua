@@ -12,16 +12,16 @@ $repo = new LettureRepository();
 
             <form action="letture.php" method="GET" class="ricerca" onsubmit="verificaLettura(event)">
                 <label for="num_let" class="campo">Numero lettura: </label>
-                <input type="text" id="num_let" name="numero" class="text-area" placeholder="es: 12345678"
+                <input type="text" id="num_let" name="numero" class="text-area" placeholder="Inserisci il numero della lettura"
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="cod_ute" class="campo">Codice utenza: </label>
-                <input type="text" id="cod_ute" name="utenza" class="text-area" placeholder="es: 10001234"
+                <input type="text" id="cod_ute" name="utenza" class="text-area" placeholder="Inserisci il codice dell'utenza"
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
                 <label for="fattura" class="campo">Codice fattura: </label>
                 <input type="text" id="fattura" name="fattura" class="text-area" placeholder="es: FT-2026-12345"
-                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT(in maiuscolo)-anno-numero di 5 cifre">
+                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero(di 5 cifre)">
                 
                 <div class="dati-lettura">
                     <div class="data-lettura">

@@ -57,7 +57,7 @@ include 'header.php';
             <form action="fatture.php" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
                 <label for="num_fat" class="campo">Numero della fattura: </label>
                 <input type="text" id="num_fat" name="numero_fattura" class="text-area" placeholder="es: FT-2026-12345"
-                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT(in maiuscolo)-anno-numero di 5 cifre">
+                    pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero(di 5 cifre)">
                 
                 <label for="data_fat" class="campo">Data: </label>
                 <input type="text" id="data_fat" name="data_fattura" class="text-area widget-data" placeholder="gg/mm/aaaa"
@@ -66,12 +66,14 @@ include 'header.php';
                 <div class="sezione-prezzo">
                     <div class="campo-prezzo">
                         <label for="imp" class="campo">Imponibile: </label>
-                        <input type="text" id="imp" name="imponibile" class="text-area" placeholder="Inserisci valore">
+                        <input type="text" id="imp" name="imponibile" class="text-area" placeholder="Inserisci valore"
+                            onchange="calcolaTotale('imp', 'iva', 'cos_tot')">
                     </div>
 
                     <div class="campo-prezzo">
                         <label for="iva" class="campo">Iva: </label>
-                        <input type="text" id="iva" name="iva" class="text-area" placeholder="Inserisci valore">
+                        <input type="text" id="iva" name="iva" class="text-area" placeholder="Inserisci valore"
+                            onchange="calcolaTotale('imp', 'iva', 'cos_tot')">
                     </div>
 
                     <div class="campo-prezzo">
@@ -125,9 +127,9 @@ include 'header.php';
 
                         echo "<td>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['DATA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['IVA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['TOTALE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . " €" . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['IVA']) . " €" . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['TOTALE']) . " €" . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
 
                         echo "</tr>";
@@ -149,14 +151,14 @@ include 'header.php';
                     <button class="pulsante-chiusura" onclick="chiudiFormFattura()">
                         <i class="fa-solid fa-square-xmark pulsante-chiusura"></i>
                     </button>
-                </div>    
+                </div>
 
                 <form action="fatture.php?action=inserisci" method="POST" class="contenuto-fattura" onsubmit="verificaNuovaFattura(event)">
                     <div class="sezione-info">
                         <div class="campo-info" id="primo_campo_info">
                             <label for="nuovo_num_fat" class="campo">Numero della fattura: *</label>
                             <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area" placeholder="es: FT-2026-12345"
-                                pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero" required>
+                                pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero(di 5 cifre)" required>
                         </div>
 
                         <div class="campo-info">
@@ -170,13 +172,13 @@ include 'header.php';
                         <div class="campo-prezzo" id="primo_campo_prezzo">
                             <label for="nuovo_imp" class="campo">Imponibile: *</label>
                             <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area" required
-                                placeholder="Inserisci valore" onchange="calcolaNuovoTotale()">
+                                placeholder="Inserisci valore" onchange="calcolaTotale('nuovo_imp', 'nuova_iva', 'nuovo_cos_tot')">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuova_iva" class="campo">Iva: *</label>
                             <input type="text" id="nuova_iva" name="nuova_iva" class="text-area" required
-                                placeholder="Inserisci valore" onchange="calcolaNuovoTotale()">
+                                placeholder="Inserisci valore" onchange="calcolaTotale('nuovo_imp', 'nuova_iva', 'nuovo_cos_tot')">
                         </div>
 
                         <div class="campo-prezzo">
