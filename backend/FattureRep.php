@@ -43,16 +43,15 @@ class FattureRepository {
         }
 
         $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";
-        $query = "
+        /*$query = "
             SELECT FATTURE.*, 
                    COUNT(LETTURE.NUMERO) AS NUMERO_LETTURE 
             FROM FATTURE 
             LEFT JOIN LETTURE ON LETTURE.FATTURA = FATTURE.NUMERO 
             $where
             GROUP BY FATTURE.NUMERO
-        ";
-
-        $stmt = $this->db->prepare($query);
+        ";*/
+        $stmt = $this->db->prepare("SELECT * FROM FATTURE $where");
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

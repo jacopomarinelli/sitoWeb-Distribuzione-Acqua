@@ -114,7 +114,7 @@ include 'header.php';
                         <th id="col_imponibile">Imponibile</th>
                         <th id="col_iva">Iva</th>
                         <th id="col_totale">Totale</th>
-                        <th id="numero_fatture-letture">Letture</th>
+                        <!-- <th id="numero_fatture-letture">Letture</th> -->
                     </tr>
 
                     <?php
@@ -130,7 +130,7 @@ include 'header.php';
                         echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . " €" . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['IVA']) . " €" . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['TOTALE']) . " €" . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
+                        //echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
 
                         echo "</tr>";
                     }?>
