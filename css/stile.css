@@ -432,7 +432,7 @@ ul li a:hover {
 }
 #ui-datepicker-div {  /* zona contenente il datepicker */
     z-index: 9999 !important;
-    border: 4px solid var(--colore_testo);
+    border: 3px solid var(--colore_testo);
 }
 .ui-datepicker-header {  /* header del datepicker */
     border: none;
@@ -451,7 +451,7 @@ ul li a:hover {
     color: var(--nuovo_ciano); /* evidenzia giorno selezionato */
 }
 .ui-datepicker-current-day a {
-    background: var(--bianco) !important;
+    /*background: var(--bianco) !important;*/
     color: var(--nuovo_ciano) !important;
 }
 .ui-datepicker-prev, .ui-datepicker-next {
@@ -464,12 +464,12 @@ ul li a:hover {
 }
 .ui-datepicker-prev::before {
     content: "◀";
-    font-size: 1.2em;
+    font-size: 20px;
     font-weight: bold;
 }
 .ui-datepicker-next::before {
     content: "▶";
-    font-size: 1.2em;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -877,11 +877,11 @@ footer:hover{
     flex: 1;
     margin: 5px;
     margin-top: 2px;
-    padding: 0; /* Rimuove il bordino azzurro ai lati */
+    padding: 0; /* rimuove il bordino azzurro ai lati */
     border-radius: 5px;
     max-height: 400px;  
-    overflow-y: auto;  /* Barra di scorrimento verticale */
-    overflow-x: hidden; /* Fondamentale: impedisce alla tabella di sbordare! */
+    overflow-y: auto;  /* barra di scorrimento verticale */
+    overflow-x: hidden; /* impedisce alla tabella di sbordare */
 }
 
 /* TABELLA RISULTATI */
@@ -903,7 +903,7 @@ th{
     border-collapse: collapse;  
     text-align: center; 
 
-    padding: 4px 10px; /* <-- Modificato: dà respiro anche a destra e sinistra */
+    padding: 4px 10px; /* dà respiro anche a destra e sinistra */
 
     position: sticky;  /* blocca prima riga tabella in alto */
     top: -1px;
@@ -913,7 +913,21 @@ td{
     border-collapse: collapse;  
     text-align: center; 
 
-    padding: 4px 10px; /* <-- Modificato: dà respiro anche a destra e sinistra */
+    padding: 4px 10px; /* dà respiro anche a destra e sinistra */
+}
+
+/*SELEZIONE ED INTERAZIONE*/
+
+table tr.selezionata {
+    box-shadow: inset 0px 0px 50px 8px var(--selezione) !important;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--ciano);
+}
+
+table tr:nth-child(odd) {
+    background-color: var(--bianco);
 }
 
 #col_cod_cli{
@@ -986,18 +1000,4 @@ td{
 }
 #numero_fatture-letture{
     width: 5%;
-}
-
-/*SELEZIONE ED INTERAZIONE*/
-
-table tr.selezionata {
-    box-shadow: inset 0px 0px 50px 8px var(--selezione) !important;
-}
-
-table tr:nth-child(even) {
-    background-color: var(--ciano);
-}
-
-table tr:nth-child(odd) {
-    background-color: var(--bianco);
 }
