@@ -432,7 +432,7 @@ ul li a:hover {
 }
 #ui-datepicker-div {  /* zona contenente il datepicker */
     z-index: 9999 !important;
-    border: 3px solid var(--colore_testo);
+    /*border: 3px solid var(--colore_testo);   QUESTA RIGA COMPORTA RIGA CHE COMPARE IN FONDO SCHERMO   */  
 }
 .ui-datepicker-header {  /* header del datepicker */
     border: none;
