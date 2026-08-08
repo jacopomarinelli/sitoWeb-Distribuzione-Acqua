@@ -6,8 +6,8 @@
     --bianco: #fdfbf9;
     --bianco2: #fffcf8;
     --rosso_errore: #cc0000;
-    --beige_Medio: #91826b; /*beige_Medio:#afa28e;*/
-    --nuovo_ciano: #56aec1; /*#2f7183, #67d4f2*/
+    --beige_Medio: #91826b;
+    --nuovo_ciano: #56aec1;
     --sfumatura_ciano: #92dbef;
     --beige_chiaro: #eadac7;
     --colore_testo: #246171;
@@ -182,71 +182,63 @@ ul li a:hover {
     font-size: 18px;
 }
 
-/* IL CONTENITORE DELLE QUATTRO CARD */
-.dati-totali {
+.dati-totali {  /* contiene le 4 card */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch; /* Mantiene tutte le card alla stessa altezza */
-    gap: 25px;            /* Distanza uniforme e pulita tra le card */
-    margin-bottom: 25px;  /* Spazio prima della mappa */
+    align-items: stretch; /* mantiene tutte le card alla stessa altezza */
+    gap: 25px;            /* distanza tra le card */
+    margin-bottom: 25px;
     margin: 0 30px;
 }
 
-/* LA SINGOLA CARD */
-.dati-totali h5 {
+.dati-totali h5 {  /* singola card */
     background-color: var(--bianco);
     color: var(--colore_testo);
     padding: 20px 15px;
-    border-radius: 16px;  /* Angoli elegantemente arrotondati come da foto */
-    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.06); /* Ombra leggerissima e moderna */
+    border-radius: 16px;
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.06);
     margin: 0;
-    flex: 1;              /* Distribuisce la larghezza in parti uguali */
+    flex: 1; /* larghezza divisa in parti uguali */
     
-    /* Layout orizzontale: Icona a sinistra, Info a destra */
     display: flex;
     flex-direction: row;
-    align-items: center;  /* Centra verticalmente l'icona con il testo */
+    align-items: center;
     justify-content: flex-start;
-    gap: 15px;            /* Spazio tra il quadratino dell'icona e i testi */
+    gap: 15px;
 }
 
-/* IL QUADRATINO DELL'ICONA (A SINISTRA) */
-.dati-totali h5 .card-icon {
+.dati-totali h5 .card-icon {  /* quadratino icona (sinistra) */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 48px;
     height: 48px;
-    /* Crea un azzurro chiarissimo trasparente usando il tuo ciano di root */
     background-color: rgba(103, 212, 242, 0.12); 
-    color: var(--colore_testo); /* Il tuo blu scuro per l'icona interna */
-    border-radius: 12px;        /* Angoli smussati per il guscio dell'icona */
-    font-size: 20px;            /* Dimensione dell'icona FontAwesome */
-    flex-shrink: 0;             /* Impedisce all'icona di stringersi su schermi piccoli */
+    color: var(--colore_testo);
+    border-radius: 12px;
+    font-size: 20px;
+    flex-shrink: 0;  /* non fa stringere icona su schermi piccoli */
 }
 
-/* IL CONTENITORE DEI TESTI (A DESTRA) */
-.dati-totali h5 .card-info {
+.dati-totali h5 .card-info {  /* contenitore testi (destra) */
     display: flex;
-    flex-direction: column;   /* Incolonna il titolo sopra e il numero sotto */
-    align-items: flex-start;  /* Allinea i testi a sinistra */
+    flex-direction: column;
+    align-items: flex-start;
     text-align: left;
 }
 
-/* SCRITTA PICCOLA IN ALTO */
 .dati-totali h5 .titolo-card {
     font-size: 13px;
     font-weight: 600;
     color: var(--colore_testo);
-    opacity: 0.7;             /* Rende il titolo leggermente più soft rispetto al numero */
-    margin-bottom: 2px;       /* Distanza minima dal numero sottostante */
+    opacity: 0.7; /* titolo opaco rispetto al numero */
+    margin-bottom: 2px;
 }
 
-/* NUMERO GRANDE IN BASSO */
 .dati-totali h5 .numero-grande {
     font-size: 26px;
-    font-weight: 800;         /* Extra-grassetto per metterlo in risalto */
+    font-weight: 800; /* grassetto */
     color: var(--colore_testo);
     line-height: 1.1;
 }
@@ -258,10 +250,9 @@ ul li a:hover {
     font-family: "Font Awesome 6 Free";
     font-weight: 800;
     font-size: 18px;
-    background-color: var(--nuovo_ciano); /* Usa il tuo colore di root */
-    color: var(--bianco);                 /* Colore dell'icona interna */
+    background-color: var(--nuovo_ciano);
+    color: var(--bianco); /* colore icona interna */
     
-    /* Costruzione del pallino */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -270,39 +261,35 @@ ul li a:hover {
     border-radius: 50%;
 }
 
-/* Assegnazione dei singoli simboli FontAwesome */
 .icon-home-clienti::before { content: "\f500"; }
 .icon-home-utenze::before  { content: "\f043"; }
 .icon-home-letture::before { content: "\f201"; }
 .icon-home-fatture::before { content: "\f15c"; }
 
-/* CARTINA */
-
+/* PARTE CARTINA */
 .home-layout {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 35px;               /* Spazio di distacco tra la mappa e la colonna destra */
-    margin: 30px 30px; /* 30px sopra/sotto, 30px di distanza dai bordi esterni */
+    gap: 35px; /* spazio tra mappa e colonna destra */
+    margin: 30px 30px;
     box-sizing: border-box;
     width: auto;
     box-sizing: border-box;
-    text-align: left;        /* Allinea a sinistra i testi nella colonna destra */
+    text-align: left;  /* per la colonna destra */
 }
 
-/* Il guscio esterno della mappa: piccola, stretta e fissa */
 .mappa-container {
-    width: 400px;   /* Larghezza della mappa */
-    height: 450px;  /* Altezza della mappa */
+    width: 400px;
+    height: 450px;
     background-color: var(--bianco);
     padding: 15px;
     border-radius: 25px;
     box-sizing: border-box;
-    flex-shrink: 0;   /* Impedisce alla mappa di rimpicciolirsi */
+    flex-shrink: 0;   /* impedisce alla mappa di rimpicciolirsi */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* La mappa vera e propria */
 #map {
     width: 100%;
     height: 420px;
@@ -311,17 +298,16 @@ ul li a:hover {
     z-index: 1;
 }
 
-/* La colonna destra che occuperà tutto lo spazio rimanente */
 .contenuto-destra {
     background-color:var(--bianco);
-    flex-grow: 1;   /* Si allarga automaticamente per riempire lo schermo */
+    flex-grow: 1;   /* riempie automaticamente spazio libero dello schermo */
     box-sizing: border-box;
     padding-top: 5px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
 }
 
-/* STILE PERSONALIZZATO PER I NOMI DELLE CITTÀ SULLA MAPPA */
+/* STILE PER I NOMI DELLE CITTÀ SULLA MAPPA */
 .leaflet-tooltip {
     background-color: var(--colore_testo) !important;
     color: var(--bianco) !important;
@@ -330,17 +316,14 @@ ul li a:hover {
     border-radius: 8px !important;
     padding: 5px 10px !important;
     box-shadow: 0px 2px 10px rgba(0,0,0,0.15) !important;
-    
-    /* EVITA LO SFARFALLIO: Impedisce al testo di intercettare il mouse al posto del marker */
-    pointer-events: none !important; 
+    pointer-events: none !important;  /* impedisce al testo di intercettare il mouse al posto del marker */
 }
 
 .leaflet-tooltip-top:before {
     border-top-color: var(--colore_testo) !important;
 }
 
-/* FORNITORI */
-
+/* PARTE FORNITORI */
 .fornitori-header {
     margin-bottom: 25px;
     margin-left: 20px;
@@ -432,7 +415,7 @@ ul li a:hover {
 }
 #ui-datepicker-div {  /* zona contenente il datepicker */
     z-index: 9999 !important;
-    /*border: 3px solid var(--colore_testo);   QUESTA RIGA COMPORTA RIGA CHE COMPARE IN FONDO SCHERMO   */  
+    /* border: COMPORTA RIGA CHE COMPARE IN FONDO SCHERMO */  
 }
 .ui-datepicker-header {  /* header del datepicker */
     border: none;
@@ -500,7 +483,7 @@ footer{
 
     /*border-top: 6px solid var(--sfumatura_ciano);*/
     text-align: center;
-    padding: 5px 5px 5px 5px; /* con riga 501 attiva top va messo a 0 */
+    padding: 5px 5px 5px 5px;
     font-size: small;
     transition: 1s ease;
 }
@@ -899,7 +882,7 @@ tr:nth-child(even) {
 th{
     background-color: var(--nuovo_ciano);
     color: var(--bianco);
-    border:/*border: 3px solid var(--nuovo_ciano);*/none;
+    border: none; /*versione precendente: 3px solid var(--nuovo_ciano);*/
     border-collapse: collapse;  
     text-align: center; 
 
@@ -909,7 +892,7 @@ th{
     top: -1px;
 }
 td{
-    border: /*3px solid var(--nuovo_ciano);*/none;
+    border: none; /*versione precendente: 3px solid var(--nuovo_ciano);*/
     border-collapse: collapse;  
     text-align: center; 
 
