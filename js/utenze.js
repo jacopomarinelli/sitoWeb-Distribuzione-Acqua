@@ -38,14 +38,27 @@ function verificaStato() {  // abilita e disabilita la data di chiusura
 }
 
 /* SALVA DATI DELLA RICERCA */
+function salvaStato() {
+    var pulsanti = document.getElementsByName("stato");
+    console.log("nel metodo");
+    for (i=0; i<pulsanti.length; i++) {
+        console.log("nel for");
+        if (pulsanti[i].checked) {
+            console.log("nel if");
+            console.log(pulsanti[i].id);
+            return pulsanti[i].id;
+        }
+    }
+    return "";
+}
+
 function salvaUtenza() {
     const utenza = {
         cod_utenza: document.getElementById("cod_ut").value,
         cod_cliente: document.getElementById("cod_cli").value,
         indirizzo: document.getElementById("ind").value,
         città: document.getElementById("cit_ut").value,
-        attiva: document.getElementById("attiva").value,
-        disattiva: document.getElementById("disattiva").value,
+        stato: salvaStato(),
         data_apertura: document.getElementById("data_ap").value,
         data_chiusura: document.getElementById("data_ch").value
     };
@@ -64,8 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("cod_cli").value = dati.cod_cliente;
     document.getElementById("ind").value = dati.indirizzo;
     document.getElementById("cit_ut").value = dati.città;
-    document.getElementById("attiva").value = dati.attiva;
-    document.getElementById("disattiva").value = dati.disattiva;
+    if (dati.stato !== "") {document.getElementById(dati.stato).checked = true;}
     document.getElementById("data_ap").value = dati.data_apertura;
     document.getElementById("data_ch").value = dati.data_chiusura;
 });
