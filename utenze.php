@@ -87,7 +87,11 @@ $repo = new UtenzeRepository();
                         echo "<td>" . htmlspecialchars($utenza['CITTA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
+                        if ($utenza['DATA_CHIUSURA'] !== "") {
+                            echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
+                        } else {
+                            echo "<td>" . "--" . "</td>";
+                        }
                         echo "<td>" . htmlspecialchars($utenza['NUMERO_LETTURE']) . "</td>";
                         
                         echo "</tr>";
