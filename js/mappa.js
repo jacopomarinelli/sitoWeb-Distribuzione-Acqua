@@ -1,15 +1,13 @@
-// Diciamo a JavaScript di aspettare che l'HTML e il CSS siano completamente caricati
 document.addEventListener("DOMContentLoaded", function() {
 
-    // 1. crea mappa centrata sull’Italia
+    // mappa centrata sull’Italia
     const map = L.map('map').setView([42.5, 12.5], 5);
 
-    // 2. layer mappa
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    // 3. punti fissi
+    // punti fissi
     const punti = [
       { nome: "Monza", lat: 45.5845, lng: 9.2744 },
       { nome: "Parma", lat: 44.8015, lng: 10.3280 },
@@ -65,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
       { nome: "Messina", lat: 38.1938, lng: 15.5540 }
     ];
 
-    // 4. aggiunta marker con opacità ed effetto Hover
+    // aggiunti marker
     punti.forEach(p => {
       var marker = L.marker([p.lat, p.lng], {
         opacity: 0.3

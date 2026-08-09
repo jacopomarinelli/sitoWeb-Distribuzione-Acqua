@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 fattureSelezionate.add(numero);
                 this.classList.add("selezionata");
             }
-
-            console.log(fattureSelezionate);
         });
     });
 
@@ -59,16 +57,15 @@ function modificaFattura() {
 
     apriFormFattura();
 
-    // 2. RECUPERA I DATI DALLA RIGA SELEZIONATA
+    // recupera dati di riga selezionata
     const riga = document.querySelector("tr.selezionata");
     const celle = riga.querySelectorAll("td");
 
-    // 3. INIETTA I DATI
     const inputNumero = document.getElementById("nuovo_num_fat");
     inputNumero.value = celle[0].textContent.trim();
     
-    // Blocca il campo numero per evitare che la chiave primaria venga alterata, 
-    // altrimenti la query UPDATE WHERE NUMERO = :numero non troverà la riga!
+    // blocca il campo nuovo_num_fat per evitare che la chiave primaria venga modificata, 
+    // evitando che query UPDATE WHERE NUMERO = :numero non trovi la riga
     inputNumero.setAttribute("readonly", true);
 
     document.getElementById("nuova_data_fat").value = celle[1].textContent.trim();
@@ -76,7 +73,7 @@ function modificaFattura() {
     document.getElementById("nuova_iva").value = celle[3].textContent.trim();
     document.getElementById("nuovo_cos_tot").value = celle[4].textContent.trim();
 
-    // 4. SOVRASCRIVI L'ACTION DEL FORM (adesso siamo sicuri che non verrà annullato)
+    // action del form sovrascritta
     document.querySelector(".contenuto-fattura")
             .setAttribute("action", "fatture.php?action=modifica");
 }
@@ -84,24 +81,20 @@ function modificaFattura() {
 function nuovaFattura() {
     const inputNumero = document.getElementById("nuovo_num_fat");
     
-    // 1. Sblocca il campo del numero fattura (togli il readonly)
     inputNumero.removeAttribute("readonly");
     
-    // 2. Ripristina l'action originale del form per l'inserimento
+    // ripristina l'action inserisci del form
     document.querySelector(".contenuto-fattura").setAttribute("action", "fatture.php?action=inserisci");
-    
-    // 3. Ripristina i testi originali dei titoli e dei pulsanti
+
     document.getElementById("compito-azione").textContent = "INSERISCI I DATI";
     document.getElementById("avvio").value = "AGGIUNGI";
     
-    // 4. (Consigliato) Svuota i campi nel caso fossero rimasti scritti i dati di una modifica precedente
+    // svuota i campi nel caso siano rimasti scritti dati di una modifica precedente
     inputNumero.value = "";
     document.getElementById("nuova_data_fat").value = "";
     document.getElementById("nuovo_imp").value = "";
     document.getElementById("nuova_iva").value = "";
     document.getElementById("nuovo_cos_tot").value = "";
     
-
-    // 5. chiama la funzione esistente per mostrare il popup a schermo
     apriFormFattura();
 }
