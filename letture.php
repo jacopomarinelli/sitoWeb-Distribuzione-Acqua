@@ -57,7 +57,7 @@ $repo = new LettureRepository();
                         <th id="col_cod_ute">Codice utenza</th>
                         <th id="cod_cod_fatt">Codice fattura</th>
                         <th id="col_data">Data</th>
-                        <th id="col_valore">Valore lettura (m<sup>3</sup>)</th>
+                        <th id="col_valore">Valore lettura</th>
                     </tr>
 
                     <?php
@@ -70,9 +70,13 @@ $repo = new LettureRepository();
 
                         echo "<td>" . htmlspecialchars($lettura['NUMERO']) . "</td>";
                         echo "<td>" . htmlspecialchars($lettura['UTENZA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($lettura['FATTURA']) . "</td>";
+                        if ($lettura['FATTURA'] !== "") {
+                            echo "<td>" . htmlspecialchars($lettura['FATTURA']) . "</td>";
+                        } else {
+                            echo "<td>" . "--" . "</td>";
+                        }
                         echo "<td>" . htmlspecialchars($lettura['DATA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($lettura['VALORE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($lettura['VALORE']) . " m<sup>3</sup>" . "</td>";
                         
                         echo "</tr>";
                         
