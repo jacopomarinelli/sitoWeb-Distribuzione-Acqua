@@ -20,13 +20,13 @@ function modificaDatiPrezzo(id_imp, id_iva, id_tot){
     let iva = Number(document.getElementById(id_iva).value.replace(",", "."));
     let totale = Number(document.getElementById(id_tot).value.replace(",", "."));
     // dati del form aggiornati
-    document.getElementById(id1).value = Math.round(imponibile * 100) / 100;
-    document.getElementById(id2).value = Math.round(iva * 100) / 100;
-    document.getElementById(id3).value = Math.round(totale * 100) / 100;
+    document.getElementById(id_imp).value = Math.round(imponibile * 100) / 100;
+    document.getElementById(id_iva).value = Math.round(iva * 100) / 100;
+    document.getElementById(id_tot).value = Math.round(totale * 100) / 100;
 }
 
 function verificaPercentualeIva(event, id_imp, id_iva){
-    if (document.getElementById(id2).value !== ""){ // se campo iva non è vuoto fa controllo
+    if (document.getElementById(id_iva).value !== ""){ // se campo iva non è vuoto fa controllo
         let imponibile = Number(document.getElementById(id_imp).value);
         let iva = Number(document.getElementById(id_iva).value);
         let percentuale = iva / imponibile;
