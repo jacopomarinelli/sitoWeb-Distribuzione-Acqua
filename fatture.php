@@ -111,9 +111,9 @@ include 'header.php';
                     <tr>
                         <th id="col_num_fattura">Numero fattura</th>
                         <th id="col_data_fattura">Data</th>
-                        <th id="col_imponibile">Imponibile</th>
-                        <th id="col_iva">Iva</th>
-                        <th id="col_totale">Totale</th>
+                        <th id="col_imponibile">Imponibile (€)</th>
+                        <th id="col_iva">Iva (€)</th>
+                        <th id="col_totale">Totale (€)</th>
                         <!-- <th id="numero_fatture-letture">Letture</th> -->
                     </tr>
 
@@ -127,9 +127,9 @@ include 'header.php';
 
                         echo "<td>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['DATA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . " €" . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['IVA']) . " €" . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['TOTALE']) . " €" . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['IVA']) . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['TOTALE']) . "</td>";
                         //echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
 
                         echo "</tr>";
