@@ -67,18 +67,19 @@ include 'header.php';
                     <div class="campo-prezzo">
                         <label for="imp" class="campo">Imponibile: </label>
                         <input type="text" id="imp" name="imponibile" class="text-area" placeholder="Inserisci valore"
-                            onchange="calcolaTotale('imp', 'iva', 'cos_tot')">
+                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano" onblur="calcolaTotale('imp', 'iva', 'cos_tot')">
                     </div>
 
                     <div class="campo-prezzo">
                         <label for="iva" class="campo">Iva: </label>
                         <input type="text" id="iva" name="iva" class="text-area" placeholder="Inserisci valore"
-                            onchange="calcolaTotale('imp', 'iva', 'cos_tot')">
+                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano" onblur="calcolaTotale('imp', 'iva', 'cos_tot')">
                     </div>
 
                     <div class="campo-prezzo">
                         <label for="cos_tot" class="campo">Totale: </label>
-                        <input type="text" id="cos_tot" name="totale" class="text-area" placeholder="Inserisci valore">
+                        <input type="text" id="cos_tot" name="totale" class="text-area" placeholder="Inserisci valore"
+                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano">
                     </div>
                 </div>
                 
@@ -172,18 +173,21 @@ include 'header.php';
                         <div class="campo-prezzo" id="primo_campo_prezzo">
                             <label for="nuovo_imp" class="campo">Imponibile: *</label>
                             <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area" required
+                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano"
                                 placeholder="Inserisci valore" onchange="calcolaTotale('nuovo_imp', 'nuova_iva', 'nuovo_cos_tot')">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuova_iva" class="campo">Iva: *</label>
                             <input type="text" id="nuova_iva" name="nuova_iva" class="text-area" required
+                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano"
                                 placeholder="Inserisci valore" onchange="calcolaTotale('nuovo_imp', 'nuova_iva', 'nuovo_cos_tot')">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuovo_cos_tot" class="campo">Totale: </label>
-                            <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area" placeholder="Inserisci valore">
+                            <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area" placeholder="Inserisci valore"
+                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano">
                         </div>
                     </div>
 
