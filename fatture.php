@@ -4,14 +4,25 @@ require_once 'backend/FattureRep.php';
 
 $repo = new FattureRepository();
 
+function conversioneImportoDB($valore) {
+    if ($valore === '') {
+        return null;
+    }
+
+    $valore = str_replace('.', '', $valore);
+    $valore = str_replace(',', '.', $valore);
+
+    return $valore;
+}
+
 if (isset($_GET['action']) && $_GET['action'] === 'inserisci') {
 
     $fattura = [
         'numero' => $_POST['nuovo_numero_fattura'],
         'data' => $_POST['nuova_data_fattura'],
-        'imponibile' => $_POST['nuovo_imponibile'],
-        'iva' => $_POST['nuova_iva'],
-        'totale' => $_POST['nuovo_totale']
+        'imponibile' => conversioneImportoDB($_POST['nuovo_imponibile']),
+        'iva' => conversioneImportoDB($_POST['nuova_iva']),
+        'totale' => conversioneImportoDB($_POST['nuovo_totale'])
     ];
 
     if ($repo->insertOperation($fattura)) {
@@ -34,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     $fattura = [
         'numero' => $_POST['nuovo_numero_fattura'],
         'data' => $_POST['nuova_data_fattura'],
-        'imponibile' => $_POST['nuovo_imponibile'],
-        'iva' => $_POST['nuova_iva'],
-        'totale' => $_POST['nuovo_totale']
+        'imponibile' => conversioneImportoDB($_POST['nuovo_imponibile']),
+        'iva' => conversioneImportoDB($_POST['nuova_iva']),
+        'totale' => conversioneImportoDB($_POST['nuovo_totale'])
     ];
 
     if ($repo->updateOperation($fattura)) {
