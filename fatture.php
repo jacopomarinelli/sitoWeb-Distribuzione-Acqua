@@ -139,9 +139,9 @@ include 'header.php';
 
                         echo "<td>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['DATA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['IVA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['TOTALE']) . "</td>";
+                        echo "<td>" . number_format($fattura['IMPONIBILE'], 2, ",", ".") . "</td>";
+                        echo "<td>" . number_format($fattura['IVA'], 2, ",", ".") . "</td>";
+                        echo "<td>" . number_format($fattura['TOTALE'], 2, ",", ".") . "</td>";
                         //echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
 
                         echo "</tr>";
