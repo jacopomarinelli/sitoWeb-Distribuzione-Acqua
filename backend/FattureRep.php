@@ -7,6 +7,12 @@ class FattureRepository {
         $this->db = Database::getConnection();
     }
 
+    public function conversionePrezzoRicerca($valore) {
+        $valore = str_replace('.', '', $valore);
+        $valore = str_replace(',', '.', $valore);
+        return $valore;
+    }
+
     public function cerca(array $filtri): array {
         $conditions = [];
         $params = [];
@@ -22,24 +28,18 @@ class FattureRepository {
             $params['data'] = $data ? $data->format('d/m/Y') : $filtri['data_fattura'];
         }
         if (!empty($filtri['imponibile'])) {
-        $imponibile_pulito = str_replace('.', ',', $filtri['imponibile']);
-        $imponibile_pulito = preg_replace('/[^0-9,]/', '', $imponibile_pulito);
-        $conditions[] = "IMPONIBILE LIKE :imponibile";
-        $params['imponibile'] = "%" . $imponibile_pulito . "%";
+            $conditions[] = "IMPONIBILE = :imponibile";
+            $params['imponibile'] = $this->conversionePrezzoRicerca($filtri['imponibile']);
         }
 
         if (!empty($filtri['iva'])) {
-        $iva_pulita = str_replace('.', ',', $filtri['iva']);
-        $iva_pulita = preg_replace('/[^0-9,]/', '', $iva_pulita);
-        $conditions[] = "IVA LIKE :iva";
-        $params['iva'] = "%" . $iva_pulita . "%";
+            $conditions[] = "IVA = :iva";
+            $params['iva'] = $this->conversionePrezzoRicerca($filtri['iva']);
         }
 
         if (!empty($filtri['totale'])) {
-        $totale_pulito = str_replace('.', ',', $filtri['totale']);
-        $totale_pulito = preg_replace('/[^0-9,]/', '', $totale_pulito);
-        $conditions[] = "TOTALE LIKE :totale";
-        $params['totale'] = "%" . $totale_pulito . "%";
+            $conditions[] = "TOTALE = :totale";
+            $params['totale'] = $this->conversionePrezzoRicerca($filtri['totale']);
         }
 
         $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : "";
