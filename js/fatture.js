@@ -1,34 +1,27 @@
 /* CONTROLLO GENERALE */
 function verificaFattura(event){
-    modificaDatiPrezzo("imp", "iva", "cos_tot");
     if (!verificaPercentualeIva(event, "imp", "iva")) {return}
     if (!verificaPrezzoTotale(event, "imp", "iva", "cos_tot")) {return}
     salvaFattura();
 }
 
 function verificaNuovaFattura(event){
-    modificaDatiPrezzo("nuovo_imp", "nuova_iva", "nuovo_cos_tot");
     if (!verificaConfrontoAnno(event)) {return}
     if (!verificaPercentualeIva(event, "nuovo_imp", "nuova_iva")) {return}
     if (!verificaPrezzoTotale(event, "nuovo_imp", "nuova_iva", "nuovo_cos_tot")) {return}
 }
 
 /* CONTROLLO PREZZI FATTURA */
-function modificaDatiPrezzo(id_imp, id_iva, id_tot){
-    // per i decimali, la virgola va trasformata in un punto
-    let imponibile = Number(document.getElementById(id_imp).value.replace(",", "."));
-    let iva = Number(document.getElementById(id_iva).value.replace(",", "."));
-    let totale = Number(document.getElementById(id_tot).value.replace(",", "."));
-    // dati del form aggiornati
-    document.getElementById(id_imp).value = Math.round(imponibile * 100) / 100;
-    document.getElementById(id_iva).value = Math.round(iva * 100) / 100;
-    document.getElementById(id_tot).value = Math.round(totale * 100) / 100;
+const formatter = new Intl.NumberFormat('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+function leggiValorePrezzo(id) {
+    return Number(document.getElementById(id).value.replace(".", "").replace(",", "."));
 }
 
 function verificaPercentualeIva(event, id_imp, id_iva){
     if (document.getElementById(id_iva).value !== ""){ // se campo iva non è vuoto fa controllo
-        let imponibile = Number(document.getElementById(id_imp).value);
-        let iva = Number(document.getElementById(id_iva).value);
+        let imponibile = leggiValorePrezzo(id_imp);
+        let iva = leggiValorePrezzo(id_iva);
         let percentuale = iva / imponibile;
         if (percentuale < 0.10 || percentuale > 0.20) {
             event.preventDefault();
@@ -42,9 +35,9 @@ function verificaPercentualeIva(event, id_imp, id_iva){
 /* CON LA FUNZIONE calcolaTotale() QUESTA FUNZIONE PRATICAMENTE NON VIENE USATA POICHE SEMPRE VERA */
 function verificaPrezzoTotale(event, id_imp, id_iva, id_tot) {
     if (document.getElementById(id_imp).value !== "" && document.getElementById(id_iva).value !== ""){ // se campi imp e iva non sono vuoti fa controllo
-        let imponibile = Number(document.getElementById(id_imp).value);
-        let iva = Number(document.getElementById(id_iva).value);
-        let totale = Number(document.getElementById(id_tot).value);
+        let imponibile = leggiValorePrezzo(id_imp);
+        let iva = leggiValorePrezzo(id_iva);
+        let totale = leggiValorePrezzo(id_tot);
         // confronta somma e totale
         if ((imponibile + iva).toFixed(2) !== totale.toFixed(2)){
             event.preventDefault();
@@ -66,13 +59,22 @@ function verificaConfrontoAnno(event) {  // verifica che anno in codice fattura 
     return true;
 }
 
-function calcolaTotale(id_imp, id_iva, id_tot) {   //PRENDENDO VALORI PRIMA CHE VENGANO MODIFICATI DA PROBLEMI
-    const imp = document.getElementById(id_imp);
-    const iva = document.getElementById(id_iva);
-    const totale = document.getElementById(id_tot);
+/* MODIFICA AUTOMATICAMENTE PREZZO TOTALE INSERITO IN FATTURA SOMMANDO ADDENDI */
+function calcolaTotale(id_imp, id_iva, id_tot) {
+    const campoImp = document.getElementById(id_imp);
+    const campoIva = document.getElementById(id_iva);
+    const campoTot = document.getElementById(id_tot);
 
-    if (imp.value && iva.value) {  // se entrambi campi compilati
-        totale.value = Number(imp.value) + Number(iva.value);
+    if (campoImp.value && campoIva.value) {
+        const imp = leggiValorePrezzo(id_imp);
+        const iva = leggiValorePrezzo(id_iva);
+
+        if (!isNaN(imp) && !isNaN(iva)) {
+            console.log(formatter.format(imp));
+            console.log(formatter.format(iva));
+            console.log(formatter.format(imp+iva));
+            campoTot.value = formatter.format(imp + iva);
+        }
     }
 }
 
@@ -85,7 +87,7 @@ function confermaEliminazione(selezionate) {
 
 function creaMessaggioEliminazione(selezionate, resolve) { // in futuro possibilità di separare creazione messaggio in una funzione separata
     let messaggio;
-    if (selezionate == 1){
+    if (selezionate === 1){
         messaggio = "Stai eliminando una fattura.";
     } else {
         messaggio = "Stai eliminando " + selezionate + " fatture.";
