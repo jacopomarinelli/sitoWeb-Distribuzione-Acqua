@@ -8,6 +8,7 @@ class FattureRepository {
     }
 
     public function conversionePrezzoRicerca($valore) {
+        $valore = str_replace(' €', '', $valore);
         $valore = str_replace('.', '', $valore);
         $valore = str_replace(',', '.', $valore);
         return $valore;

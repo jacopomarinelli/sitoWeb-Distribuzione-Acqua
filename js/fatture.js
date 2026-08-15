@@ -15,7 +15,8 @@ function verificaNuovaFattura(event){
 const formatter = new Intl.NumberFormat('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
 function leggiValorePrezzo(id) {
-    return Number(document.getElementById(id).value.replace(".", "").replace(",", "."));
+    // operazioni fatte in ordine: tolto euro, tolti spazi, sostituiti separatori
+    return Number(document.getElementById(id).value.replace(" €", "").replace(".", "").replace(",", "."));
 }
 
 function verificaPercentualeIva(event, id_imp, id_iva){
@@ -65,16 +66,18 @@ function calcolaTotale(id_imp, id_iva, id_tot) {
     const campoIva = document.getElementById(id_iva);
     const campoTot = document.getElementById(id_tot);
 
-    if (campoImp.value && campoIva.value) {
+    if (campoImp.value!=="" && campoIva.value !== "") {
         const imp = leggiValorePrezzo(id_imp);
         const iva = leggiValorePrezzo(id_iva);
-
         if (!isNaN(imp) && !isNaN(iva)) {
-            console.log(formatter.format(imp));
-            console.log(formatter.format(iva));
-            console.log(formatter.format(imp+iva));
-            campoTot.value = formatter.format(imp + iva);
+            campoImp.value = formatter.format(imp)+" €";
+            campoIva.value = formatter.format(iva)+" €";
+            campoTot.value = formatter.format(imp + iva)+" €";
+        } else {
+            campoTot.value = "";
         }
+    } else {
+        campoTot.value = "";
     }
 }
 

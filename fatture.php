@@ -9,6 +9,7 @@ function conversioneImportoDB($valore) {
         return null;
     }
 
+    $valore = str_replace(' €', '', $valore);
     $valore = str_replace('.', '', $valore);
     $valore = str_replace(',', '.', $valore);
 
@@ -78,19 +79,19 @@ include 'header.php';
                     <div class="campo-prezzo">
                         <label for="imp" class="campo">Imponibile: </label>
                         <input type="text" id="imp" name="imponibile" class="text-area" placeholder="Inserisci valore"
-                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano" onblur="calcolaTotale('imp', 'iva', 'cos_tot')">
+                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})? €" title="Formato italiano" onblur="calcolaTotale('imp', 'iva', 'cos_tot')">
                     </div>
 
                     <div class="campo-prezzo">
                         <label for="iva" class="campo">Iva: </label>
                         <input type="text" id="iva" name="iva" class="text-area" placeholder="Inserisci valore"
-                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano" onblur="calcolaTotale('imp', 'iva', 'cos_tot')">
+                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})? €" title="Formato italiano" onblur="calcolaTotale('imp', 'iva', 'cos_tot')">
                     </div>
 
                     <div class="campo-prezzo">
                         <label for="cos_tot" class="campo">Totale: </label>
                         <input type="text" id="cos_tot" name="totale" class="text-area" placeholder="Inserisci valore"
-                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano">
+                            pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})? €" title="Formato italiano">
                     </div>
                 </div>
                 
@@ -123,9 +124,9 @@ include 'header.php';
                     <tr>
                         <th id="col_num_fattura">Numero fattura</th>
                         <th id="col_data_fattura">Data</th>
-                        <th id="col_imponibile">Imponibile (€)</th>
-                        <th id="col_iva">Iva (€)</th>
-                        <th id="col_totale">Totale (€)</th>
+                        <th id="col_imponibile">Imponibile</th>
+                        <th id="col_iva">Iva</th>
+                        <th id="col_totale">Totale</th>
                         <!-- <th id="numero_fatture-letture">Letture</th> -->
                     </tr>
 
@@ -139,9 +140,9 @@ include 'header.php';
 
                         echo "<td>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
                         echo "<td>" . htmlspecialchars($fattura['DATA']) . "</td>";
-                        echo "<td>" . number_format($fattura['IMPONIBILE'], 2, ",", ".") . "</td>";
-                        echo "<td>" . number_format($fattura['IVA'], 2, ",", ".") . "</td>";
-                        echo "<td>" . number_format($fattura['TOTALE'], 2, ",", ".") . "</td>";
+                        echo "<td>" . htmlspecialchars($fattura['IMPONIBILE']) . "</td>"; //number_format($fattura['IMPONIBILE'], 2, ",", ".")
+                        echo "<td>" . htmlspecialchars($fattura['IVA']) . "</td>"; //number_format($fattura['IVA'], 2, ",", ".")
+                        echo "<td>" . htmlspecialchars($fattura['TOTALE']) . "</td>"; //number_format($fattura['TOTALE'], 2, ",", ".")
                         //echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
 
                         echo "</tr>";
@@ -184,21 +185,21 @@ include 'header.php';
                         <div class="campo-prezzo" id="primo_campo_prezzo">
                             <label for="nuovo_imp" class="campo">Imponibile: *</label>
                             <input type="text" id="nuovo_imp" name="nuovo_imponibile" class="text-area" required
-                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano"
+                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})? €" title="Formato italiano"
                                 placeholder="Inserisci valore" onchange="calcolaTotale('nuovo_imp', 'nuova_iva', 'nuovo_cos_tot')">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuova_iva" class="campo">Iva: *</label>
                             <input type="text" id="nuova_iva" name="nuova_iva" class="text-area" required
-                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano"
+                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})? €" title="Formato italiano"
                                 placeholder="Inserisci valore" onchange="calcolaTotale('nuovo_imp', 'nuova_iva', 'nuovo_cos_tot')">
                         </div>
 
                         <div class="campo-prezzo">
                             <label for="nuovo_cos_tot" class="campo">Totale: </label>
                             <input type="text" id="nuovo_cos_tot" name="nuovo_totale" class="text-area" placeholder="Inserisci valore"
-                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})?" title="Formato italiano">
+                                pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})? €" title="Formato italiano">
                         </div>
                     </div>
 
