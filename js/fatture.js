@@ -12,7 +12,7 @@ function verificaNuovaFattura(event){
 }
 
 /* CONTROLLO PREZZI FATTURA */
-const formatter = new Intl.NumberFormat('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const formatter = new Intl.NumberFormat('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: "always"});
 
 function leggiValorePrezzo(id) {
     // operazioni fatte in ordine: tolto euro, tolti spazi, sostituiti separatori

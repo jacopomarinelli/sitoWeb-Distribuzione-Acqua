@@ -70,7 +70,7 @@ function modificaFattura() {
     inputNumero.setAttribute("readonly", true);
 
     document.getElementById("nuova_data_fat").value = celle[1].textContent.trim();
-    const formatter = new Intl.NumberFormat('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    const formatter = new Intl.NumberFormat('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: "always"});
     document.getElementById("nuovo_imp").value = formatter.format(celle[2].textContent.trim())+" €";
     document.getElementById("nuova_iva").value = formatter.format(celle[3].textContent.trim())+" €";
     document.getElementById("nuovo_cos_tot").value = formatter.format(celle[4].textContent.trim())+" €";
