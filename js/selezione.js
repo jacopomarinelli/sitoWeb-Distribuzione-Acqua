@@ -59,6 +59,7 @@ function modificaFattura() {
 
     // recupera dati di riga selezionata
     const riga = document.querySelector("tr.selezionata");
+    // recupera tutte le colonne della riga selezionata
     const celle = riga.querySelectorAll("td");
 
     const inputNumero = document.getElementById("nuovo_num_fat");
@@ -69,9 +70,10 @@ function modificaFattura() {
     inputNumero.setAttribute("readonly", true);
 
     document.getElementById("nuova_data_fat").value = celle[1].textContent.trim();
-    document.getElementById("nuovo_imp").value = celle[2].textContent.trim();
-    document.getElementById("nuova_iva").value = celle[3].textContent.trim();
-    document.getElementById("nuovo_cos_tot").value = celle[4].textContent.trim();
+    const formatter = new Intl.NumberFormat('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById("nuovo_imp").value = formatter.format(celle[2].textContent.trim())+" €";
+    document.getElementById("nuova_iva").value = formatter.format(celle[3].textContent.trim())+" €";
+    document.getElementById("nuovo_cos_tot").value = formatter.format(celle[4].textContent.trim())+" €";
 
     // action del form sovrascritta
     document.querySelector(".contenuto-fattura")
