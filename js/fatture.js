@@ -24,9 +24,9 @@ function verificaPercentualeIva(event, id_imp, id_iva){
         let imponibile = leggiValorePrezzo(id_imp);
         let iva = leggiValorePrezzo(id_iva);
         let percentuale = iva / imponibile;
-        if (percentuale < 0.10 || percentuale > 0.20) {
+        if (percentuale < 0.10 || percentuale > 0.25) {
             event.preventDefault();
-            creaMessaggioErrore("L'iva dovrebbe essere compresa tra il 10% e 20%. <br>Ricontrolla i dati inseriti.");
+            creaMessaggioErrore("L'iva dovrebbe essere compresa tra il 10% e 25%. <br>Ricontrolla i dati inseriti.");
             return false;
         }
     }
