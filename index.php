@@ -28,7 +28,7 @@ $totaleFatture = $fattureRep->contaTutti();
         <span class="card-icon"><i class="fa-solid fa-users"></i></span>
         <span class="card-info">
             <span class="titolo-card">Utenti</span>
-            <span class="numero-grande"><?php echo $totaleClienti ?? '12.845'; ?></span>
+            <span class="numero-grande"><?php echo $totaleClienti ?? 'Errore'; ?></span>
         </span>
     </h5>
 
@@ -36,7 +36,7 @@ $totaleFatture = $fattureRep->contaTutti();
         <span class="card-icon"><i class="fa-solid fa-droplet"></i></span>
         <span class="card-info">
             <span class="titolo-card">Utenze</span>
-            <span class="numero-grande"><?php echo $totaleUtenze ?? '18.532'; ?></span>
+            <span class="numero-grande"><?php echo $totaleUtenze ?? 'Errore'; ?></span>
         </span>
     </h5>
 
@@ -44,7 +44,7 @@ $totaleFatture = $fattureRep->contaTutti();
         <span class="card-icon"><i class="fa-solid fa-chart-line"></i></span>
         <span class="card-info">
             <span class="titolo-card">Letture</span>
-            <span class="numero-grande"><?php echo $totaleLetture ?? '245.781'; ?></span>
+            <span class="numero-grande"><?php echo $totaleLetture ?? 'Errore'; ?></span>
         </span>
     </h5>
 
@@ -52,7 +52,7 @@ $totaleFatture = $fattureRep->contaTutti();
         <span class="card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
         <span class="card-info">
             <span class="titolo-card">Fatture</span>
-            <span class="numero-grande"><?php echo $totaleFatture ?? '4.328'; ?></span>
+            <span class="numero-grande"><?php echo $totaleFatture ?? 'Errore'; ?></span>
         </span>
     </h5>
 
