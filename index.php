@@ -28,7 +28,7 @@ $totaleFatture = $fattureRep->contaTutti();
         <span class="card-icon"><i class="fa-solid fa-users"></i></span>
         <span class="card-info">
             <span class="titolo-card">Utenti</span>
-            <span class="numero-grande"><?php echo $totaleUtenti ?? '12.845'; ?></span>
+            <span class="numero-grande"><?php echo $totaleClienti ?? '12.845'; ?></span>
         </span>
     </h5>
 
