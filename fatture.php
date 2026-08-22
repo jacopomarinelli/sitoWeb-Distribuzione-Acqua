@@ -190,8 +190,8 @@ include 'header.php';
                         </div>
 
                         <div class="campo-prezzo">
-                            <label for="nuova_iva" class="campo">Iva: *</label>
-                            <input type="text" id="nuova_iva" name="nuova_iva" class="text-area" required
+                            <label for="nuova_iva" class="campo">Iva: </label>
+                            <input type="text" id="nuova_iva" name="nuova_iva" class="text-area"
                                 pattern="[0-9]{1,3}(\.[0-9]{3})?(,[0-9]{1,2})? €" title="Formato italiano"
                                 placeholder="Inserisci valore" onchange="calcolaTotale('nuovo_imp', 'nuova_iva', 'nuovo_cos_tot')">
                         </div>
