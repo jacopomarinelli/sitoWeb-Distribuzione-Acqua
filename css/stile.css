@@ -899,6 +899,13 @@ td{
     padding: 4px 10px; /* dà respiro anche a destra e sinistra */
 }
 
+.messaggio-ricerca{
+    background-color: var(--beige);
+    color: var(--colore_testo);
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
 /*SELEZIONE ED INTERAZIONE*/
 
 table tr.selezionata {
