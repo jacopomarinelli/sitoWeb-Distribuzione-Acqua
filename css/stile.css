@@ -7,7 +7,7 @@
     --bianco2: #fffcf8;
     --rosso_errore: #cc0000;
     --beige_Medio: #91826b;
-    --nuovo_ciano: #56aec1;
+    --nuovo_ciano: #50aec1; /* in sito è 60c7da */ 
     --sfumatura_ciano: #92dbef;
     --beige_chiaro: #eadac7;
     --colore_testo: #246171;
@@ -923,13 +923,13 @@ table tr:nth-child(odd) {
     width: 36%;
 }
 #col_indirizzo_cliente{
-    width: 22%;
+    width: 20%;
 }
 #col_città_cliente{
     width: 8%;
 }
 #col_num_cliente-utenze{
-    width: 4%;
+    width: 6%;
 }
 
 /* ELEMENTI RISULTATI UTENZE */
