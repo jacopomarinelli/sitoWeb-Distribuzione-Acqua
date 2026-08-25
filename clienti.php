@@ -16,8 +16,8 @@ $repo = new ClientiRepository();
                     pattern="[A-Z]{3}[0-9]{3}" title="Codice di 3 lettere seguite da 3 numeri" >
                 
                 <label for="cod_fis" class="campo">Codice fiscale del cliente: </label>
-                <input type="text" id="cod_fis" name="codice_fiscale" class="text-area" placeholder="es: ABCDEF12G34H567I" 
-                    pattern="[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}" title="Codice fiscale: LLLLLLNNLNNLNNNL (L lettera, N numero)">
+                <input type="text" id="cod_fis" name="codice_fiscale" class="text-area" placeholder="es: AAAAAA11A11A111A" 
+                    pattern="[A-Z]{6}[0-9]{2}[A-Z]{1}[0-9]{2}[A-Z]{1}[0-9]{3}[A-Z]{1}" title="Codice fiscale: AAAAAANNANNANNNA (A lettera, N numero)">
                 
                 <label for="rag_soc" class="campo">Nome dell'azienda: </label>
                 <div class="autocomplete"><input type="text" id="rag_soc" name="ragione_sociale" class="text-area"
@@ -79,6 +79,12 @@ $repo = new ClientiRepository();
                 </table>
 
                 </div>
+
+                <?php if (count($clienti) == 0) { ?>
+                <div class="messaggio-ricerca">
+                <h3>LA TUA RICERCA NON HA PRODOTTO RISULTATI. <br>MODIFICA I PARAMETRI DI RICERCA INSERITI.</h3>
+                </div>
+                <?php } ?>
 
             </div>
 

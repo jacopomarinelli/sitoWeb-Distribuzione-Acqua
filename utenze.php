@@ -100,6 +100,12 @@ $repo = new UtenzeRepository();
 
                     </table>
                 </div>
+
+                <?php if (count($utenze) == 0) { ?>
+                <div class="messaggio-ricerca">
+                <h3>LA TUA RICERCA NON HA PRODOTTO RISULTATI. <br>MODIFICA I PARAMETRI DI RICERCA INSERITI.</h3>
+                </div>
+                <?php } ?>
                 
             </div>
 

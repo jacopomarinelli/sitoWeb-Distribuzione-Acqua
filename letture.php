@@ -86,6 +86,12 @@ $repo = new LettureRepository();
 
                 </div>
 
+                <?php if (count($letture) == 0) { ?>
+                <div class="messaggio-ricerca">
+                <h3>LA TUA RICERCA NON HA PRODOTTO RISULTATI. <br>MODIFICA I PARAMETRI DI RICERCA INSERITI.</h3>
+                </div>
+                <?php } ?>
+
             </div>
 
         </div>
