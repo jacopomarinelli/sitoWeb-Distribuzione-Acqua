@@ -56,23 +56,45 @@ $repo = new UtenzeRepository();
 
             <div class="mostra-risultati">
                 
-                <div class="campo-ricerca">
-                    <h3>UTENZE</h3>
+                <div class="header-risultati">
+                    <div class="campo-ricerca">
+                        <h3>UTENZE</h3>
+                    </div>
+
+                    <div class="ordinamento">
+                        <p>Ordina per</p>
+
+                        <select name="colonna" id="colonna-ordinata-utenze" class="selezione-ordine">
+                            <option value="col_cod_utenza">Codice utenza</option>
+                            <option value="col_cod_cliente">Codice cliente</option>
+                            <option value="col_data_apertura">Data apertura</option>
+                            <option value="col_data_chiusura">Data chiusura</option>
+                            <option value="numero_utenza-lettura">Numero letture</option>
+                        </select>
+
+                        <select name="ordine" id="senso-colonna-utenze" class="selezione-ordine">
+                            <option value="crescente">Crescente</option>
+                            <option value="decrescente">Decrescente</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="risultati">
                     <table>
+                        <thead>
                         <tr>
-                            <th id="col_cod_utenza">Codice utenza</th>
-                            <th id="col_cod_cliente">Codice cliente</th>
+                            <th id="col_cod_utenza" data-tipo="codice-numerico">Codice utenza</th>
+                            <th id="col_cod_cliente" data-tipo="codice-cliente">Codice cliente</th>
                             <th id="col_indirizzo">Indirizzo</th>
                             <th id="col_città">Città</th>
                             <th id="col_stato">Stato</th>
-                            <th id="col_data_apertura">Data apertura</th>
-                            <th id="col_data_chiusura">Data chiusura</th>
-                            <th id="numero_utenza-lettura">Letture</th>
+                            <th id="col_data_apertura" data-tipo="data">Data apertura</th>
+                            <th id="col_data_chiusura" data-tipo="data">Data chiusura</th>
+                            <th id="numero_utenza-lettura" data-tipo="valore">Letture</th>
                         </tr>
+                        </thead>
 
+                        <tbody>
                         <?php
 
                         $utenze = $repo->cerca($_GET);
@@ -81,22 +103,23 @@ $repo = new UtenzeRepository();
 
                         echo "<tr>";
 
-                        echo "<td>" . htmlspecialchars($utenza['CODICE']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenza['CLIENTE']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($utenza['CODICE'])."'>" . htmlspecialchars($utenza['CODICE']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($utenza['CLIENTE'])."'>" . htmlspecialchars($utenza['CLIENTE']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['INDIRIZZO']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['CITTA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
-                        echo "<td>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($utenza['DATA_CHIUSURA'])."'>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
                         if ($utenza['DATA_CHIUSURA'] !== "") {
-                            echo "<td>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
+                            echo "<td data-valore='".htmlspecialchars($utenza['DATA_CHIUSURA'])."'>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
                         } else {
-                            echo "<td>" . "--" . "</td>";
+                            echo "<td data-valore='".""."'>" . "--" . "</td>";
                         }
-                        echo "<td>" . htmlspecialchars($utenza['NUMERO_LETTURE']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($utenza['NUMERO_LETTURE'])."'>" . htmlspecialchars($utenza['NUMERO_LETTURE']) . "</td>";
                         
                         echo "</tr>";
                         
                     }?>
+                    </body>
 
                     </table>
                 </div>

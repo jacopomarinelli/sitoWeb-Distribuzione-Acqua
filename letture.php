@@ -11,7 +11,7 @@ $repo = new LettureRepository();
         <div class="pagina">
 
             <form action="letture.php" method="GET" class="ricerca" onsubmit="verificaLettura(event)">
-                <label for="num_let" class="campo">Numero lettura: </label>
+                <label for="num_let" class="campo">Codice lettura: </label>
                 <input type="text" id="num_let" name="numero" class="text-area" placeholder="Inserisci il numero della lettura"
                     pattern="[0-9]{8}" title="Codice di 8 numeri">
                 
@@ -45,21 +45,43 @@ $repo = new LettureRepository();
 
             <div class="mostra-risultati">
                 
-                <div class="campo-ricerca">
-                    <h3>LETTURE</h3>
+                <div class="header-risultati">
+                    <div class="campo-ricerca">
+                        <h3>LETTURE</h3>
+                    </div>
+
+                    <div class="ordinamento">
+                        <p>Ordina per</p>
+
+                        <select name="colonna" id="colonna-ordinata-letture" class="selezione-ordine">
+                            <option value="col_num_let">Codice lettura</option>
+                            <option value="col_cod_ute">Codice utenza</option>
+                            <option value="cod_cod_fatt">Codice fattura</option>
+                            <option value="col_data">Data</option>
+                            <option value="col_valore">Valore lettura</option>
+                        </select>
+
+                        <select name="ordine" id="senso-colonna-letture" class="selezione-ordine">
+                            <option value="crescente">Crescente</option>
+                            <option value="decrescente">Decrescente</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="risultati">
                     
                 <table>
+                    <thead>
                     <tr>
-                        <th id="col_num_let">Numero lettura</th>
-                        <th id="col_cod_ute">Codice utenza</th>
-                        <th id="cod_cod_fatt">Codice fattura</th>
-                        <th id="col_data">Data</th>
-                        <th id="col_valore">Valore lettura</th>
+                        <th id="col_num_let" data-tipo="codice-numerico">Codice lettura</th>
+                        <th id="col_cod_ute" data-tipo="codice-numerico">Codice utenza</th>
+                        <th id="cod_cod_fatt" data-tipo="codice-fattura">Codice fattura</th>
+                        <th id="col_data" data-tipo="data">Data</th>
+                        <th id="col_valore" data-tipo="valore">Valore lettura</th>
                     </tr>
+                    </thead>
 
+                    <tbody>
                     <?php
 
                         $letture = $repo->cerca($_GET);
@@ -68,19 +90,20 @@ $repo = new LettureRepository();
 
                         echo "<tr>";
 
-                        echo "<td>" . htmlspecialchars($lettura['NUMERO']) . "</td>";
-                        echo "<td>" . htmlspecialchars($lettura['UTENZA']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($lettura['NUMERO'])."'>" . htmlspecialchars($lettura['NUMERO']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($lettura['UTENZA'])."'>" . htmlspecialchars($lettura['UTENZA']) . "</td>";
                         if ($lettura['FATTURA'] !== "") {
-                            echo "<td>" . htmlspecialchars($lettura['FATTURA']) . "</td>";
+                            echo "<td data-valore='".htmlspecialchars($lettura['FATTURA'])."'>" . htmlspecialchars($lettura['FATTURA']) . "</td>";
                         } else {
-                            echo "<td>" . "--" . "</td>";
+                            echo "<td data-valore='".""."'>" . "--" . "</td>";
                         }
-                        echo "<td>" . htmlspecialchars($lettura['DATA']) . "</td>";
-                        echo "<td>" . htmlspecialchars($lettura['VALORE']) . " m<sup>3</sup>" . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($lettura['DATA'])."'>" . htmlspecialchars($lettura['DATA']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($lettura['VALORE'])."'>" . htmlspecialchars($lettura['VALORE']) . " m<sup>3</sup>" . "</td>";
                         
                         echo "</tr>";
                         
                     }?>
+                    </tbody>
                     
                 </table>
 

@@ -39,22 +39,42 @@ $repo = new ClientiRepository();
 
             <div class="mostra-risultati">
                 
-                <div class="campo-ricerca">
-                    <h3>CLIENTI</h3>
+                <div class="header-risultati">
+                    <div class="campo-ricerca">
+                        <h3>CLIENTI</h3>
+                    </div>
+
+                    <div class="ordinamento">
+                        <p>Ordina per</p>
+
+                        <select name="colonna" id="colonna-ordinata-clienti" class="selezione-ordine">
+                            <option value="col_cod_cli">Codice cliente</option>
+                            <option value="col_cod_fis">Codice fiscale</option>
+                            <option value="numero_cliente-utenze">Numero utenze</option>
+                        </select>
+
+                        <select name="ordine" id="senso-colonna-clienti" class="selezione-ordine">
+                            <option value="crescente">Crescente</option>
+                            <option value="decrescente">Decrescente</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="risultati">
                     
                 <table>
+                    <thead>
                     <tr>
-                        <th id="col_cod_cli">Codice cliente</th>
-                        <th id="col_cod_fis">Codice fiscale</th>
+                        <th id="col_cod_cli" data-tipo="codice-cliente">Codice cliente</th>
+                        <th id="col_cod_fis" data-tipo="codice-fiscale">Codice fiscale</th>
                         <th id="cod_rag_soc">Ragione sociale</th>
                         <th id="col_indirizzo_cliente">Indirizzo</th>
                         <th id="col_città_cliente">Città</th>
-                        <th id="numero_cliente-utenze">Utenze</th>
+                        <th id="numero_cliente-utenze" data-tipo="valore">Utenze</th>
                     </tr>
+                    </thead>
                     
+                    <tbody>
                     <?php
 
                         $clienti = $repo->cerca($_GET);
@@ -63,18 +83,17 @@ $repo = new ClientiRepository();
 
                         echo "<tr>";
 
-                        echo "<td>" . htmlspecialchars($cliente['CODICE']) . "</td>";
-                        echo "<td>" . htmlspecialchars($cliente['CODICE_FISCALE']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($cliente['CODICE'])."'>" . htmlspecialchars($cliente['CODICE']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($cliente['CODICE_FISCALE'])."'>" . htmlspecialchars($cliente['CODICE_FISCALE']) . "</td>";
                         echo "<td>" . htmlspecialchars($cliente['RAGIONE_SOCIALE']) . "</td>";
                         echo "<td>" . htmlspecialchars($cliente['INDIRIZZO']) . "</td>";
                         echo "<td>" . htmlspecialchars($cliente['CITTA']) . "</td>";
-
-                        // stampa il numero di utenze
-                        echo "<td>" . htmlspecialchars($cliente['NUMERO_UTENZE']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($cliente['NUMERO_UTENZE'])."'>" . htmlspecialchars($cliente['NUMERO_UTENZE']) . "</td>";
 
                         echo "</tr>";
                         
                     }?>
+                    </tbody>
                     
                 </table>
 
