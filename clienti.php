@@ -48,14 +48,14 @@ $repo = new ClientiRepository();
                         <p>Ordina per</p>
 
                         <select name="colonna" id="colonna-ordinata-clienti" class="selezione-ordine">
-                            <option value="col_cod_cli">Codice cliente</option>
-                            <option value="col_cod_fis">Codice fiscale</option>
-                            <option value="numero_cliente-utenze">Numero utenze</option>
+                            <option value="col_cod_cli">CODICE CLIENTE</option>
+                            <option value="col_cod_fis">CODICE FISCALE</option>
+                            <option value="numero_cliente-utenze">NUMERO UTENZE</option>
                         </select>
 
                         <select name="ordine" id="senso-colonna-clienti" class="selezione-ordine">
-                            <option value="crescente">Crescente</option>
-                            <option value="decrescente">Decrescente</option>
+                            <option value="crescente">CRESCENTE</option>
+                            <option value="decrescente">DECRESCENTE</option>
                         </select>
                     </div>
                 </div>

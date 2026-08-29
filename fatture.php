@@ -67,7 +67,7 @@ include 'header.php';
         <div class="pagina">
 
             <form action="fatture.php" method="GET" class="ricerca" onsubmit="verificaFattura(event)">
-                <label for="num_fat" class="campo">Numero della fattura: </label>
+                <label for="num_fat" class="campo">Codice fattura: </label>
                 <input type="text" id="num_fat" name="numero_fattura" class="text-area" placeholder="es: FT-2026-12345"
                     pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero(di 5 cifre)">
                 
@@ -109,6 +109,21 @@ include 'header.php';
                     <div class="campo-ricerca">
                         <h3>FATTURE</h3>
                     </div>
+
+                    <div class="ordinamento" id="ordine-fatture">
+                        <p>Ordina per</p>
+
+                        <select name="colonna" id="colonna-ordinata-fatture" class="selezione-ordine">
+                            <option value="col_num_fattura">CODICE FATTURA</option>
+                            <option value="col_data_fattura">DATA</option>
+                            <option value="col_totale">TOTALE</option>
+                        </select>
+
+                        <select name="ordine" id="senso-colonna-fatture" class="selezione-ordine">
+                            <option value="crescente">CRESCENTE</option>
+                            <option value="decrescente">DECRESCENTE</option>
+                        </select>
+                    </div>
                     
                     <div class="pulsante-nuova">
                         <i id="btn-aggiungi" class="fa-solid fa-square-plus" onclick="cambiaTitolo('inserisci'); nuovaFattura();"></i>
@@ -121,15 +136,18 @@ include 'header.php';
                 <div class="risultati">
                     
                 <table>
+                    <thead>
                     <tr>
-                        <th id="col_num_fattura">Numero fattura</th>
-                        <th id="col_data_fattura">Data</th>
+                        <th id="col_num_fattura" data-tipo="codice-fattura">Codice fattura</th>
+                        <th id="col_data_fattura" data-tipo="data">Data</th>
                         <th id="col_imponibile">Imponibile</th>
                         <th id="col_iva">Iva</th>
-                        <th id="col_totale">Totale</th>
+                        <th id="col_totale" data-tipo="prezzo">Totale</th>
                         <!-- <th id="numero_fatture-letture">Letture</th> -->
                     </tr>
+                    </thead>
 
+                    <tbody>
                     <?php
 
                         $fatture = $repo->cerca($_GET);
@@ -138,15 +156,16 @@ include 'header.php';
 
                         echo "<tr data-numero='" . htmlspecialchars($fattura['NUMERO']) . "'>";
 
-                        echo "<td>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
-                        echo "<td>" . htmlspecialchars($fattura['DATA']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($fattura['NUMERO'])."'>" . htmlspecialchars($fattura['NUMERO']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($fattura['DATA'])."'>" . htmlspecialchars($fattura['DATA']) . "</td>";
                         echo "<td>" . number_format($fattura['IMPONIBILE'], 2, ",", ".") . " €" . "</td>";
                         echo "<td>" . number_format($fattura['IVA'], 2, ",", ".") . " €" . "</td>";
-                        echo "<td>" . number_format($fattura['TOTALE'], 2, ",", ".") . " €" . "</td>";
+                        echo "<td data-valore='".$fattura['TOTALE']."'>" . number_format($fattura['TOTALE'], 2, ",", ".") . " €" . "</td>";
                         //echo "<td>" . htmlspecialchars($fattura['NUMERO_LETTURE']) . "</td>";
 
                         echo "</tr>";
                     }?>
+                    </tbody>
                     
                 </table>
 
@@ -175,7 +194,7 @@ include 'header.php';
                 <form action="fatture.php?action=inserisci" method="POST" class="contenuto-fattura" onsubmit="verificaNuovaFattura(event)">
                     <div class="sezione-info">
                         <div class="campo-info" id="primo_campo_info">
-                            <label for="nuovo_num_fat" class="campo">Numero della fattura: *</label>
+                            <label for="nuovo_num_fat" class="campo">Codice fattura: *</label>
                             <input type="text" id="nuovo_num_fat" name="nuovo_numero_fattura" class="text-area" placeholder="es: FT-2026-12345"
                                 pattern="[A-Z]{2}-[0-9]{4}-[0-9]{5}" title="FT-anno-numero(di 5 cifre)" required>
                         </div>

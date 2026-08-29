@@ -864,10 +864,13 @@ footer:hover{
 
 .selezione-ordine{
     margin: 15px 5px;
+    padding: 3px;
     border-radius: 5px;
-    max-width: 150px;
-    max-height: 25px;
+    max-width: 200px;
+    max-height: 30px;
     color: var(--colore_testo);
+    border: 3px solid var(--colore_testo);
+    text-align: center;
 }
 
 .risultati {

@@ -65,16 +65,16 @@ $repo = new UtenzeRepository();
                         <p>Ordina per</p>
 
                         <select name="colonna" id="colonna-ordinata-utenze" class="selezione-ordine">
-                            <option value="col_cod_utenza">Codice utenza</option>
-                            <option value="col_cod_cliente">Codice cliente</option>
-                            <option value="col_data_apertura">Data apertura</option>
-                            <option value="col_data_chiusura">Data chiusura</option>
-                            <option value="numero_utenza-lettura">Numero letture</option>
+                            <option value="col_cod_utenza">CODICE UTENZA</option>
+                            <option value="col_cod_cliente">CODICE CLIENTE</option>
+                            <option value="col_data_apertura">DATA APERTURA</option>
+                            <option value="col_data_chiusura">DATA CHIUSURA</option>
+                            <option value="numero_utenza-lettura">NUMERO LETTURE</option>
                         </select>
 
                         <select name="ordine" id="senso-colonna-utenze" class="selezione-ordine">
-                            <option value="crescente">Crescente</option>
-                            <option value="decrescente">Decrescente</option>
+                            <option value="crescente">CRESCENTE</option>
+                            <option value="decrescente">DECRESCENTE</option>
                         </select>
                     </div>
                 </div>
@@ -108,7 +108,7 @@ $repo = new UtenzeRepository();
                         echo "<td>" . htmlspecialchars($utenza['INDIRIZZO']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['CITTA']) . "</td>";
                         echo "<td>" . htmlspecialchars($utenza['STATO']) . "</td>";
-                        echo "<td data-valore='".htmlspecialchars($utenza['DATA_CHIUSURA'])."'>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
+                        echo "<td data-valore='".htmlspecialchars($utenza['DATA_APERTURA'])."'>" . htmlspecialchars($utenza['DATA_APERTURA']) . "</td>";
                         if ($utenza['DATA_CHIUSURA'] !== "") {
                             echo "<td data-valore='".htmlspecialchars($utenza['DATA_CHIUSURA'])."'>" . htmlspecialchars($utenza['DATA_CHIUSURA']) . "</td>";
                         } else {

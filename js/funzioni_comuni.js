@@ -73,11 +73,10 @@ function confrontoValori(tipo, valoreA, valoreB) {
             return valoreA.localeCompare(valoreB);
 
         case "codice-numerico":
-            return Number(valoreA) - Number(valoreB); //funziona
+            return Number(valoreA) - Number(valoreB);
 
         case "codice-fattura":
             return confrontoFattura(valoreA, valoreB);
-            //funziona ma lento (riga intestazioni compare in mezzo dopo righe senza codice fatture se inverto segni di else)
 
         case "data":
             return confrontoData(valoreA, valoreB);
@@ -86,7 +85,7 @@ function confrontoValori(tipo, valoreA, valoreB) {
             return valoreA - valoreB;
 
         case "valore":
-            return Number(valoreA) - Number(valoreB); //funziona
+            return Number(valoreA) - Number(valoreB);
     }
 }
 

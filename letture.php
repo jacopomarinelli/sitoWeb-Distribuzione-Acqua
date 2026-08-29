@@ -54,16 +54,16 @@ $repo = new LettureRepository();
                         <p>Ordina per</p>
 
                         <select name="colonna" id="colonna-ordinata-letture" class="selezione-ordine">
-                            <option value="col_num_let">Codice lettura</option>
-                            <option value="col_cod_ute">Codice utenza</option>
-                            <option value="cod_cod_fatt">Codice fattura</option>
-                            <option value="col_data">Data</option>
-                            <option value="col_valore">Valore lettura</option>
+                            <option value="col_num_let">CODICE LETTURA</option>
+                            <option value="col_cod_ute">CODICE UTENZA</option>
+                            <option value="cod_cod_fatt">CODICE FATTURA</option>
+                            <option value="col_data">DATA</option>
+                            <option value="col_valore">VALORE LETTURA</option>
                         </select>
 
                         <select name="ordine" id="senso-colonna-letture" class="selezione-ordine">
-                            <option value="crescente">Crescente</option>
-                            <option value="decrescente">Decrescente</option>
+                            <option value="crescente">CRESCENTE</option>
+                            <option value="decrescente">DECRESCENTE</option>
                         </select>
                     </div>
                 </div>
