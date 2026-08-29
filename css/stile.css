@@ -855,22 +855,30 @@ footer:hover{
     font-size: medium;
 }
 
-.ordinamento{
+.ordinamento{ /*parte più generale 996*/
     display: flex;
-    margin: 5px auto;
+    margin-left: auto;
     padding: 1px 2px 1px 2px;
     align-items: baseline;
 }
 
-.selezione-ordine{
+.selezione-ordine{ /*singola casellina select*/
     margin: 15px 5px;
-    padding: 3px;
-    border-radius: 5px;
-    max-width: 200px;
-    max-height: 30px;
-    color: var(--colore_testo);
-    border: 3px solid var(--colore_testo);
+    padding: 9px 17px;
+    border-radius: 10px;
+    /*max-width: 200px;
+    max-height: 30px;*/
+    color: var(--nuovo_ciano);
+    border: 1.6px solid var(--nuovo_ciano);
+    background-color: var(--bianco);
     text-align: center;
+
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.ordinamento p {
+    margin-right: 15px;
 }
 
 .risultati {
@@ -993,7 +1001,7 @@ table tr:nth-child(odd) {
     width: 100%;
 }
 
-#ordine-fatture{
+#ordine-fatture{ /**/
     display: flex;
     margin: 5px;
     margin-left: auto;
@@ -1002,8 +1010,7 @@ table tr:nth-child(odd) {
 }
 
 .pulsante-nuova{
-    margin: 15px 15px 0 0;
-    margin-left: auto;  /* mette tutto a sinistra icona */
+    margin: 18px 15px 0 455px;
     font-size: 30px;  /* grandezza icona */
     background: none;  /* nessuno sfondo o border */
     border: none;
