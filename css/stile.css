@@ -855,16 +855,17 @@ footer:hover{
     font-size: medium;
 }
 
-.ordinamento{ /*parte più generale 996*/
+.ordinamento{
     display: flex;
     margin-left: auto;
     padding: 1px 2px 1px 2px;
     align-items: baseline;
+    min-width: 0;  /* permette a elemento di restingersi liberamente */
 }
 
-.selezione-ordine{ /*singola casellina select*/
-    margin: 15px 5px;
-    padding: 9px 17px;
+.selezione-ordine{
+    margin: 15px 5px 0 5px;
+    padding: 8px 13px;
     border-radius: 10px;
     /*max-width: 200px;
     max-height: 30px;*/
@@ -875,15 +876,19 @@ footer:hover{
 
     font-family: sans-serif;
     font-weight: bold;
+    flex-shrink: 1;   /* elemento può restringersi */
+    min-width: 0;  /* permette a elemento di restingersi liberamente */
 }
 
 .ordinamento p {
-    margin-right: 15px;
+    margin-right: 5px;
+    flex-shrink: 0;  /* elemento non si restringe */
+    white-space: nowrap;  /* impedisce a scritta di andare a capo */
 }
 
 .risultati {
     background-color: var(--nuovo_ciano);
-    flex: 1;
+    flex: 1;  /* prende tutto lo spazio disponibile */
     margin: 5px;
     margin-top: 2px;
     padding: 0; /* rimuove il bordino azzurro ai lati */
@@ -1001,21 +1006,24 @@ table tr:nth-child(odd) {
     width: 100%;
 }
 
-#ordine-fatture{ /**/
+#ordine-fatture{
     display: flex;
-    margin: 5px;
-    margin-left: auto;
+    flex: 1;  /* prende tutto lo spazio disponibile tra titolo e pulsanti */
+    justify-content: flex-end;  /* spostato per essere accanto a pulsanti (solo in fatture) */
+    margin: 5px 5px 0 5px;
     padding: 1px 2px 1px 2px;
     align-items: baseline;
+    min-width: 0; /* permette a elemento di restingersi liberamente */
 }
 
 .pulsante-nuova{
-    margin: 18px 15px 0 455px;
+    margin: 18px 15px 0 0;
     font-size: 30px;  /* grandezza icona */
     background: none;  /* nessuno sfondo o border */
     border: none;
     color: var(--marrone); /* per cambiare colore pulsante */
     cursor: pointer; /* aiuta a visualizzare cliccabilità */
+    flex-shrink: 0;  /* impedisce schiacciamento delle icone */
 }
 
 #col_num_fattura, #col_data_fattura, #col_imponibile, #col_iva, #col_totale{

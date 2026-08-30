@@ -110,12 +110,6 @@ include 'header.php';
                         <h3>FATTURE</h3>
                     </div>
 
-                    <div class="pulsante-nuova">
-                        <i id="btn-aggiungi" class="fa-solid fa-square-plus" onclick="cambiaTitolo('inserisci'); nuovaFattura();"></i>
-                        <i id="btn-modifica" class="fa-solid fa-pen-to-square" onclick="cambiaTitolo('modifica'); modificaFattura()"></i>
-                        <i id="btn-elimina" class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
-                    </div>
-
                     <div class="ordinamento" id="ordine-fatture">
                         <p>Ordina per</p>
 
@@ -129,6 +123,12 @@ include 'header.php';
                             <option value="crescente">CRESCENTE</option>
                             <option value="decrescente">DECRESCENTE</option>
                         </select>
+                    </div>
+
+                    <div class="pulsante-nuova">
+                        <i id="btn-aggiungi" class="fa-solid fa-square-plus" onclick="cambiaTitolo('inserisci'); nuovaFattura();"></i>
+                        <i id="btn-modifica" class="fa-solid fa-pen-to-square" onclick="cambiaTitolo('modifica'); modificaFattura()"></i>
+                        <i id="btn-elimina" class="fa-solid fa-trash" onclick="eliminaFatture()"></i>
                     </div>
 
                 </div>
