@@ -1,25 +1,18 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
 
 :root{
-    --beige: #ede4d8;
-    --marrone: #a37f60;
+    --beige: #ede4d8;  /*table, messaggio-ricerca*/
+    --marrone: #a37f60;  /*pulsante-nuova, numero-azienda*/
     --bianco: #fdfbf9;
-    --bianco2: #fffcf8;
     --rosso_errore: #cc0000;
-    --beige_Medio: #91826b;
-    --nuovo_ciano: #56aec1; /* in sito è 60c7da */ 
-    --sfumatura_ciano: #92dbef;
-    --beige_chiaro: #eadac7;
+    --beige_medio: #91826b; /*niente*/
+    --nuovo_ciano: #60c7da; /* in sito è 60c7da */ 
+    --beige_chiaro: #eadac7; /*body,banner,table tr:nth-child(even)*/
     --colore_testo: #246171;
-    --colore_testo2: #67d4f2;
+    --colore_testo2: #67d4f2; /*ul li a:hover,.svuota-ricerca, .avvio-ricerca*/
     --selezione: rgba(3, 228, 228, 0.37);
-    --home_icone: #e8f1f9;
-    --ciano: #ede4d8;
-
     --verde: #1eff00;
     --giallo: #ffd900;
-
-    --colore: red;
     
     --ampiezza_ricerca: 18%;  /* larghezza occupata da .ricerca */
 }
@@ -164,7 +157,7 @@ ul li a:hover {
 
 /* PAGINA HOME */
 .home{
-    background-color: var(--bianco2);
+    background-color: var(--bianco);
     padding: 15px 10px;
     text-align: center;
     border-radius: 25px;
@@ -392,7 +385,7 @@ ul li a:hover {
 .numero-azienda {
     font-size: 15px;
     font-weight: 800;
-    color: var(--beige_Medio);
+    color: var(--marrone);
     flex-shrink: 0;
 }
 
@@ -481,7 +474,6 @@ footer{
     left: 0;
     right: 0;
 
-    /*border-top: 6px solid var(--sfumatura_ciano);*/
     text-align: center;
     padding: 5px 5px 5px 5px;
     font-size: small;
@@ -944,7 +936,7 @@ table tr.selezionata {
 }
 
 table tr:nth-child(even) {
-    background-color: var(--ciano);
+    background-color: var(--beige_chiaro);
 }
 
 table tr:nth-child(odd) {
